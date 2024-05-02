@@ -3,6 +3,7 @@
 .htaccess
 .well-known
 .user.ini
+yarn.lock
 
 # dependencies
 /node_modules
