@@ -6,6 +6,7 @@ import { Navbar } from './components/nav'
 import Footer from './components/footer'
 import { baseUrl } from './sitemap'
 import { GoogleAnalytics } from '@next/third-parties/google'
+import type { Viewport } from 'next'
 
 export const metadata: Metadata = {
     metadataBase: new URL(baseUrl),
@@ -21,7 +22,13 @@ export const metadata: Metadata = {
         siteName: '/home/bakir',
         locale: 'en_US',
         type: 'website',
+        images: [
+            {
+                url: `${baseUrl}/og`,
+            },
+        ],
     },
+    manifest: 'https://bakir.dev/manifest.webmanifest',
     robots: {
         index: true,
         follow: true,
@@ -32,7 +39,11 @@ export const metadata: Metadata = {
             'max-image-preview': 'large',
             'max-snippet': -1,
         },
-    },
+    }
+}
+
+export const viewport: Viewport = {
+    themeColor: 'black',
 }
 
 const cx = (...classes) => classes.filter(Boolean).join(' ')
