@@ -1,41 +1,40 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
 
-module.exports = {
+const nextConfig = {
     async redirects() {
         return [
             {
-                source: '/cv/',
+                source: '/cv',
                 destination: '/cv/Bakir-Gracic-CV.pdf',
                 permanent: true,
             },
             {
-                source: '/tags/',
-                destination: '/blog/',
+                source: '/tags',
+                destination: '/blog',
                 permanent: true,
             },
             {
-                source: '/tags/*',
-                destination: '/blog/',
+                source: '/tags/:slug',
+                destination: '/blog',
                 permanent: true,
             },
             {
-                source: '/projects/',
+                source: '/projects',
                 destination: '/',
                 permanent: true,
             },
             {
-                source: '/projects/*',
+                source: '/projects/:slug',
                 destination: '/',
                 permanent: true,
             },
             {
-                source: '/about/',
+                source: '/about',
                 destination: '/',
                 permanent: true,
             },
-        ]
+        ];
     },
-}
+};
 
-export default nextConfig;
+module.exports = nextConfig;
