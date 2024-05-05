@@ -26,7 +26,7 @@ export function generateMetadata({ params }) {
     let ogImage = image ? image : `${baseUrl}/og?title=${encodeURIComponent(title)}`
 
     return {
-        title,
+        title: post.slug,
         description,
         openGraph: {
             title,
