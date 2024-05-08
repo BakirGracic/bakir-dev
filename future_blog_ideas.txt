@@ -1,8 +1,0 @@
-BLOG IDEAS:
-
-Life gurus are a scam
-Hackaton Experiences
-CI/CD workflow for web dev
-On dealing with interviews
-My collection of useful websites
-How to stay fit as a developer!?
