@@ -10,16 +10,13 @@ import type { Viewport } from 'next'
 
 export const metadata: Metadata = {
     metadataBase: new URL(baseUrl),
-    title: {
-        default: '/home/bakir',
-        template: '/home/bakir/%s',
-    },
-    description: 'Personal website and blog of Bakir Gracić. Find insightful blogs and links to my social profiles',
+    title: 'Bakir the Dev',
+    description: 'Discover Bakir\'s personal blog for insightful tips, helpful advice, and links to connect. Your go-to source for personal growth and knowledge',
     openGraph: {
-        title: '/home/bakir',
-        description: 'Personal website and blog of Bakir Gracić. Find insightful blogs and links to my social profiles',
+        title: 'Bakir the Dev',
+        description: 'Discover Bakir\'s personal blog for insightful tips, helpful advice, and links to connect. Your go-to source for personal growth and knowledge',
         url: baseUrl,
-        siteName: '/home/bakir',
+        siteName: 'Bakir the Dev',
         locale: 'en_US',
         type: 'website',
         images: [
@@ -27,6 +24,9 @@ export const metadata: Metadata = {
                 url: `${baseUrl}/og`,
             },
         ],
+    },
+    alternates: {
+        canonical: baseUrl,
     },
     manifest: 'https://bakir.dev/manifest.webmanifest',
     robots: {

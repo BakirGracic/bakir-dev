@@ -26,7 +26,7 @@ export function generateMetadata({ params }) {
     let ogImage = image ? image : `${baseUrl}/og?title=${encodeURIComponent(title)}`
 
     return {
-        title: post.slug,
+        title: post.metadata.title,
         description,
         openGraph: {
             title,
@@ -39,6 +39,9 @@ export function generateMetadata({ params }) {
                     url: ogImage,
                 },
             ],
+        },
+        alternates: {
+            canonical: `${baseUrl}/blog/${post.slug}`,
         },
         twitter: {
             card: 'summary_large_image',

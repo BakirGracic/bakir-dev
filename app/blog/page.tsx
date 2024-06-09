@@ -1,7 +1,11 @@
 import { BlogPosts } from 'app/components/posts'
+import { baseUrl } from 'app/sitemap'
 
 export const metadata = {
-    title: 'blog',
+    title: 'Blog',
+    alternates: {
+        canonical: `${baseUrl}/blog`,
+    },
 }
 
 export default function Page() {
