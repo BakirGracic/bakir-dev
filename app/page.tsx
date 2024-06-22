@@ -1,4 +1,4 @@
-import { BlogPosts } from 'app/components/posts'
+import { BlogPostsNewest } from 'app/components/posts-newest'
 
 export default function Page() {
     return (
@@ -14,7 +14,7 @@ export default function Page() {
                 out my latest blog posts below and links to my online profiles!`}
             </p>
             <div className="my-8">
-                <BlogPosts />
+                <BlogPostsNewest />
             </div>
         </section>
     )
