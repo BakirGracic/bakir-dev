@@ -6,6 +6,13 @@ export const metadata = {
     alternates: {
         canonical: `${baseUrl}/blog`,
     },
+    openGraph: {
+        images: [
+            {
+                url: `${baseUrl}/og?title=${encodeURIComponent(btoa('My Blog'))}`,
+            },
+        ],
+    },
 }
 
 export default function Page() {

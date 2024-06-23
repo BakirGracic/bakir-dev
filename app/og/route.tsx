@@ -2,7 +2,8 @@ import { ImageResponse } from 'next/og'
 
 export function GET(request: Request) {
     let url = new URL(request.url)
-    let title = url.searchParams.get('title') || 'Bakir the Dev'
+    let title_encoded = url.searchParams.get('title') || 'Bakir the Dev'
+    let title = decodeURIComponent(atob(title_encoded))
 
     return new ImageResponse(
         (
