@@ -1,8 +1,23 @@
 @import 'tailwindcss';
 
-::selection {
-    background-color: #47a3f3;
-    color: #fefefe;
+.anim-move-r {
+    transition: transform 0.4s cubic-bezier(.22,.68,0,1.71);
+}
+.anim-move-r:hover {
+    transform: translateX(6px);
+}
+
+@keyframes kf_hand_shake {
+    0% { transform: translateX(0) }
+    25% { transform: translateY(-9px) }
+    35% { transform: translateY(-9px) rotate(17deg) }
+    55% { transform: translateY(-9px) rotate(-17deg) }
+    65% { transform: translateY(-9px) rotate(17deg) }
+    75% { transform: translateY(-9px) rotate(-17deg) }
+    100% { transform: translateY(0) rotate(0) }
+}
+.anim-hand-shake:hover {
+    animation: kf_hand_shake 0.83s ease-in-out;
 }
 
 :root {
