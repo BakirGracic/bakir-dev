@@ -24,6 +24,17 @@ export default function Footer() {
                         className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-500"
                         rel="noopener noreferrer"
                         target="_blank"
+                        href="mailto:me@bakir.dev?body=Email%20from%20bakir.dev%20website"
+                    >
+                        <ArrowIcon />
+                        <p className="ml-2 h-7">mail</p>
+                    </a>
+                </li>
+                <li>
+                    <a
+                        className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-500"
+                        rel="noopener noreferrer"
+                        target="_blank"
                         href="https://github.com/BakirGracic"
                     >
                         <ArrowIcon />
@@ -46,17 +57,6 @@ export default function Footer() {
                         className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-500"
                         rel="noopener noreferrer"
                         target="_blank"
-                        href="mailto:me@bakir.dev?body=Email%20from%20bakir.dev%20website"
-                    >
-                        <ArrowIcon />
-                        <p className="ml-2 h-7">mail</p>
-                    </a>
-                </li>
-                <li>
-                    <a
-                        className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-500"
-                        rel="noopener noreferrer"
-                        target="_blank"
                         href="https://bakir.dev/cv/Bakir-Gracic-CV.pdf"
                     >
                         <ArrowIcon />
@@ -72,6 +72,17 @@ export default function Footer() {
                     >
                         <ArrowIcon />
                         <p className="ml-2 h-7">coffee</p>
+                    </a>
+                </li>
+                <li>
+                    <a
+                        className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-500"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                        href="/sitemap.xml"
+                    >
+                        <ArrowIcon />
+                        <p className="ml-2 h-7">sitemap</p>
                     </a>
                 </li>
                 <li>

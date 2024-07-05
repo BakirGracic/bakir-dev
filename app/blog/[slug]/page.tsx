@@ -21,13 +21,14 @@ export function generateMetadata({ params }) {
         title,
         publishedAt: publishedTime,
         summary: description,
-        image,
+        keywords: keywords,
+        image = `${baseUrl}/og?title=${encodeURIComponent(btoa(title))}`
     } = post.metadata
-    let ogImage = image ? image : `${baseUrl}/og?title=${encodeURIComponent(btoa(title))}`
 
     return {
         title: post.metadata.title,
         description,
+        keywords: keywords,
         openGraph: {
             title,
             description,
@@ -36,7 +37,7 @@ export function generateMetadata({ params }) {
             url: `${baseUrl}/blog/${post.slug}`,
             images: [
                 {
-                    url: ogImage,
+                    url: image,
                 },
             ],
         },
@@ -47,7 +48,7 @@ export function generateMetadata({ params }) {
             card: 'summary_large_image',
             title,
             description,
-            images: [ogImage],
+            images: [image],
         },
     }
 }
