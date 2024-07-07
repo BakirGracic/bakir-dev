@@ -51,11 +51,17 @@ function getMDXData(dir) {
 }
 
 export function getBlogPosts() {
-    return getMDXData(path.join(process.cwd(), 'app', 'blog', 'posts'))
+    return getMDXData(path.join(process.cwd(), 'app', 'blog', 'posts')).sort((a, b) => {
+        return new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime();
+    });
 }
 
 export function getBlogPostsNewest(limit: number) {
-    return getMDXData(path.join(process.cwd(), 'app', 'blog', 'posts')).slice(0, limit);
+    return getMDXData(path.join(process.cwd(), 'app', 'blog', 'posts'))
+        .sort((a, b) => {
+            return new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime();
+        })
+        .slice(0, limit);
 }
 
 export function formatDate(date: string, includeRelative = false) {
