@@ -50,7 +50,17 @@ function RoundedImage(props) {
 }
 
 function Code({ children, ...props }) {
-    const highlightedCode = hljs.highlightAuto(children).value;
+    // const highlightedCode = hljs.highlightAuto(children).value;
+
+    // return <code dangerouslySetInnerHTML={{ __html: highlightedCode }} {...props} />;
+    // return <code dangerouslySetInnerHTML={{ __html: children }} {...props} />;
+
+    let highlightedCode;
+    try {
+        highlightedCode = hljs.highlightAuto(children).value;
+    } catch (error) {
+        highlightedCode = children;
+    }
 
     return <code dangerouslySetInnerHTML={{ __html: highlightedCode }} {...props} />;
 }
