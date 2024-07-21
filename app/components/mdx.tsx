@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { MDXRemote } from 'next-mdx-remote/rsc'
-import { highlight } from 'sugar-high'
+import 'highlight.js/styles/atom-one-light.css'
+import hljs from 'highlight.js';
 import React from 'react'
 
 function Table({ data }) {
@@ -49,8 +50,9 @@ function RoundedImage(props) {
 }
 
 function Code({ children, ...props }) {
-    let codeHTML = highlight(children)
-    return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />
+    const highlightedCode = hljs.highlightAuto(children).value;
+
+    return <code dangerouslySetInnerHTML={{ __html: highlightedCode }} {...props} />;
 }
 
 function slugify(str) {
