@@ -8,12 +8,13 @@ export default function Page() {
             </h1>
             <p className="mb-4">
                 {`My name's Bakir and I chose to be a developer. I'm passionate about building 
-                  the best software and integrate it in business. Also I take much care to live
-                  this life the best way. I'm currently working on a few projects that I'm excited
-                  to share with you. In the meantime, don't waste a second and check out my
-                  latest blog posts and other links about me!`}
+                  the best software and integrating it in business. I would also like to mention, 
+                  living this life in the best way out there is a priority for me. I'm currently 
+                  working on a few projects that I'm excited to share with you. In the meantime, 
+                  don't waste a second and go check out my latest blog posts and other links about me!`}
             </p>
-            <div className="my-8">
+            <h2 className="mt-9 text-xl font-medium tracking-tighter">Recent blog posts</h2>
+            <div className="mb-8 mt-5">
                 <BlogPostsNewest />
             </div>
         </section>
