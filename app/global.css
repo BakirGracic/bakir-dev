@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 
+/* custom animations */
 .anim-move-r {
     transition: transform 0.4s cubic-bezier(.22,.68,0,1.71);
 }
@@ -7,6 +8,9 @@
     transform: translateX(6px);
 }
 
+.anim-hand-shake:hover {
+    animation: kf_hand_shake 0.83s ease-in-out;
+}
 @keyframes kf_hand_shake {
     0% { transform: translateX(0) }
     25% { transform: translateY(-9px) }
@@ -16,10 +20,8 @@
     75% { transform: translateY(-9px) rotate(-17deg) }
     100% { transform: translateY(0) rotate(0) }
 }
-.anim-hand-shake:hover {
-    animation: kf_hand_shake 0.83s ease-in-out;
-}
 
+/* template */
 :root {
     --sh-class: #2d5e9d;
     --sh-identifier: #354150;
@@ -95,7 +97,7 @@ html {
 }
 
 .prose img {
-    /* Don't apply styles to next/image */
+    /* Don't apply styles to next/image! */
     @apply m-0;
 }
 

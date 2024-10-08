@@ -1,105 +1,32 @@
-function ArrowIcon() {
-    return (
-        <svg
-            width="12"
-            height="12"
-            viewBox="0 0 12 12"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-        >
-            <path
-                d="M2.07102 11.3494L0.963068 10.2415L9.2017 1.98864H2.83807L2.85227 0.454545H11.8438V9.46023H10.2955L10.3097 3.09659L2.07102 11.3494Z"
-                fill="currentColor"
-            />
-        </svg>
-    )
-}
+import Link from "next/link";
+import ArrowIcon from "./ArrowIcon";
+
+const footerItems = {
+    sitemap: "/sitemap.xml",
+    rss: "/rss",
+};
 
 export default function Footer() {
     return (
-        <footer className="mb-16">
-            <ul className="font-sm mt-8 flex flex-col space-x-0 space-y-2 text-neutral-600 md:flex-row md:space-x-4 md:space-y-0 dark:text-neutral-300">
-                <li>
-                    <a
-                        className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-500"
-                        rel="noopener noreferrer"
-                        target="_blank"
-                        href="mailto:me@bakir.dev?body=Email%20from%20bakir.dev%20website"
-                    >
-                        <ArrowIcon />
-                        <p className="ml-2 h-7">mail</p>
-                    </a>
-                </li>
-                <li>
-                    <a
-                        className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-500"
-                        rel="noopener noreferrer"
-                        target="_blank"
-                        href="https://github.com/BakirGracic"
-                    >
-                        <ArrowIcon />
-                        <p className="ml-2 h-7">github</p>
-                    </a>
-                </li>
-                <li>
-                    <a
-                        className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-500"
-                        rel="noopener noreferrer"
-                        target="_blank"
-                        href="https://www.linkedin.com/in/bakirgracic/"
-                    >
-                        <ArrowIcon />
-                        <p className="ml-2 h-7">linkedin</p>
-                    </a>
-                </li>
-                <li>
-                    <a
-                        className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-500"
-                        rel="noopener noreferrer"
-                        target="_blank"
-                        href="https://bakir.dev/cv/Bakir-Gracic-CV.pdf"
-                    >
-                        <ArrowIcon />
-                        <p className="ml-2 h-7">cv</p>
-                    </a>
-                </li>
-                <li>
-                    <a
-                        className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-500"
-                        rel="noopener noreferrer"
-                        target="_blank"
-                        href="https://buymeacoffee.com/bakirgracic"
-                    >
-                        <ArrowIcon />
-                        <p className="ml-2 h-7">coffee</p>
-                    </a>
-                </li>
-                <li>
-                    <a
-                        className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-500"
-                        rel="noopener noreferrer"
-                        target="_blank"
-                        href="/sitemap.xml"
-                    >
-                        <ArrowIcon />
-                        <p className="ml-2 h-7">sitemap</p>
-                    </a>
-                </li>
-                <li>
-                    <a
-                        className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-500"
-                        rel="noopener noreferrer"
-                        target="_blank"
-                        href="/rss"
-                    >
-                        <ArrowIcon />
-                        <p className="ml-2 h-7">rss</p>
-                    </a>
-                </li>
+        <footer className="mt-14 mb-6">
+            <ul className="flex flex-col text-neutral-600 md:flex-row md:space-x-4 md:space-y-0 dark:text-neutral-300">
+                {Object.entries(footerItems).map(([key, href]) => (
+                    <li key={key}>
+                        <Link
+                            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-500"
+                            rel="noopener noreferrer"
+                            target="_blank"
+                            href={href}
+                        >
+                            <ArrowIcon />
+                            <p className="ml-2 h-7">{key}</p>
+                        </Link>
+                    </li>
+                ))}
             </ul>
-            <p className="mt-8 text-neutral-600 dark:text-neutral-300">
+            <p className="mt-2 text-neutral-600 dark:text-neutral-300">
                 bakir.dev | {new Date().getFullYear()}
             </p>
         </footer>
-    )
+    );
 }
