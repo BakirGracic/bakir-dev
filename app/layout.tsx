@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import type { Viewport } from "next";
 import { baseUrl } from "./sitemap";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { Analytics } from "@vercel/analytics/react"
 import Navbar from "./components/nav";
 import Footer from "./components/footer";
 
@@ -100,6 +101,7 @@ export default function RootLayout({ children }: { children: React.ReactNode; })
                 </main>
             </body>
             {process.env.GA_ID && <GoogleAnalytics gaId={process.env.GA_ID} />}
+            <Analytics />
         </html>
     );
 }
