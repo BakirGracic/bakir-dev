@@ -1,0 +1,32 @@
+{
+    "theme_color": "#000000",
+    "background_color": "#000000",
+    "display": "browser",
+    "scope": "https://bakir.dev/",
+    "start_url": "https://bakir.dev/",
+    "name": "bakir.dev",
+    "short_name": "bakir.dev",
+    "description": "Discover Bakir's personal website & blog for insightful tips, helpful advice, fun & educational content on software development. Explore his top projects, achievements, certifications, and find links to connect",
+    "icons": [
+        {
+            "src": "/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-256x256.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-384x384.png",
+            "sizes": "384x384",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
