@@ -5,7 +5,6 @@ import Navbar from "components/Navbar";
 import Footer from "components/Footer";
 import { baseUrl } from "app/sitemap";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import { Analytics } from "@vercel/analytics/react";
 
 export const viewport: Viewport = {
     themeColor: "#000000",
@@ -101,7 +100,6 @@ export default function RootLayout({ children }: { children: React.ReactNode; })
                 </main>
             </body>
             {process.env.GA_ID && <GoogleAnalytics gaId={process.env.GA_ID} />}
-            <Analytics />
         </html>
     );
 }
