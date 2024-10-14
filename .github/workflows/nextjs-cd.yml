@@ -11,13 +11,12 @@ jobs:
   build:
   
     runs-on: self-hosted
-
-    strategy:
-      matrix:
-        node-version: [22.x]
+    
+    defaults:
+      run:
+        working-directory: /home/bakir_dev/htdocs/root
 
     steps:
-    
     - name: Checkout
       uses: actions/checkout@v4
       
