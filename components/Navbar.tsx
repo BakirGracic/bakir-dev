@@ -11,7 +11,7 @@ const navItems = {
 export default function Navbar() {
     return (
         <nav
-            className="mt-6 mb-14 tracking-tight flex flex-row items-start relative md:overflow-auto scroll-pr-6 md:relative"
+            className="mt-6 mb-14 tracking-tighter flex flex-row items-start relative md:overflow-auto scroll-pr-6 md:relative"
             id="nav"
         >
             <div className="flex flex-row">

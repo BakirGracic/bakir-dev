@@ -7,7 +7,7 @@ export default function Page() {
         <>
             {/* intro paragraph */}
             <section className="mb-14">
-                <h1 className="mb-6 text-2xl font-semibold tracking-tighter">
+                <h1 className="mb-6 text-2xl font-semibold">
                     Howdy <div className="inline-block anim-hand-shake">👋</div>
                 </h1>
                 <p>
@@ -26,7 +26,7 @@ export default function Page() {
 
             {/* recent blog posts */}
             <section className="mb-14">
-                <h2 className="mb-6 text-xl font-medium tracking-tighter">
+                <h2 className="mb-6 text-xl font-medium">
                     Recent blog posts
                 </h2>
                 <div>
@@ -36,7 +36,7 @@ export default function Page() {
 
             {/* projects */}
             <section className="mb-14">
-                <h2 className="mb-6 text-xl font-medium tracking-tighter">
+                <h2 className="mb-6 text-xl font-medium">
                     Projects
                 </h2>
                 <p className="mb-4">
@@ -57,7 +57,7 @@ export default function Page() {
             {/* certifications */}
             {/* projects */}
             <section>
-                <h2 className="mb-6 text-xl font-medium tracking-tighter">
+                <h2 className="mb-6 text-xl font-medium">
                     Certifications
                 </h2>
                 <p className="mb-4">

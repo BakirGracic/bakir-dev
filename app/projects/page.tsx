@@ -1,7 +1,7 @@
 export default function Page() {
     return (
         <section>
-            <h1 className="mb-6 font-semibold text-2xl tracking-tighter">
+            <h1 className="mb-6 font-semibold text-2xl">
                 Coming Soon...!
             </h1>
             <p>
