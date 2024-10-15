@@ -39,7 +39,7 @@ export default function Page() {
 
             {/* twitter */}
             <Link
-                href="twirtterLink"
+                href="https://x.com/gracic_bakir"
                 target="_blank"
                 className="duration-[200ms] hover:bg-neutral-800 cursor-pointer border border-solid border-neutral-600 rounded-xl h-[105px] w-[105px] flex items-center justify-center"
             >
