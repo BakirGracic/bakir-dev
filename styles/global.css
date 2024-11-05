@@ -1,0 +1,31 @@
+/* utility classes */
+
+.hover-text {
+    @apply transition-all hover:text-neutral-800 dark:hover:text-neutral-500;
+}
+
+.darker-text {
+    @apply text-neutral-800 dark:text-neutral-500;
+}
+
+
+/* html styles */
+
+@media (prefers-color-scheme: dark) {
+    html {
+        color-scheme: dark;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    html {
+        color-scheme: light;
+    }
+}
+
+
+/* prose styles */
+
+.prose * {
+    @apply text-white;
+}
