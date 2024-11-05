@@ -103,7 +103,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
                     }),
                 }}
             />
-            <h1 className="font-semibold text-2xl mb-2">{Btitle}</h1>
+            <h1 className="font-semibold text-3xl mb-2">{Btitle}</h1>
             <div className="mb-16 darker-text">
                 {formatDatePublish(Bpublished)} ({formatDateRelative(Bpublished)})
             </div>
