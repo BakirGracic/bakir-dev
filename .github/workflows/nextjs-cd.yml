@@ -19,7 +19,7 @@ jobs:
                   cache: "npm"
 
             - name: Delete Old Folders
-              run: rm -rf node_modules/ && rm -rf .next/
+              run: rm -rf node_modules/ .next/
 
             - name: Install Dependencies
               run: npm install
