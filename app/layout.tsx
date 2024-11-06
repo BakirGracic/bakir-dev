@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     applicationName: "Bakir the Dev",
     referrer: "origin",
     keywords: "bakir, gracic, bakir gracic, blog, personal website, full stack web developer, bosnia, bosnia it, programming, coding, web development, technology, tutorials, projects, achievements, certifications",
-    authors: [{ name: "BakirGracic", url: process.env.APP_URL }],
+    authors: [{ name: "BakirGracic", url: "https://bakir.dev" }],
     creator: "BakirGracic",
     publisher: "Bakir the Dev",
     metadataBase: new URL(process.env.APP_URL || ""),
