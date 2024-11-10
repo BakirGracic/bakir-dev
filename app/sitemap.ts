@@ -6,12 +6,12 @@ export default async function sitemap() {
         lastModified: post.metadata.published,
     }));
 
-    const routes = ["", "/blog", "/projects", "/certification", "/links"];
+    const links = ["", "/blog", "/projects", "/certification", "/links"];
 
-    routes.map((route) => ({
+    const otherRoutes = links.map((route) => ({
         url: `${process.env.APP_URL}${route}`,
         lastModified: new Date().toISOString().split("T")[0],
     }));
 
-    return [...routes, ...blogPosts];
+    return [...otherRoutes, ...blogPosts];
 }
