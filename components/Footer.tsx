@@ -1,16 +1,21 @@
 import ArrowLink from "@/components/ArrowLink";
 
-const footerLinks: string[] = ["links", "sitemap", "rss"];
+const footerLinks = [
+    {href: "/links", text: "links"},
+    {href: "https://github.com/BakirGracic/bakir-dev", text: "github"},
+    {href: "/sitemap", text: "sitemap"},
+    {href: "/rss", text: "rss"}
+];
 
 export default function Footer() {
     return (
         <footer className="mt-16">
             <ul className="flex flex-col md:flex-row gap-2 md:gap-5">
-                {footerLinks.map((path) => (
-                    <li key={path}>
+                {footerLinks.map(({href, text}, index) => (
+                    <li key={index}>
                         <ArrowLink
-                            href={`/${path}`}
-                            text={path}
+                            href={href}
+                            text={text}
                             blank
                         />
                     </li>
