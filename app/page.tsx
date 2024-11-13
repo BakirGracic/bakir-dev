@@ -12,6 +12,10 @@ export default function Page() {
             <section className="mb-14">
                 <h2 className="mb-6 text-xl font-medium">Recent blog posts</h2>
                 <BlogPosts limit={5} />
+                <ArrowLink
+                    href="/blog"
+                    text="View all"
+                />
             </section>
 
             <section className="mb-14">
@@ -20,7 +24,6 @@ export default function Page() {
                 <ArrowLink
                     href="/projects"
                     text="View projects"
-                    blank
                 />
             </section>
 
@@ -30,7 +33,6 @@ export default function Page() {
                 <ArrowLink
                     href="/certifications"
                     text="View certifications"
-                    blank
                 />
             </section>
         </>
