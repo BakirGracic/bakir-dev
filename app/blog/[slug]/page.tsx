@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
-import { formatDatePublish, formatDateRelative, getBlogPosts } from "@/app/blog/utils";
+import { formatDatePublish, getBlogPosts } from "@/app/blog/utils";
 import CustomMDX from "@/components/CustomMDX";
+import RelativeTimeText from "@/components/RelativeTimeText";
 
 export async function generateStaticParams() {
     const blogPosts = getBlogPosts();
@@ -105,7 +106,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
             />
             <h1 className="font-semibold text-3xl mb-2">{Btitle}</h1>
             <div className="mb-16 darker-text">
-                {formatDatePublish(Bpublished)} ({formatDateRelative(Bpublished)})
+                {formatDatePublish(Bpublished)} (<RelativeTimeText date={Bpublished} />)
             </div>
             <CustomMDX rawMD={blogPost.content} />
         </section>
