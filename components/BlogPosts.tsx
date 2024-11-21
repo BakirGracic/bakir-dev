@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { formatDatePublish, getBlogPosts } from "@/app/blog/utils";
-import RelativeTimeText from "./RelativeTimeText";
+import RelativeTimeText from "@/components/RelativeTimeText";
 
 export async function BlogPosts({ limit = -1 }: { limit?: number }) {
     const blogPosts = getBlogPosts(limit);
