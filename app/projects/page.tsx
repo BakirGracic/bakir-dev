@@ -34,8 +34,8 @@ export default function Page() {
             {/* daisyui theme preview */}
             <ProjectCard
                 imgSrc={DaisyUIThemePreviewImg}
-                title="How Much I Wasted?"
-                description="Check how much of your life you have wasted"
+                title="DaisyUI Theme Preview"
+                description="Preview DaisyUI preset and custom themes"
                 webLink="https://daisyui-theme-preview.bakir.dev/"
                 gitLink="https://github.com/BakirGracic/daisyui-theme-preview"
                 blogLink="https://bakir.dev/blog/tailwind-and-component-libraries-write-frontends-fast"
@@ -44,8 +44,8 @@ export default function Page() {
             {/* how much i wasted */}
             <ProjectCard
                 imgSrc={HowMuchIWastedImg}
-                title="DaisyUI Theme Preview"
-                description="Preview DaisyUI preset and custom themes"
+                title="How Much I Wasted?"
+                description="Check how much of your life you have wasted"
                 webLink="https://howmuchiwasted.bakir.dev/"
                 gitLink="https://github.com/BakirGracic/how-much-i-wasted"
                 blogLink="https://bakir.dev/blog/how-time-flies-reality-lifes-countdown"
