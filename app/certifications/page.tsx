@@ -1,3 +1,6 @@
+import Link from "next/link";
+import Image from "next/image";
+import GitHubFoundations from "@/public/certifications/github_foundations/github-foundations.png";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -25,12 +28,31 @@ export const metadata: Metadata = {
     },
 };
 
+const certificationLinks = [
+    {
+        link: "https://www.credly.com/badges/6e715e2b-cb75-4c1b-9a2f-aa4610e2c8fc/public_url",
+        icon: GitHubFoundations,
+        title: "GitHub",
+    },
+];
+
 export default function Page() {
     return (
-        <section>
-            <h1 className="mb-6 font-semibold text-2xl">Coming Soon...!</h1>
-            <p>Currenly acquiring few awesome certifications, and a masters degree!</p>
-            <p>Can&apos;t wait to share them with you here!</p>
+        <section className="grid grid-cols-3 gap-4">
+            {certificationLinks.map((item, index) => (
+                <Link
+                    key={index}
+                    href={item.link}
+                    title={item.title}
+                    target="_blank"
+                    className="p-2 cursor-pointer border border-solid border-neutral-600 rounded-xl duration-[250ms] hover:bg-neutral-800 hover:shadow-inner"
+                >
+                    <Image
+                        src={item.icon}
+                        alt={item.title}
+                    />
+                </Link>
+            ))}
         </section>
     );
 }
