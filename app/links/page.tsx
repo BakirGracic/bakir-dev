@@ -8,6 +8,7 @@ import Meetup from "@/components/icons/Meetup";
 import CV from "@/components/icons/CV";
 import BuyMeACoffee from "@/components/icons/BuyMeACoffee";
 import GitHubSponsors from "@/components/icons/GitHubSponsors";
+import Credly from "@/components/icons/Credly";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -50,6 +51,11 @@ const socialLinks = [
         link: "https://www.linkedin.com/in/bakirgracic/",
         icon: <LinkedIn />,
         title: "LinkedIn",
+    },
+    {
+        link: "https://www.credly.com/users/bakir-gracic/",
+        icon: <Credly />,
+        title: "Credly",
     },
     {
         link: "https://discord.com/users/616736736277430448",
