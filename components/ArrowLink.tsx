@@ -6,7 +6,7 @@ export default function ArrowLink({ href, text, blank }: { href: string; text: s
         <Link
             href={href}
             target={blank ? "_blank" : "_self"}
-            className="flex items-center hover-text"
+            className="flex items-center hover-text text-white/70"
         >
             <Arrow />
             <p className="ml-2">{text}</p>

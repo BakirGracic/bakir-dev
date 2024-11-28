@@ -53,14 +53,14 @@ const socialLinks = [
         title: "LinkedIn",
     },
     {
-        link: "https://www.credly.com/users/bakir-gracic/",
-        icon: <Credly />,
-        title: "Credly",
-    },
-    {
         link: "https://discord.com/users/616736736277430448",
         icon: <Discord />,
         title: "Discord",
+    },
+    {
+        link: "https://www.credly.com/users/bakir-gracic/",
+        icon: <Credly />,
+        title: "Credly",
     },
     {
         link: "/cv/",
