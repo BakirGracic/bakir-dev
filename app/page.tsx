@@ -6,7 +6,7 @@ export default function Page() {
         <>
             <section className="mb-14">
                 <h1 className="mb-6 text-3xl font-semibold">Howdy 👋</h1>
-                <p>Name's Bakir! I'm a software developer. I have great passion for software that drives me to work hard and build high-quality, robust, scalable and secure software that adds value to the world. My goal is to apply skills in profitable & real business endeavours that leave a lasting impression. I try not to forget to savor the moments outside of the screen - because to me, life is all about balance and living it in the best way. Feel free to check out my blog posts, projects, certifications and links to connect. If you want to chat, HMU on any platform. Cheers!</p>
+                <p>Name&apos;s Bakir! I&apos;m a software developer. I have great passion for software that drives me to work hard and build high-quality, robust, scalable and secure software that adds value to the world. My goal is to apply skills in profitable & real business endeavours that leave a lasting impression. I try not to forget to savor the moments outside of the screen - because to me, life is all about balance and living it in the best way. Feel free to check out my blog posts, projects, certifications and links to connect. If you want to chat, HMU on any platform. Cheers!</p>
             </section>
 
             <section className="mb-14">
