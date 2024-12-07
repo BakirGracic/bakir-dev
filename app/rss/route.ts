@@ -1,21 +1,40 @@
-import { getBlogPosts } from "@/app/blog/utils";
+import { getBlogPosts } from '@/lib/blog_utils';
 
-export async function GET() {
-    const blogPosts = getBlogPosts();
+function escapeXml(unsafe: string): string {
+	return unsafe.replace(/[<>&'"]/g, (c) => {
+		switch (c) {
+			case '<':
+				return '&lt;';
+			case '>':
+				return '&gt;';
+			case '&':
+				return '&amp;';
+			case "'":
+				return '&apos;';
+			case '"':
+				return '&quot;';
+			default:
+				return c;
+		}
+	});
+}
 
-    const itemsXml = blogPosts
-        .map(
-            (post) =>
-                `<item>
-                    <title>${post.metadata.title}</title>
+export function GET() {
+	const blogPosts = getBlogPosts();
+
+	const itemsXml = blogPosts
+		.map(
+			(post) =>
+				`<item>
+                    <title>${escapeXml(post.metadata.title)}</title>
                     <link>${process.env.APP_URL}/blog/${post.slug}</link>
-                    <description>${post.metadata.summary || ""}</description>
+                    <description>${escapeXml(post.metadata.summary || '')}</description>
                     <pubDate>${new Date(post.metadata.published).toUTCString()}</pubDate>
-                </item>`
-        )
-        .join("\n");
+                </item>`,
+		)
+		.join('\n');
 
-    const rssFeedBody = `<?xml version="1.0" encoding="UTF-8" ?>
+	const rssFeedBody = `<?xml version="1.0" encoding="UTF-8" ?>
                     <rss version="2.0">
                         <channel>
                             <title>Bakir the Dev</title>
@@ -25,5 +44,5 @@ export async function GET() {
                         </channel>
                     </rss>`;
 
-    return new Response(rssFeedBody, { headers: { "Content-Type": "text/xml" } });
+	return new Response(rssFeedBody, { headers: { 'Content-Type': 'text/xml' } });
 }

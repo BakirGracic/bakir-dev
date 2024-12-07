@@ -1,11 +1,16 @@
-import { Marked } from "marked";
+import { Marked } from 'marked';
 
-export default async function CustomMDX({ rawMD }: { rawMD: string }) {
-    const marked = new Marked();
+export default function CustomMDX({ rawMD }: { rawMD: string }) {
+	const marked = new Marked();
 
-    const unsanitized = await marked.parse(rawMD);
+	const unsanitized = marked.parse(rawMD);
 
-    return <article className="prose" dangerouslySetInnerHTML={{ __html: unsanitized }}></article>;
+	return (
+		<article
+			className='prose'
+			dangerouslySetInnerHTML={{ __html: unsanitized }}
+		></article>
+	);
 }
 
 // TODO customize md parsed html tags

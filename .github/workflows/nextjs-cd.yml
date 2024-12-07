@@ -20,15 +20,15 @@ jobs:
         steps:
             - name: Stop PM2
               run: pm2 stop all
-              
+
             - name: Checkout
               uses: actions/checkout@v4
 
             - name: Use Node.js (22.x)
               uses: actions/setup-node@v4
               with:
-                node-version: "22.x"
-                cache: "npm"
+                  node-version: '22.x'
+                  cache: 'npm'
 
             - name: Delete Old Folders
               run: rm -rf node_modules/ .next/
@@ -42,8 +42,7 @@ jobs:
             - name: Build
               run: npm run build
               env:
-                GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}
+                  GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}
 
             - name: Restart PM2
               run: pm2 restart all
-              

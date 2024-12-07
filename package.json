@@ -1,32 +1,33 @@
 {
-    "name": "bakir-dev",
-    "version": "1.0.0",
-    "private": true,
-    "scripts": {
-        "dev": "next dev --turbopack",
-        "build": "next build",
-        "start": "next start",
-        "lint": "next lint"
-    },
-    "dependencies": {
-        "next": "^15.0.3",
-        "react": "^18.3.1",
-        "react-dom": "^18.3.1"
-    },
-    "devDependencies": {
-        "@heroicons/react": "^2.2.0",
-        "@next/third-parties": "^15.0.2",
-        "@tailwindcss/typography": "^0.5.15",
-        "@types/node": "^22",
-        "@types/react": "^18",
-        "@types/react-dom": "^18",
-        "autoprefixer": "^10.4.20",
-        "eslint": "^9",
-        "eslint-config-next": "15.0.2",
-        "heroicons": "^2.2.0",
-        "marked": "^15.0.3",
-        "postcss": "^8",
-        "tailwindcss": "^3.4.1",
-        "typescript": "^5"
-    }
+	"name": "bakir-dev",
+	"version": "1.0.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev --turbopack",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint"
+	},
+	"dependencies": {
+		"@types/marked": "^5.0.2",
+		"next": "^15.0.4",
+		"react": "^19.0.0",
+		"react-dom": "^19.0.0"
+	},
+	"devDependencies": {
+		"@heroicons/react": "^2.2.0",
+		"@next/third-parties": "^15.0.2",
+		"@tailwindcss/typography": "^0.5.15",
+		"@types/node": "^22",
+		"@types/react": "^18",
+		"@types/react-dom": "^18",
+		"autoprefixer": "^10.4.20",
+		"eslint": "^9",
+		"eslint-config-next": "15.0.2",
+		"heroicons": "^2.2.0",
+		"marked": "^15.0.3",
+		"postcss": "^8",
+		"tailwindcss": "^3.4.1",
+		"typescript": "^5"
+	}
 }
