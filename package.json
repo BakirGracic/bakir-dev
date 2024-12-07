@@ -19,7 +19,7 @@
 		"@next/third-parties": "^15.0.2",
 		"@tailwindcss/typography": "^0.5.15",
 		"@types/node": "^22",
-		"@types/react": "^18",
+		"@types/react": "^19",
 		"@types/react-dom": "^18",
 		"autoprefixer": "^10.4.20",
 		"eslint": "^9",
