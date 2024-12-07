@@ -113,7 +113,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 				<main>{children}</main>
 				<Footer />
 			</body>
-			{process.env.GA_ID && <GoogleAnalytics gaId={process.env.GA_ID} />}
+			{process.env.GOOGLE_ANALYTICS_ID && <GoogleAnalytics gaId={process.env.GOOGLE_ANALYTICS_ID} />}
 		</html>
 	);
 }
