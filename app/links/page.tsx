@@ -78,7 +78,7 @@ const socialLinks = [
 		title: 'GitHub Sponsors',
 	},
 	{
-		link: 'https://lu.ma/user/bakirgracic',
+		link: 'https://lu.ma/user/bake_dev',
 		icon: <Luma />,
 		title: 'Luma',
 	},
