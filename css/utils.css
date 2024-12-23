@@ -43,5 +43,5 @@
 /* prose */
 .prose pre,
 .prose code {
-	@apply font-sf_mono;
+	@apply font-mono;
 }

@@ -3,7 +3,7 @@ import '@/css/global.css';
 import '@/css/utils.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { SFMono, SFProText } from '@/lib/font';
+import { InterFont } from '@/lib/font';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import type { Metadata } from 'next';
 import type { Viewport } from 'next';
@@ -64,7 +64,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
 	return (
 		<html lang='en-US'>
-			<body className={`${SFProText.className} ${SFMono.className}`}>
+			<body className={`${InterFont.className}`}>
 				<Navbar />
 				<main>{children}</main>
 				<Footer />

@@ -8,8 +8,8 @@ export async function GET(request: Request): Promise<ImageResponse> {
 	return new ImageResponse(
 		(
 			<div tw='flex flex-col w-full h-full p-10 items-center justify-center bg-black text-white'>
-				<h2 tw='text-6xl font-SFProTextBold text-center'>{titleDecoded}</h2>
-				<p tw='text-4xl font-SFProTextRegular border-white border-t-2 pt-3 px-3 text-center'>bakir.dev</p>
+				<h2 tw='text-6xl font-bold text-center'>{titleDecoded}</h2>
+				<p tw='text-4xl border-white border-t-2 pt-3 px-3 text-center'>bakir.dev</p>
 			</div>
 		),
 	);
