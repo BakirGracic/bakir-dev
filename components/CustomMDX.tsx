@@ -1,18 +1,17 @@
-import { Marked } from 'marked';
+import { marked } from 'marked';
 
 export default function CustomMDX({ rawMD }: { rawMD: string }) {
-	const marked = new Marked();
-
-	const unsanitized = marked.parse(rawMD);
+	const html = marked.parse(rawMD);
 
 	return (
 		<article
 			className='prose'
-			dangerouslySetInnerHTML={{ __html: unsanitized }}
-		></article>
+			dangerouslySetInnerHTML={{ __html: html }}
+		/>
 	);
 }
 
-// TODO customize md parsed html tags
-// TODO highlight code blocks
-// TODO make # links for h tags
+// make h tags be nextjs links with # link of their slug with function slugify() and to have hashtag icon visible on hover right of the h tag
+// make all text be black on white theme and white on black theme
+// make links have arrow to the left of them
+// pre (or code blocks) whould have 'box' css class and have mono font text inside and have clipboard icon inside the box that when clicked copies code to clipboard ans shows check icon for few seconds after copying

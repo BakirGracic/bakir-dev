@@ -1,20 +1,16 @@
 import { ImageResponse } from 'next/og';
 
-export function GET(request: Request) {
+export async function GET(request: Request): Promise<ImageResponse> {
 	const url = new URL(request.url);
-	const titleEncoded = url.searchParams.get('title') || 'Bakir%20the%20Dev'; // URL Encoded "Bakir the Dev"
-	const titleDecoded = decodeURIComponent(titleEncoded.trim());
+	const titleEncoded = url.searchParams.get('title') || null;
+	const titleDecoded = titleEncoded == null ? 'Bakir Gracić | The Bosnian Dev' : decodeURIComponent(titleEncoded.trim());
 
 	return new ImageResponse(
 		(
-			<div tw='flex flex-col w-full h-full p-10 items-center justify-center bg-black text-white font-serif'>
-				<h2 tw='text-6xl font-bold text-center'>{titleDecoded}</h2>
-				<p tw='text-4xl border-t-2 border-white p-3 text-center'>bakir.dev</p>
+			<div tw='flex flex-col w-full h-full p-10 items-center justify-center bg-black text-white'>
+				<h2 tw='text-6xl font-SFProTextBold text-center'>{titleDecoded}</h2>
+				<p tw='text-4xl font-SFProTextRegular border-white border-t-2 pt-3 px-3 text-center'>bakir.dev</p>
 			</div>
 		),
-		{
-			width: 1200,
-			height: 630,
-		},
 	);
 }

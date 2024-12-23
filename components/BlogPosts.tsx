@@ -1,25 +1,28 @@
 import Link from 'next/link';
-import { formatDatePublish, getBlogPosts } from '@/lib/blog_utils';
+import { getBlogPosts } from '@/lib/blog';
+import { formatDatePublish } from '@/lib/misc';
 import RelativeTimeText from '@/components/RelativeTimeText';
 
 export function BlogPosts({ limit = -1 }: { limit?: number }) {
 	const blogPosts = getBlogPosts(limit);
 
 	return (
-		<div>
+		<article>
 			{blogPosts.map((post) => (
 				<Link
-					href={`/blog/${post.slug}`}
 					key={post.slug}
+					href={`/blog/${post.slug}`}
 				>
-					<div className='flex flex-col md:flex-row mb-5'>
-						<p className='min-w-[140px] max-w-[140px] darker-text text-sm mb-2 md:mb-0 '>
-							{formatDatePublish(post.metadata.published)} <br /> (<RelativeTimeText date={post.metadata.published} />)
-						</p>
-						<p className='hover-text'>{post.metadata.title}</p>
+					<div className='mb-5'>
+						<div className='flex flex-col md:flex-row'>
+							<p className='darkerText text-sm min-w-full md:min-w-[160px] mb-2 md:mb-0'>
+								<span className=''>{formatDatePublish(post.metadata.published)}</span> <br /> <RelativeTimeText date={post.metadata.published} />
+							</p>
+							<p className='hoverText'>{post.metadata.title}</p>
+						</div>
 					</div>
 				</Link>
 			))}
-		</div>
+		</article>
 	);
 }

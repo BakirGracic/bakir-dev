@@ -1,23 +1,5 @@
-import { getBlogPosts } from '@/lib/blog_utils';
-
-function escapeXml(unsafe: string): string {
-	return unsafe.replace(/[<>&'"]/g, (c) => {
-		switch (c) {
-			case '<':
-				return '&lt;';
-			case '>':
-				return '&gt;';
-			case '&':
-				return '&amp;';
-			case "'":
-				return '&apos;';
-			case '"':
-				return '&quot;';
-			default:
-				return c;
-		}
-	});
-}
+import { escapeXml } from '@/lib/misc';
+import { getBlogPosts } from '@/lib/blog';
 
 export function GET() {
 	const blogPosts = getBlogPosts();

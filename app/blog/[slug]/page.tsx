@@ -1,7 +1,8 @@
 import { notFound } from 'next/navigation';
-import { formatDatePublish, getBlogPosts } from '@/lib/blog_utils';
-import CustomMDX from '@/components/CustomMDX';
+import { getBlogPosts } from '@/lib/blog';
+import { formatDatePublish } from '@/lib/misc';
 import RelativeTimeText from '@/components/RelativeTimeText';
+import CustomMDX from '@/components/CustomMDX';
 
 export function generateStaticParams() {
 	const blogPosts = getBlogPosts();
@@ -17,45 +18,36 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 	const blogPost = getBlogPosts().find((post) => post.slug === urlSlug);
 
 	if (!blogPost) {
-		return;
+		notFound();
 	}
 
-	const Btitle = blogPost.metadata.title;
-	const Bpublished = blogPost.metadata.published;
-	const Bsummary = blogPost.metadata.summary;
-	const Bkeywords = blogPost.metadata.keywords;
-	const Bimage = `${process.env.APP_URL}/og?title=${encodeURIComponent(Btitle)}`;
-
 	return {
-		title: {
-			absolute: Btitle,
-		},
-		description: Bsummary,
-		keywords: Bkeywords,
-		metadataBase: new URL(`${process.env.APP_URL}/blog/${urlSlug}`),
+		title: `${blogPost.metadata.title} | Bakir Gracić`,
+		description: blogPost.metadata.summary,
 		alternates: {
 			canonical: `${process.env.APP_URL}/blog/${urlSlug}`,
+			languages: {
+				'en-US': `${process.env.APP_URL}/blog/${urlSlug}`,
+			},
 		},
 		openGraph: {
-			title: Btitle,
-			description: Bsummary,
-			type: 'article',
-			publishedTime: Bpublished,
+			title: `${blogPost.metadata.title} | Bakir Gracić`,
+			description: blogPost.metadata.summary,
 			url: `${process.env.APP_URL}/blog/${urlSlug}`,
 			images: [
 				{
-					url: Bimage,
-					alt: 'Bakir the Dev OpenGraph Image',
+					url: `${process.env.APP_URL}/og?title=${encodeURIComponent(blogPost.metadata.title)}`,
+					alt: 'Bakir Gracić Personal Website and Blog OpenGraph Image',
+					width: 1200,
+					height: 630,
 				},
 			],
+			type: 'article',
+			publishedTime: blogPost.metadata.published,
 		},
-		twitter: {
-			title: Btitle,
-			description: Bsummary,
-			images: {
-				url: Bimage,
-				alt: 'Bakir the Dev OpenGraph Image',
-			},
+		robots: {
+			index: true,
+			follow: true,
 		},
 	};
 }
@@ -69,11 +61,6 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
 		notFound();
 	}
 
-	const Btitle = blogPost.metadata.title;
-	const Bpublished = blogPost.metadata.published;
-	const Bsummary = blogPost.metadata.summary;
-	const Bimage = `${process.env.APP_URL}/og?title=${encodeURIComponent(Btitle)}`;
-
 	return (
 		<section>
 			<script
@@ -83,15 +70,15 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
 					__html: JSON.stringify({
 						'@context': 'https://schema.org',
 						'@type': 'BlogPosting',
-						headline: Btitle,
+						headline: blogPost.metadata.title,
 						author: {
 							'@type': 'Person',
 							name: 'BakirGracic',
 						},
-						datePublished: Bpublished,
-						dateModified: Bpublished,
-						image: Bimage,
-						description: Bsummary,
+						datePublished: blogPost.metadata.published,
+						dateModified: blogPost.metadata.published,
+						image: `${process.env.APP_URL}/og?title=${encodeURIComponent(blogPost.metadata.title)}`,
+						description: blogPost.metadata.summary,
 						publisher: {
 							'@type': 'Organization',
 							name: 'Bakir the Dev',
@@ -104,9 +91,11 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
 					}),
 				}}
 			/>
-			<h1 className='font-semibold text-3xl mb-2'>{Btitle}</h1>
-			<div className='mb-16 darker-text'>
-				{formatDatePublish(Bpublished)} (<RelativeTimeText date={Bpublished} />)
+			<h1 className='heading1 tracking-tight'>{blogPost.metadata.title}</h1>
+			<div className='mb-14 darkerText flex items-center gap-1'>
+				<span>{formatDatePublish(blogPost.metadata.published)}</span>
+				<span>•</span>
+				<RelativeTimeText date={blogPost.metadata.published} />
 			</div>
 			<CustomMDX rawMD={blogPost.content} />
 		</section>

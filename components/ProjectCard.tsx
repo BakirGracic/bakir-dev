@@ -1,6 +1,6 @@
-import Link from 'next/link';
 import Image, { StaticImageData } from 'next/image';
 import { DocumentTextIcon, LinkIcon } from '@heroicons/react/24/solid';
+import Button from '@/components/Button';
 import GitHub from '@/components/icons/GitHub';
 
 export default function ProjectCard({
@@ -19,47 +19,48 @@ export default function ProjectCard({
 	blogLink?: string;
 }) {
 	return (
-		<div className='border border-neutral-600 rounded-2xl'>
+		<div className='box'>
 			<Image
 				src={imgSrc}
-				alt='How Much I Wasted'
+				alt='Project Screenshot Image'
+				width={640}
+				height={360}
 				className='rounded-t-2xl'
-				width={9999999}
-				height={9999999}
+				loading='lazy'
 			/>
 			<div className='p-4'>
-				<h2 className='font-semibold text-xl mb-2'>{title}</h2>
-				<p className='mb-6'>{description}</p>
-				<div className='flex items-baseline flex-wrap justify-end gap-3'>
+				<h2 className='cardHeading'>{title}</h2>
+				<p className='mb-7'>{description}</p>
+				<div className='cardButtons'>
 					{webLink ? (
-						<Link
-							className='px-3 py-2 rounded-lg border border-neutral-600 flex items-center gap-2'
+						<Button
 							href={webLink}
-							target='_blank'
+							blank
+							className='px-3 py-2'
 						>
 							<LinkIcon className='size-4' />
-							Website
-						</Link>
+							<span>Website</span>
+						</Button>
 					) : null}
 					{gitLink ? (
-						<Link
-							className='px-3 py-2 rounded-lg border border-neutral-600 flex items-center gap-2'
+						<Button
 							href={gitLink}
-							target='_blank'
+							blank
+							className='px-3 py-2'
 						>
 							<GitHub className='size-4' />
-							GitHub
-						</Link>
+							<span>GitHub</span>
+						</Button>
 					) : null}
 					{blogLink ? (
-						<Link
-							className='px-3 py-2 rounded-lg border border-neutral-600 flex items-center gap-2'
+						<Button
 							href={blogLink}
-							target='_blank'
+							blank
+							className='px-3 py-2'
 						>
 							<DocumentTextIcon className='size-4' />
-							Blog
-						</Link>
+							<span>Blog</span>
+						</Button>
 					) : null}
 				</div>
 			</div>

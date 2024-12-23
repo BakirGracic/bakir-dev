@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-const navbarLinks: string[] = ['home', 'blog', 'projects', 'certifications', 'links'];
+const navbarLinks = ['home', 'blog', 'projects', 'certifications', 'links'];
 
 export default function Navbar() {
 	return (
@@ -10,7 +10,7 @@ export default function Navbar() {
 					<Link
 						key={index}
 						href={`/${path === 'home' ? '' : path}`}
-						className='flex py-3 pr-3 mr-3 hover-text'
+						className='flex py-3 pr-3 mr-3 hoverText'
 					>
 						{path}
 					</Link>

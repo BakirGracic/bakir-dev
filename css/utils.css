@@ -1,0 +1,41 @@
+/* utility classes */
+
+/* text */
+.hoverText {
+	@apply opacity-100 md:transition-opacity md:hover:opacity-100 md:opacity-70;
+}
+.darkerText {
+	@apply opacity-70;
+}
+
+/* headings */
+.heading1 {
+	@apply mb-6 text-3xl font-semibold;
+}
+.heading2 {
+	@apply mb-6 text-xl font-bold;
+}
+
+/* box */
+.box {
+	@apply border shadow-lg rounded-2xl;
+}
+
+/* button */
+.button {
+	@apply transition-all duration-300 rounded-lg border border-black dark:border-white flex items-center justify-center gap-2;
+}
+.button:hover {
+	@apply bg-black dark:bg-white text-white dark:text-black;
+}
+.button:hover svg {
+	@apply !fill-white dark:!fill-black;
+}
+
+/* cards */
+.cardHeading {
+	@apply font-semibold text-2xl mb-1;
+}
+.cardButtons {
+	@apply flex items-baseline flex-wrap justify-end gap-3;
+}

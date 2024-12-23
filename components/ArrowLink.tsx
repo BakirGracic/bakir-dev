@@ -1,14 +1,14 @@
 import Link from 'next/link';
-import Arrow from '@/components/icons/Arrow';
+import { ArrowUpRightIcon } from '@heroicons/react/24/solid';
 
 export default function ArrowLink({ href, text, blank }: { href: string; text: string; blank?: boolean }) {
 	return (
 		<Link
 			href={href}
 			target={blank ? '_blank' : '_self'}
-			className='flex items-center hover-text text-white/70'
+			className='flex items-center hoverText'
 		>
-			<Arrow />
+			<ArrowUpRightIcon className='size-4' />
 			<p className='ml-2'>{text}</p>
 		</Link>
 	);

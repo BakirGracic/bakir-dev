@@ -1,3 +1,5 @@
+import Button from '@/components/Button';
+import type { Metadata } from 'next';
 import GitHub from '@/components/icons/GitHub';
 import LinkedIn from '@/components/icons/LinkedIn';
 import Twitter from '@/components/icons/Twitter';
@@ -8,31 +10,32 @@ import CV from '@/components/icons/CV';
 import BuyMeACoffee from '@/components/icons/BuyMeACoffee';
 import GitHubSponsors from '@/components/icons/GitHubSponsors';
 import Credly from '@/components/icons/Credly';
-import Link from 'next/link';
-import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-	title: 'Links',
-	metadataBase: new URL(`${process.env.APP_URL}/links`),
+	title: 'Bakir Gracić | Links',
+	description: 'Find links to connect with Bakir Gracić on various platforms and services, and explore other links',
 	alternates: {
 		canonical: `${process.env.APP_URL}/links`,
+		languages: {
+			'en-US': `${process.env.APP_URL}/links`,
+		},
 	},
 	openGraph: {
-		title: 'Bakir the Dev | Links',
+		title: 'Bakir Gracić | Links',
+		description: 'Find links to connect with Bakir Gracić on various platforms and services, and explore other links',
 		url: `${process.env.APP_URL}/links`,
 		images: [
 			{
-				url: `${process.env.APP_URL}/og?title=Links`,
-				alt: 'Bakir the Dev OpenGraph Image',
+				url: `${process.env.APP_URL}/og?title=${encodeURIComponent('Bakir Gracić | Links')}`,
+				alt: 'Bakir Gracić Personal Website and Blog OpenGraph Image',
+				width: 1200,
+				height: 630,
 			},
 		],
 	},
-	twitter: {
-		title: 'Bakir the Dev | Projects',
-		images: {
-			url: `${process.env.APP_URL}/og?title=Links`,
-			alt: 'Bakir the Dev OpenGraph Image',
-		},
+	robots: {
+		index: true,
+		follow: true,
 	},
 };
 
@@ -89,20 +92,22 @@ const socialLinks = [
 	},
 ];
 
-export default function Page() {
+export default function Links() {
 	return (
-		<section className='flex items-center justify-center flex-wrap gap-4'>
-			{socialLinks.map((item, index) => (
-				<Link
-					key={index}
-					href={item.link}
-					title={item.title}
-					target='_blank'
-					className='h-[105px] w-[105px] flex items-center justify-center cursor-pointer border border-solid border-neutral-600 rounded-xl duration-[250ms] hover:bg-neutral-800 hover:shadow-inner'
-				>
-					{item.icon}
-				</Link>
-			))}
+		<section>
+			<h1 className='heading1'>Links to Connect</h1>
+			<div className='flex items-center justify-center flex-wrap gap-4'>
+				{socialLinks.map((item, index) => (
+					<Button
+						key={index}
+						href={item.link}
+						blank
+						className='h-[105px] w-[105px]'
+					>
+						{item.icon}
+					</Button>
+				))}
+			</div>
 		</section>
 	);
 }

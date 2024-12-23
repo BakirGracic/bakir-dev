@@ -1,39 +1,30 @@
-import Link from 'next/link';
+import Button from '@/components/Button';
 import Image, { StaticImageData } from 'next/image';
 import { CheckBadgeIcon } from '@heroicons/react/16/solid';
 
-export default function CertificationCard({
-	img,
-	title,
-	description,
-	link,
-}: {
-	img: StaticImageData | string;
-	title: string;
-	description: string;
-	link: string;
-}) {
+export default function CertificationCard({ img, title, description, link }: { img: StaticImageData | string; title: string; description: string; link: string }) {
 	return (
-		<div className='border border-neutral-600 rounded-2xl'>
+		<div className='box'>
 			<Image
 				src={img}
-				alt='How Much I Wasted'
+				alt='Certification Image'
+				width={280}
+				height={280}
 				className='rounded-t-2xl'
-				width={9999999}
-				height={9999999}
+				loading='lazy'
 			/>
 			<div className='p-4'>
-				<h2 className='font-semibold text-xl mb-2'>{title}</h2>
-				<p className='mb-6'>{description}</p>
-				<div className='flex items-baseline flex-wrap justify-end gap-3'>
-					<Link
-						className='px-3 py-2 rounded-lg border border-neutral-600 flex items-center gap-2'
+				<h2 className='cardHeading'>{title}</h2>
+				<p className='mb-7'>{description}</p>
+				<div className='cardButtons'>
+					<Button
 						href={link}
-						target='_blank'
+						blank
+						className='px-3 py-2'
 					>
 						<CheckBadgeIcon className='size-4' />
 						Verify
-					</Link>
+					</Button>
 				</div>
 			</div>
 		</div>

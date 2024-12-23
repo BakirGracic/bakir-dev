@@ -49,13 +49,3 @@ export function getBlogPosts(limit: number = -1) {
 
 	return limit === -1 ? posts : posts.slice(0, limit);
 }
-
-export function formatDatePublish(date: string) {
-	const targetDate = new Date(date.includes('T') ? date : `${date}T00:00:00`);
-
-	return targetDate.toLocaleString('en-us', {
-		month: 'long',
-		day: 'numeric',
-		year: 'numeric',
-	});
-}

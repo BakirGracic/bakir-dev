@@ -2,7 +2,6 @@ import ArrowLink from '@/components/ArrowLink';
 
 const footerLinks = [
 	{ href: '/links', text: 'links' },
-	{ href: 'https://github.com/BakirGracic/bakir-dev', text: 'github' },
 	{ href: '/sitemap.xml', text: 'sitemap' },
 	{ href: '/rss', text: 'rss' },
 ];
@@ -10,18 +9,17 @@ const footerLinks = [
 export default function Footer() {
 	return (
 		<footer className='mt-16'>
-			<ul className='flex flex-col md:flex-row gap-2 md:gap-5'>
+			<div className='flex flex-col gap-2 md:flex-row md:gap-5'>
 				{footerLinks.map(({ href, text }, index) => (
-					<li key={index}>
-						<ArrowLink
-							href={href}
-							text={text}
-							blank
-						/>
-					</li>
+					<ArrowLink
+						key={index}
+						href={href}
+						text={text}
+						blank
+					/>
 				))}
-			</ul>
-			<p className='mt-5 darker-text'>bakir.dev | {new Date().getFullYear()}</p>
+			</div>
+			<p className='mt-2 mb-3'>bakir.dev | {new Date().getFullYear()}</p>
 		</footer>
 	);
 }

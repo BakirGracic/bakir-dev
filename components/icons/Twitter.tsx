@@ -10,7 +10,7 @@ export default function Twitter() {
 			viewBox='0 0 512 462.799'
 			width='60'
 			height='60'
-			fill='white'
+			fill='inherit'
 		>
 			<path
 				fillRule='nonzero'
