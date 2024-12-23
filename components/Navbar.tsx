@@ -10,7 +10,7 @@ export default function Navbar() {
 					<Link
 						key={index}
 						href={`/${path === 'home' ? '' : path}`}
-						className='flex py-3 pr-3 mr-3 hoverText'
+						className='flex py-4 pr-3 mr-3 hoverText'
 					>
 						{path}
 					</Link>
