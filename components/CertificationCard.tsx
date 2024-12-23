@@ -8,14 +8,14 @@ export default function CertificationCard({ img, title, description, link }: { i
 			<Image
 				src={img}
 				alt='Certification Image'
-				width={280}
-				height={280}
-				className='rounded-t-2xl'
+				width={300}
+				height={300}
+				className='rounded-t-2xl mx-auto md:mx-none'
 				loading='lazy'
 			/>
 			<div className='p-4'>
-				<h2 className='cardHeading'>{title}</h2>
-				<p className='mb-7'>{description}</p>
+				<h2 className='cardHeading text-center md:text-left'>{title}</h2>
+				<p className='mb-7 text-center md:text-left'>{description}</p>
 				<div className='cardButtons'>
 					<Button
 						href={link}

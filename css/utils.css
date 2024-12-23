@@ -39,3 +39,9 @@
 .cardButtons {
 	@apply flex items-baseline flex-wrap justify-end gap-3;
 }
+
+/* prose */
+.prose pre,
+.prose code {
+	@apply font-sf_mono;
+}

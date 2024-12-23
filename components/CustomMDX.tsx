@@ -5,7 +5,7 @@ export default function CustomMDX({ rawMD }: { rawMD: string }) {
 
 	return (
 		<article
-			className='prose'
+			className='prose dark:prose-invert'
 			dangerouslySetInnerHTML={{ __html: html }}
 		/>
 	);
