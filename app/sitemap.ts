@@ -12,32 +12,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
 	return [
 		{
 			url: `${process.env.APP_URL}`,
-			lastModified: new Date().toISOString().split('T')[0],
 			changeFrequency: 'monthly',
 			priority: 1,
 		},
 		{
 			url: `${process.env.APP_URL}/blog`,
-			lastModified: new Date().toISOString().split('T')[0],
 			changeFrequency: 'monthly',
 			priority: 1,
 		},
 		...blogPosts,
 		{
 			url: `${process.env.APP_URL}/projects`,
-			lastModified: new Date().toISOString().split('T')[0],
 			changeFrequency: 'monthly',
 			priority: 1,
 		},
 		{
 			url: `${process.env.APP_URL}/certifications`,
-			lastModified: new Date().toISOString().split('T')[0],
 			changeFrequency: 'monthly',
 			priority: 1,
 		},
 		{
 			url: `${process.env.APP_URL}/links`,
-			lastModified: new Date().toISOString().split('T')[0],
 			changeFrequency: 'monthly',
 			priority: 1,
 		},

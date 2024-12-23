@@ -96,22 +96,8 @@ const socialLinks = [
 export default function Links() {
 	return (
 		<>
-			<section>
-				<h1 className='heading1'>Links to Connect</h1>
-				<div className='flex items-center justify-center flex-wrap gap-4'>
-					{socialLinks.map((item, index) => (
-						<Button
-							key={index}
-							href={item.link}
-							blank
-							className='h-[105px] w-[105px]'
-						>
-							{item.icon}
-						</Button>
-					))}
-				</div>
-			</section>
 			<Script
+				id='links-schema-jsonld'
 				type='application/ld+json'
 				dangerouslySetInnerHTML={{
 					__html: JSON.stringify({
@@ -177,6 +163,21 @@ export default function Links() {
 					}),
 				}}
 			/>
+			<section>
+				<h1 className='heading1'>Links to Connect</h1>
+				<div className='flex items-center justify-center flex-wrap gap-4'>
+					{socialLinks.map((item, index) => (
+						<Button
+							key={index}
+							href={item.link}
+							blank
+							className='h-[105px] w-[105px]'
+						>
+							{item.icon}
+						</Button>
+					))}
+				</div>
+			</section>
 		</>
 	);
 }

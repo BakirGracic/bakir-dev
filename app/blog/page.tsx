@@ -30,14 +30,11 @@ export const metadata: Metadata = {
 	},
 };
 
-export default function Page() {
+export default function Blog() {
 	return (
 		<>
-			<section>
-				<h1 className='heading1'>All Blog Posts</h1>
-				<BlogPosts />
-			</section>
 			<Script
+				id='blog-schema-jsonld'
 				type='application/ld+json'
 				dangerouslySetInnerHTML={{
 					__html: JSON.stringify({
@@ -59,6 +56,10 @@ export default function Page() {
 					}),
 				}}
 			/>
+			<section>
+				<h1 className='heading1'>All Blog Posts</h1>
+				<BlogPosts />
+			</section>
 		</>
 	);
 }

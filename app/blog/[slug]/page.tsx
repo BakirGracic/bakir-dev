@@ -53,7 +53,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 	};
 }
 
-export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
+export default async function BlogPage({ params }: { params: Promise<{ slug: string }> }) {
 	const urlSlug = (await params).slug;
 
 	const blogPost = getBlogPosts().find((post) => post.slug === urlSlug);
@@ -63,8 +63,9 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
 	}
 
 	return (
-		<section>
+		<>
 			<Script
+				id='blogpage-schema-jsonld'
 				type='application/ld+json'
 				dangerouslySetInnerHTML={{
 					__html: JSON.stringify({
@@ -104,13 +105,15 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
 					}),
 				}}
 			/>
-			<h1 className='heading1 tracking-tight'>{blogPost.metadata.title}</h1>
-			<div className='mb-14 darkerText flex items-center gap-1'>
-				<span>{formatDatePublish(blogPost.metadata.published)}</span>
-				<span>•</span>
-				<RelativeTimeText date={blogPost.metadata.published} />
-			</div>
-			<CustomMDX rawMD={blogPost.content} />
-		</section>
+			<section>
+				<h1 className='heading1 tracking-tight'>{blogPost.metadata.title}</h1>
+				<div className='mb-14 darkerText flex items-center gap-1'>
+					<span>{formatDatePublish(blogPost.metadata.published)}</span>
+					<span>•</span>
+					<RelativeTimeText date={blogPost.metadata.published} />
+				</div>
+				<CustomMDX rawMD={blogPost.content} />
+			</section>
+		</>
 	);
 }

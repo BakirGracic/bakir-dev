@@ -4,8 +4,8 @@ const navbarLinks = ['home', 'blog', 'projects', 'certifications', 'links'];
 
 export default function Navbar() {
 	return (
-		<header className='mb-14'>
-			<nav className='flex tracking-tighter'>
+		<header>
+			<nav className='mb-14 flex tracking-tighter'>
 				{navbarLinks.map((path, index) => (
 					<Link
 						key={index}

@@ -22,7 +22,7 @@ export default function ProjectCard({
 		<div className='box'>
 			<Image
 				src={imgSrc}
-				alt='Project Screenshot Image'
+				alt={`Project Card Image with title ${title}`}
 				width={640}
 				height={360}
 				className='rounded-t-2xl'

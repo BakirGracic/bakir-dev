@@ -40,24 +40,11 @@ const certificationLinks = [
 	},
 ];
 
-export default function Page() {
+export default function Certification() {
 	return (
 		<>
-			<section>
-				<h1 className='heading1'>My Certifications</h1>
-				<section className='grid grid-cols-1 sm:grid-cols-2 gap-3'>
-					{certificationLinks.map((item, index) => (
-						<CertificationCard
-							key={index}
-							img={item.img}
-							title={item.title}
-							description={item.description}
-							link={item.link}
-						/>
-					))}
-				</section>
-			</section>
 			<Script
+				id='certifications-schema-jsonld'
 				type='application/ld+json'
 				dangerouslySetInnerHTML={{
 					__html: JSON.stringify({
@@ -96,6 +83,20 @@ export default function Page() {
 					}),
 				}}
 			/>
+			<section>
+				<h1 className='heading1'>My Certifications</h1>
+				<section className='grid grid-cols-1 sm:grid-cols-2 gap-3'>
+					{certificationLinks.map((item, index) => (
+						<CertificationCard
+							key={index}
+							img={item.img}
+							title={item.title}
+							description={item.description}
+							link={item.link}
+						/>
+					))}
+				</section>
+			</section>
 		</>
 	);
 }

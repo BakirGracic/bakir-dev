@@ -18,6 +18,10 @@
 	}
 }
 
+*:focus-visible {
+	@apply outline-[3px] outline-[#06AAF4] outline-dashed;
+}
+
 body {
 	@apply max-w-[576px] mx-4 md:w-[576px] md:mx-auto antialiased;
 }

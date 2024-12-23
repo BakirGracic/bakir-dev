@@ -7,7 +7,7 @@ export default function CertificationCard({ img, title, description, link }: { i
 		<div className='box'>
 			<Image
 				src={img}
-				alt='Certification Image'
+				alt={`Certification Card Image with title ${title}`}
 				width={300}
 				height={300}
 				className='rounded-t-2xl mx-auto md:mx-none'
