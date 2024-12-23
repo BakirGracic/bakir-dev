@@ -1,4 +1,5 @@
 import CertificationCard from '@/components/CertificationCard';
+import Script from 'next/script';
 import type { Metadata } from 'next';
 import GitHubFoundationsPNG from '@/images/certifications/github_foundations/github-foundations.png';
 
@@ -41,19 +42,60 @@ const certificationLinks = [
 
 export default function Page() {
 	return (
-		<section>
-			<h1 className='heading1'>My Certifications</h1>
-			<section className='grid grid-cols-1 sm:grid-cols-2 gap-3'>
-				{certificationLinks.map((item, index) => (
-					<CertificationCard
-						key={index}
-						img={item.img}
-						title={item.title}
-						description={item.description}
-						link={item.link}
-					/>
-				))}
+		<>
+			<section>
+				<h1 className='heading1'>My Certifications</h1>
+				<section className='grid grid-cols-1 sm:grid-cols-2 gap-3'>
+					{certificationLinks.map((item, index) => (
+						<CertificationCard
+							key={index}
+							img={item.img}
+							title={item.title}
+							description={item.description}
+							link={item.link}
+						/>
+					))}
+				</section>
 			</section>
-		</section>
+			<Script
+				type='application/ld+json'
+				dangerouslySetInnerHTML={{
+					__html: JSON.stringify({
+						'@context': 'https://schema.org',
+						'@type': 'ItemList',
+						name: "Bakir Gracić's Certifications List",
+						description: 'A list of certifications achieved by Bakir Gracić, showcasing expertise in various fields.',
+						itemListElement: [
+							{
+								'@type': 'EducationalOccupationalCredential',
+								name: 'GitHub Foundations',
+								credentialCategory: 'Professional Certification',
+								dateIssued: '2024-10-26',
+								description:
+									'Passing the GitHub Foundations certification exam validates subject matter expertise by measuring entry-level skills with GitHub basics like repositories, commits, branching, markdowns, and project management.',
+								recognizedBy: {
+									'@type': 'Organization',
+									name: 'GitHub',
+									url: 'https://github.com/',
+								},
+								issuer: {
+									'@type': 'Organization',
+									name: 'GitHub',
+									url: 'https://github.com/',
+								},
+								url: 'https://www.credly.com/badges/6e715e2b-cb75-4c1b-9a2f-aa4610e2c8fc/public_url',
+								credentialId: '6e715e2b-cb75-4c1b-9a2f-aa4610e2c8fc',
+								image: {
+									'@type': 'ImageObject',
+									url: 'https://images.credly.com/size/680x680/images/024d0122-724d-4c5a-bd83-cfe3c4b7a073/image.png',
+									width: 512,
+									height: 512,
+								},
+							},
+						],
+					}),
+				}}
+			/>
+		</>
 	);
 }

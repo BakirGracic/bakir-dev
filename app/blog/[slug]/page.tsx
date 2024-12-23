@@ -2,7 +2,6 @@ import { notFound } from 'next/navigation';
 import { getBlogPosts } from '@/lib/blog';
 import { formatDatePublish } from '@/lib/misc';
 import Script from 'next/script';
-// import { FAQPage, WithContext } from "schema-dts";
 import RelativeTimeText from '@/components/RelativeTimeText';
 import CustomMDX from '@/components/CustomMDX';
 
@@ -66,30 +65,42 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
 	return (
 		<section>
 			<Script
-				id='faq-schema'
 				type='application/ld+json'
 				dangerouslySetInnerHTML={{
 					__html: JSON.stringify({
 						'@context': 'https://schema.org',
 						'@type': 'BlogPosting',
 						headline: blogPost.metadata.title,
-						author: {
-							'@type': 'Person',
-							name: 'BakirGracic',
+						description: blogPost.metadata.summary,
+						mainEntityOfPage: {
+							'@type': 'WebPage',
+							'@id': `https://bakir.dev/blog/${urlSlug}`,
 						},
 						datePublished: blogPost.metadata.published,
 						dateModified: blogPost.metadata.published,
-						image: `${process.env.APP_URL}/og?title=${encodeURIComponent(blogPost.metadata.title)}`,
-						description: blogPost.metadata.summary,
-						publisher: {
-							'@type': 'Organization',
-							name: 'Bakir the Dev',
-							logo: {
-								'@type': 'ImageObject',
-								url: `${process.env.APP_URL}/favicon.ico`,
-							},
+						author: {
+							'@type': 'Person',
+							name: 'Bakir Gracić',
+							url: 'https://bakir.dev/',
 						},
-						url: `${process.env.APP_URL}/blog/${urlSlug}`,
+						publisher: {
+							'@type': 'Person',
+							name: 'Bakir Gracić',
+							url: 'https://bakir.dev/',
+						},
+						image: {
+							'@type': 'ImageObject',
+							url: `https://bakir.dev/og?title=${encodeURIComponent(blogPost.metadata.title)}`,
+							width: 1200,
+							height: 630,
+							caption: blogPost.metadata.title,
+						},
+						inLanguage: 'en',
+						isPartOf: {
+							'@type': 'Blog',
+							name: 'The Bosnian Dev',
+							url: 'https://bakir.dev/blog',
+						},
 					}),
 				}}
 			/>

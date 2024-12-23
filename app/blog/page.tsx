@@ -1,4 +1,5 @@
 import { BlogPosts } from '@/components/BlogPosts';
+import Script from 'next/script';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -31,9 +32,33 @@ export const metadata: Metadata = {
 
 export default function Page() {
 	return (
-		<section>
-			<h1 className='heading1'>All Blog Posts</h1>
-			<BlogPosts />
-		</section>
+		<>
+			<section>
+				<h1 className='heading1'>All Blog Posts</h1>
+				<BlogPosts />
+			</section>
+			<Script
+				type='application/ld+json'
+				dangerouslySetInnerHTML={{
+					__html: JSON.stringify({
+						'@context': 'https://schema.org',
+						'@type': 'Blog',
+						name: 'The Bosnian Dev',
+						description: 'A blog by Bakir Gracić about web development, technology, life, business, and more.',
+						url: 'https://bakir.dev/blog',
+						author: {
+							'@type': 'Person',
+							name: 'Bakir Gracić',
+							url: 'https://bakir.dev/',
+						},
+						publisher: {
+							'@type': 'Person',
+							name: 'Bakir Gracić',
+							url: 'https://bakir.dev/',
+						},
+					}),
+				}}
+			/>
+		</>
 	);
 }

@@ -1,5 +1,6 @@
 import ArrowLink from '@/components/ArrowLink';
 import { BlogPosts } from '@/components/BlogPosts';
+import Script from 'next/script';
 
 export default function Homepage() {
 	return (
@@ -45,6 +46,46 @@ export default function Homepage() {
 					text='See all certifications'
 				/>
 			</section>
+
+			<Script
+				type='application/ld+json'
+				dangerouslySetInnerHTML={{
+					__html: JSON.stringify({
+						'@context': 'https://schema.org',
+						'@type': 'Person',
+						name: 'Bakir Gracić',
+						image: 'https://bakir.dev/bakir-gracic.jpg',
+						jobTitle: 'Fullstack Web Developer',
+						description:
+							'Bakir Gracić is a fullstack web developer who builds high-quality, robust, scalable and secure software that adds value to the world.',
+						url: 'https://bakir.dev',
+						sameAs: ['https://www.linkedin.com/in/bakirgracic/', 'https://github.com/BakirGracic', 'https://buymeacoffee.com/bakirgracic'],
+						email: 'mailto:me@bakir.dev',
+						address: {
+							'@type': 'PostalAddress',
+							addressLocality: 'Bosnia and Herzegovina',
+							addressRegion: 'Federation of Bosnia and Herzegovina',
+							postalCode: '71000',
+							addressCountry: 'BS',
+						},
+						alumniOf: {
+							'@type': 'EducationalOrganization',
+							name: 'Fakultet Informacijskih Tehnologija',
+							url: 'https://fit.ba',
+						},
+						knowsAbout: ['Web Development', 'DevSecOps', 'Fullstack Web', 'NextJS', 'PocketBase', 'Web for Business'],
+						performerIn: {
+							'@type': 'Event',
+							name: 'Google Developer Group Sarajevo',
+							startDate: '2025-01-10',
+							location: {
+								'@type': 'Place',
+								name: 'Sarajevo, Bosnia and Herzegovina',
+							},
+						},
+					}),
+				}}
+			/>
 		</>
 	);
 }
