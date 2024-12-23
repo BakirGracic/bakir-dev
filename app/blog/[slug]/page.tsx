@@ -1,6 +1,8 @@
 import { notFound } from 'next/navigation';
 import { getBlogPosts } from '@/lib/blog';
 import { formatDatePublish } from '@/lib/misc';
+import Script from 'next/script';
+// import { FAQPage, WithContext } from "schema-dts";
 import RelativeTimeText from '@/components/RelativeTimeText';
 import CustomMDX from '@/components/CustomMDX';
 
@@ -63,9 +65,9 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
 
 	return (
 		<section>
-			<script
+			<Script
+				id='faq-schema'
 				type='application/ld+json'
-				suppressHydrationWarning
 				dangerouslySetInnerHTML={{
 					__html: JSON.stringify({
 						'@context': 'https://schema.org',
