@@ -6,7 +6,7 @@ export default function Discord() {
 			viewBox='0 -28.5 256 256'
 			width='60'
 			height='60'
-			fill='inherit'
+			className='fill-black dark:fill-white'
 		>
 			<g>
 				<path
