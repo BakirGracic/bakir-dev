@@ -38,11 +38,15 @@ jobs:
             - name: Install Dependencies
               run: npm ci
 
-            - name: Disable Next.js Telemetry
-              run: npx next telemetry disable
-
             - name: Build
-              run: npm run build
+              run: |
+                  echo "NODEMAILER_USER=$NODEMAILER_USER" > .env.production.local
+                  echo "NODEMAILER_PASS=$NODEMAILER_PASS" >> .env.production.local
+                  
+                  npx next telemetry disable
+                  npm run build
+                  
+                  rm .env.production.local
               env:
                   NODEMAILER_USER: ${{ secrets.NODEMAILER_USER }}
                   NODEMAILER_PASS: ${{ secrets.NODEMAILER_PASS }}
