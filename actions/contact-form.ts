@@ -31,7 +31,7 @@ export async function contactFormSend(state: ContactFormFormStatus, formData: Fo
 			throw new Error('Bot Detected!');
 		}
 
-		transporter.sendMail({
+		const res = await transporter.sendMail({
 			from: process.env.NODEMAILER_USER,
 			to: 'me@bakir.dev',
 			subject: formFields.subject,
