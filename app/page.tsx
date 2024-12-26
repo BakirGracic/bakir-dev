@@ -61,6 +61,7 @@ export default function Homepage() {
 				<ArrowLink
 					href='/blog'
 					text='See all blog posts'
+					title='Blogs Page'
 				/>
 			</section>
 
@@ -73,10 +74,11 @@ export default function Homepage() {
 				<ArrowLink
 					href='/projects'
 					text='See all projects'
+					title='Projects Page'
 				/>
 			</section>
 
-			<section>
+			<section className='mb-10'>
 				<h2 className='heading2'>Certifications</h2>
 				<p className='mb-4 tracking-tight'>
 					Certifications validate expertise and commitment to continuous learning in the industry. Find out how certifications contribute to my professional
@@ -85,6 +87,30 @@ export default function Homepage() {
 				<ArrowLink
 					href='/certifications'
 					text='See all certifications'
+					title='Certifications Page'
+				/>
+			</section>
+
+			<section className='mb-10'>
+				<h2 className='heading2'>Endorsements</h2>
+				<p className='mb-4 tracking-tight'>Word of mouth is the best form of marketing. Check out what others have to say about me and my work!</p>
+				<ArrowLink
+					href='/endorsements'
+					text='See all endorsements'
+					title='Endorsements Page'
+				/>
+			</section>
+
+			<section>
+				<h2 className='heading2'>Contact</h2>
+				<p className='mb-4 tracking-tight'>
+					Let&apos;s connect! If you have any questions or you just want to chat, feel free to reach out. I&apos;m always curious about new opportunities and
+					collaborations
+				</p>
+				<ArrowLink
+					href='/links#contact'
+					text='Contact me'
+					title='Links Page'
 				/>
 			</section>
 		</>

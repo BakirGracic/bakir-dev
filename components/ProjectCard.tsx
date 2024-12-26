@@ -37,6 +37,7 @@ export default function ProjectCard({
 							href={webLink}
 							blank
 							className='px-3 py-2'
+							title='Website Link'
 						>
 							<LinkIcon className='size-4' />
 							<span>Website</span>
@@ -47,6 +48,7 @@ export default function ProjectCard({
 							href={gitLink}
 							blank
 							className='px-3 py-2'
+							title='GitHub Link'
 						>
 							<GitHub className='size-4' />
 							<span>GitHub</span>
@@ -57,6 +59,7 @@ export default function ProjectCard({
 							href={blogLink}
 							blank
 							className='px-3 py-2'
+							title='Blog Post Link'
 						>
 							<DocumentTextIcon className='size-4' />
 							<span>Blog</span>

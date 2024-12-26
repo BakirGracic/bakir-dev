@@ -20,6 +20,7 @@ export default function CertificationCard({ img, title, description, link }: { i
 					<Button
 						href={link}
 						blank
+						title='Verify Certification Link'
 						className='px-3 py-2'
 					>
 						<CheckBadgeIcon className='size-4' />

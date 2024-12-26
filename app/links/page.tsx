@@ -1,5 +1,6 @@
 import Button from '@/components/Button';
 import Script from 'next/script';
+import ContactForm from '@/components/ContactForm';
 import type { Metadata } from 'next';
 import GitHub from '@/components/icons/GitHub';
 import LinkedIn from '@/components/icons/LinkedIn';
@@ -147,6 +148,13 @@ export default function Links() {
 								publisher: {
 									'@type': 'Person',
 									name: 'Bakir Gracić',
+									image: 'https://bakir.dev/bakir-gracic.jpg',
+									jobTitle: 'Fullstack Web Developer',
+									description:
+										'Bakir Gracić is a fullstack web developer who builds high-quality, robust, scalable and secure software that adds value to the world.',
+									url: 'https://bakir.dev',
+									sameAs: ['https://www.linkedin.com/in/bakirgracic/', 'https://github.com/BakirGracic', 'https://buymeacoffee.com/bakirgracic'],
+									email: 'mailto:me@bakir.dev',
 								},
 							},
 							{
@@ -157,6 +165,13 @@ export default function Links() {
 								publisher: {
 									'@type': 'Person',
 									name: 'Bakir Gracić',
+									image: 'https://bakir.dev/bakir-gracic.jpg',
+									jobTitle: 'Fullstack Web Developer',
+									description:
+										'Bakir Gracić is a fullstack web developer who builds high-quality, robust, scalable and secure software that adds value to the world.',
+									url: 'https://bakir.dev',
+									sameAs: ['https://www.linkedin.com/in/bakirgracic/', 'https://github.com/BakirGracic', 'https://buymeacoffee.com/bakirgracic'],
+									email: 'mailto:me@bakir.dev',
 								},
 							},
 						],
@@ -165,11 +180,12 @@ export default function Links() {
 			/>
 			<section>
 				<h1 className='heading1'>Links to Connect</h1>
-				<div className='flex items-center justify-center flex-wrap gap-4'>
+				<div className='flex items-center justify-center flex-wrap gap-4 mb-14'>
 					{socialLinks.map((item, index) => (
 						<Button
 							key={index}
 							href={item.link}
+							title={item.title}
 							blank
 							className='h-[105px] w-[105px]'
 						>
@@ -177,6 +193,17 @@ export default function Links() {
 						</Button>
 					))}
 				</div>
+				<h2
+					id='contact'
+					className='heading2'
+				>
+					Contact Form
+				</h2>
+				<div className='mb-6'>
+					<p>Send me an email directly using the form below! If you prefer to send it yourself, send it to:&nbsp;&nbsp;&nbsp;</p>
+					<span className='!font-mono'>me (at) bakir (dot) dev</span>
+				</div>
+				<ContactForm />
 			</section>
 		</>
 	);

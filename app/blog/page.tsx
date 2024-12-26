@@ -46,12 +46,24 @@ export default function Blog() {
 						author: {
 							'@type': 'Person',
 							name: 'Bakir Gracić',
-							url: 'https://bakir.dev/',
+							image: 'https://bakir.dev/bakir-gracic.jpg',
+							jobTitle: 'Fullstack Web Developer',
+							description:
+								'Bakir Gracić is a fullstack web developer who builds high-quality, robust, scalable and secure software that adds value to the world.',
+							url: 'https://bakir.dev',
+							sameAs: ['https://www.linkedin.com/in/bakirgracic/', 'https://github.com/BakirGracic', 'https://buymeacoffee.com/bakirgracic'],
+							email: 'mailto:me@bakir.dev',
 						},
 						publisher: {
 							'@type': 'Person',
 							name: 'Bakir Gracić',
-							url: 'https://bakir.dev/',
+							image: 'https://bakir.dev/bakir-gracic.jpg',
+							jobTitle: 'Fullstack Web Developer',
+							description:
+								'Bakir Gracić is a fullstack web developer who builds high-quality, robust, scalable and secure software that adds value to the world.',
+							url: 'https://bakir.dev',
+							sameAs: ['https://www.linkedin.com/in/bakirgracic/', 'https://github.com/BakirGracic', 'https://buymeacoffee.com/bakirgracic'],
+							email: 'mailto:me@bakir.dev',
 						},
 					}),
 				}}

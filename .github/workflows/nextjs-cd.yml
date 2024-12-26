@@ -42,6 +42,9 @@ jobs:
               run: npx next telemetry disable
 
             - name: Build
+              env:
+                  NODEMAILER_USER: ${{ secrets.NODEMAILER_USER }}
+                  NODEMAILER_PASS: ${{ secrets.NODEMAILER_PASS }}
               run: npm run build
 
             - name: Reload PM2

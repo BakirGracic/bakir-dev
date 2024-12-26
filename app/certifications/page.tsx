@@ -40,7 +40,7 @@ const certificationLinks = [
 	},
 ];
 
-export default function Certification() {
+export default function Certifications() {
 	return (
 		<>
 			<Script

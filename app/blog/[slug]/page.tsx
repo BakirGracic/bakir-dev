@@ -2,7 +2,6 @@ import { notFound } from 'next/navigation';
 import { getBlogPosts } from '@/lib/blog';
 import { formatDatePublish } from '@/lib/misc';
 import Script from 'next/script';
-import RelativeTimeText from '@/components/RelativeTimeText';
 import CustomMDX from '@/components/CustomMDX';
 
 export function generateStaticParams() {
@@ -82,12 +81,24 @@ export default async function BlogPage({ params }: { params: Promise<{ slug: str
 						author: {
 							'@type': 'Person',
 							name: 'Bakir Gracić',
-							url: 'https://bakir.dev/',
+							image: 'https://bakir.dev/bakir-gracic.jpg',
+							jobTitle: 'Fullstack Web Developer',
+							description:
+								'Bakir Gracić is a fullstack web developer who builds high-quality, robust, scalable and secure software that adds value to the world.',
+							url: 'https://bakir.dev',
+							sameAs: ['https://www.linkedin.com/in/bakirgracic/', 'https://github.com/BakirGracic', 'https://buymeacoffee.com/bakirgracic'],
+							email: 'mailto:me@bakir.dev',
 						},
 						publisher: {
 							'@type': 'Person',
 							name: 'Bakir Gracić',
-							url: 'https://bakir.dev/',
+							image: 'https://bakir.dev/bakir-gracic.jpg',
+							jobTitle: 'Fullstack Web Developer',
+							description:
+								'Bakir Gracić is a fullstack web developer who builds high-quality, robust, scalable and secure software that adds value to the world.',
+							url: 'https://bakir.dev',
+							sameAs: ['https://www.linkedin.com/in/bakirgracic/', 'https://github.com/BakirGracic', 'https://buymeacoffee.com/bakirgracic'],
+							email: 'mailto:me@bakir.dev',
 						},
 						image: {
 							'@type': 'ImageObject',
@@ -107,11 +118,7 @@ export default async function BlogPage({ params }: { params: Promise<{ slug: str
 			/>
 			<section>
 				<h1 className='heading1 tracking-tight'>{blogPost.metadata.title}</h1>
-				<div className='mb-14 darkerText flex items-center gap-1'>
-					<span>{formatDatePublish(blogPost.metadata.published)}</span>
-					<span>•</span>
-					<RelativeTimeText date={blogPost.metadata.published} />
-				</div>
+				<div className='mb-14 darkerText flex items-center gap-1'>{formatDatePublish(blogPost.metadata.published)}</div>
 				<CustomMDX rawMD={blogPost.content} />
 			</section>
 		</>

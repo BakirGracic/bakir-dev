@@ -31,6 +31,18 @@
 .button:hover svg {
 	@apply !fill-white dark:!fill-black;
 }
+.button:disabled {
+	@apply border-black/25 dark:border-white/25 text-black/25 dark:text-white/25 cursor-not-allowed;
+}
+.button:disabled svg {
+	@apply fill-black/25 dark:fill-white/25;
+}
+.button:disabled:hover {
+	@apply bg-transparent text-black/25 dark:text-white/25;
+}
+.button:disabled:hover svg {
+	@apply !fill-black/25 dark:!fill-white/25;
+}
 
 /* cards */
 .cardHeading {
@@ -44,4 +56,30 @@
 .prose pre,
 .prose code {
 	@apply font-mono;
+}
+
+/* contact form */
+.contactInput {
+	@apply bg-white dark:bg-black w-full px-3 py-2 transition-all rounded-lg border-2 md:border-black/50 md:dark:border-white/50 border-black dark:border-white;
+}
+.contactInput:hover {
+	@apply border-black dark:border-white;
+}
+.contactInput:focus {
+	@apply !outline-none border-[#06AAF4];
+}
+.contactInput:disabled {
+	@apply border-black/25 dark:border-white/25 text-black/25 dark:text-white/25 cursor-not-allowed;
+}
+.contactInput:disabled::placeholder {
+	@apply text-black/25 dark:text-white/25;
+}
+.contactMEDMEDENI {
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 0;
+	width: 0;
+	z-index: -1;
 }

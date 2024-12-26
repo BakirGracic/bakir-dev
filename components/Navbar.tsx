@@ -1,18 +1,33 @@
 import Link from 'next/link';
+import { HomeIcon } from '@heroicons/react/24/solid';
 
-const navbarLinks = ['home', 'blog', 'projects', 'certifications', 'links'];
+const navbarLinks = [
+	{ name: 'blog', title: 'Blogs Page' },
+	{ name: 'projects', title: 'Projects Page' },
+	{ name: 'certifications', title: 'Certifications Page' },
+	{ name: 'endorsements', title: 'Endorsements Page' },
+	{ name: 'links', title: 'Links Page' },
+];
 
 export default function Navbar() {
 	return (
-		<header>
-			<nav className='mb-14 flex tracking-tighter'>
-				{navbarLinks.map((path, index) => (
+		<header className='mt-3 mb-14'>
+			<nav className='flex flex-wrap items-center tracking-tighter'>
+				<Link
+					href='/'
+					title='Home Page'
+					className='py-2 pr-3 mr-3 hoverText'
+				>
+					<HomeIcon className='size-5' />
+				</Link>
+				{navbarLinks.map(({ name, title }, index) => (
 					<Link
 						key={index}
-						href={`/${path === 'home' ? '' : path}`}
-						className='flex py-4 pr-3 mr-3 hoverText'
+						href={`/${name}`}
+						title={title}
+						className='py-2 pr-3 mr-3 hoverText'
 					>
-						{path}
+						{name}
 					</Link>
 				))}
 			</nav>

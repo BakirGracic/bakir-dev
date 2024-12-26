@@ -32,6 +32,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
 			priority: 1,
 		},
 		{
+			url: `${process.env.APP_URL}/endorsements`,
+			changeFrequency: 'monthly',
+			priority: 1,
+		},
+		{
 			url: `${process.env.APP_URL}/links`,
 			changeFrequency: 'monthly',
 			priority: 1,
