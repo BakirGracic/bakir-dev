@@ -44,8 +44,8 @@ jobs:
             - name: Build
               run: npm run build
               env:
-                  NODEMAILER_USER: ${{ secrets.NODEMAILER_USER }}
-                  NODEMAILER_PASS: ${{ secrets.NODEMAILER_PASS }}
+                  NODEMAILER_USER: '${{ secrets.NODEMAILER_USER }}'
+                  NODEMAILER_PASS: '${{ secrets.NODEMAILER_PASS }}'
 
             - name: Reload PM2
               run: pm2 reload all

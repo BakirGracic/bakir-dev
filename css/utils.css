@@ -23,14 +23,26 @@
 .button {
 	@apply transition-all duration-300 rounded-lg border border-black dark:border-white flex items-center justify-center gap-2;
 }
+.button svg {
+	@apply fill-black dark:fill-white;
+}
 .button:hover {
-	@apply bg-black dark:bg-white text-white dark:text-black fill-white dark:fill-black;
+	@apply bg-black dark:bg-white text-white dark:text-black;
+}
+.button:hover svg {
+	@apply fill-white dark:fill-black;
 }
 .button:disabled {
 	@apply border-black/25 dark:border-white/25 text-black/25 dark:text-white/25 cursor-not-allowed fill-black/25 dark:fill-white/25;
 }
+.button:disabled svg {
+	@apply fill-black/25 dark:fill-white/25;
+}
 .button:disabled:hover {
 	@apply bg-transparent text-black/25 dark:text-white/25 fill-black/25 dark:fill-white/25;
+}
+.button:disabled:hover svg {
+	@apply fill-black/25 dark:fill-white/25;
 }
 
 /* cards */
