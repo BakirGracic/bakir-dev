@@ -4,11 +4,13 @@ import { useActionState } from 'react';
 import { contactFormSend } from '@/actions/contact-form';
 import { CheckCircleIcon, ExclamationTriangleIcon, PaperAirplaneIcon } from '@heroicons/react/24/solid';
 
+const defaultFormState = {
+	msg: '',
+	status: '',
+};
+
 export default function ContactForm() {
-	const [state, formAction, isPending] = useActionState(contactFormSend, {
-		msg: '',
-		status: '',
-	});
+	const [state, formAction, isPending] = useActionState(contactFormSend, defaultFormState);
 
 	return (
 		<>
@@ -79,7 +81,7 @@ export default function ContactForm() {
 					</label>
 					<textarea
 						className='contactInput'
-						placeholder="Hello... I'm... I want to... Please/Thanks... Bye!"
+						placeholder="Hello I'm... This... That... Bye!"
 						name='fMessage'
 						maxLength={3600}
 						minLength={3}
@@ -123,14 +125,15 @@ export default function ContactForm() {
 						<PaperAirplaneIcon className='size-5' />
 						<span>Send</span>
 					</button>
+
 					{state.status === 'OK' && (
-						<div className='flex items-center gap-1 text-[#00A96E] fill-[#00A96E]'>
+						<div className='flex items-center gap-1 text-successGreen fill-successGreen'>
 							<CheckCircleIcon className='size-5' />
 							<p>{state.msg}</p>
 						</div>
 					)}
 					{state.status === 'ERR' && (
-						<div className='flex items-center gap-1 text-[#FF5861] fill-[#FF5861]'>
+						<div className='flex items-center gap-1 text-errorRed fill-errorRed'>
 							<ExclamationTriangleIcon className='size-5' />
 							<p>{state.msg}</p>
 						</div>

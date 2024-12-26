@@ -1,5 +1,3 @@
-/* html styles */
-
 @media (prefers-color-scheme: dark) {
 	html {
 		color-scheme: dark;
@@ -19,7 +17,7 @@
 }
 
 *:focus-visible {
-	@apply outline-[3px] outline-[#06AAF4] outline-dashed;
+	@apply outline-[3px] outline-powderBlue outline-dashed;
 }
 
 body {

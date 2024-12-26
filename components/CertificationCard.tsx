@@ -1,5 +1,5 @@
-import Button from '@/components/Button';
 import Image, { StaticImageData } from 'next/image';
+import Button from '@/components/Button';
 import { CheckBadgeIcon } from '@heroicons/react/16/solid';
 
 export default function CertificationCard({ img, title, description, link }: { img: StaticImageData | string; title: string; description: string; link: string }) {

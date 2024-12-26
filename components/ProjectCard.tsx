@@ -1,17 +1,17 @@
 import Image, { StaticImageData } from 'next/image';
-import { DocumentTextIcon, LinkIcon } from '@heroicons/react/24/solid';
 import Button from '@/components/Button';
+import { DocumentTextIcon, LinkIcon } from '@heroicons/react/24/solid';
 import GitHub from '@/components/icons/GitHub';
 
 export default function ProjectCard({
-	imgSrc,
+	img,
 	title,
 	description,
 	webLink,
 	gitLink,
 	blogLink,
 }: {
-	imgSrc: StaticImageData | string;
+	img: StaticImageData | string;
 	title: string;
 	description: string;
 	webLink?: string;
@@ -21,7 +21,7 @@ export default function ProjectCard({
 	return (
 		<div className='box'>
 			<Image
-				src={imgSrc}
+				src={img}
 				alt={`Project Card Image with title ${title}`}
 				width={640}
 				height={360}
@@ -32,7 +32,7 @@ export default function ProjectCard({
 				<h2 className='cardHeading'>{title}</h2>
 				<p className='mb-7'>{description}</p>
 				<div className='cardButtons'>
-					{webLink ? (
+					{webLink && (
 						<Button
 							href={webLink}
 							blank
@@ -42,8 +42,8 @@ export default function ProjectCard({
 							<LinkIcon className='size-4' />
 							<span>Website</span>
 						</Button>
-					) : null}
-					{gitLink ? (
+					)}
+					{gitLink && (
 						<Button
 							href={gitLink}
 							blank
@@ -53,8 +53,8 @@ export default function ProjectCard({
 							<GitHub className='size-4' />
 							<span>GitHub</span>
 						</Button>
-					) : null}
-					{blogLink ? (
+					)}
+					{blogLink && (
 						<Button
 							href={blogLink}
 							blank
@@ -64,7 +64,7 @@ export default function ProjectCard({
 							<DocumentTextIcon className='size-4' />
 							<span>Blog</span>
 						</Button>
-					) : null}
+					)}
 				</div>
 			</div>
 		</div>

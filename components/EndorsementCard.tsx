@@ -9,15 +9,15 @@ export default function EndorsementCard({
 	role,
 	text,
 }: {
-	img: string | null | StaticImageData;
+	img: StaticImageData | string | null;
 	full_name: string;
 	email: string;
 	role: string;
 	text: string;
 }) {
 	return (
-		<div>
-			<div className='flex items-center gap-4 mb-4'>
+		<div className='flex flex-col gap-4'>
+			<div className='flex items-center gap-4'>
 				{img != null ? (
 					<Image
 						src={img}

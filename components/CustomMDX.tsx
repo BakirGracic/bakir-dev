@@ -11,6 +11,7 @@ export default function CustomMDX({ rawMD }: { rawMD: string }) {
 	);
 }
 
+// TODO custom blog parsing
 // make h tags be nextjs links with # link of their slug with function slugify() and to have hashtag icon visible on hover right of the h tag
 // make all text be black on white theme and white on black theme
 // make links have arrow to the left of them

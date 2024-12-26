@@ -1,4 +1,6 @@
+import { error } from 'console';
 import type { Config } from 'tailwindcss';
+import { DEFAULT_CIPHERS } from 'tls';
 
 const config: Config = {
 	content: ['./components/**/*.{js,ts,jsx,tsx,mdx}', './app/**/*.{js,ts,jsx,tsx,mdx}'],
@@ -7,6 +9,17 @@ const config: Config = {
 		extend: {
 			fontFamily: {
 				mono: ['var(--font-roboto-mono)'],
+			},
+			colors: {
+				powderBlue: {
+					DEFAULT: '#06AAF4',
+				},
+				successGreen: {
+					DEFAULT: '#00A96E',
+				},
+				errorRed: {
+					DEFAULT: '#FF5861',
+				},
 			},
 		},
 	},
