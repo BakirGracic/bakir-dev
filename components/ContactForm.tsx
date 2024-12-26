@@ -129,13 +129,13 @@ export default function ContactForm() {
 					{state.status === 'OK' && (
 						<div className='flex items-center gap-1 text-successGreen fill-successGreen'>
 							<CheckCircleIcon className='size-5' />
-							<p>{state.msg}</p>
+							<p className='leading-tight'>{state.msg}</p>
 						</div>
 					)}
 					{state.status === 'ERR' && (
 						<div className='flex items-center gap-1 text-errorRed fill-errorRed'>
 							<ExclamationTriangleIcon className='size-5' />
-							<p>{state.msg}</p>
+							<p className='leading-tight'>{state.msg}</p>
 						</div>
 					)}
 				</div>
