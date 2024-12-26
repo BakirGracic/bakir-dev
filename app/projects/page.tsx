@@ -186,7 +186,7 @@ export default function Projects() {
 				<div className='flex flex-col gap-5'>
 					{/* daisyui theme preview */}
 					<ProjectCard
-						imgSrc={DaisyUIThemePreviewPNG}
+						img={DaisyUIThemePreviewPNG}
 						title='DaisyUI Theme Preview'
 						description='Preview DaisyUI preset and custom themes'
 						webLink='https://daisyui-theme-preview.bakir.dev/'
@@ -196,7 +196,7 @@ export default function Projects() {
 
 					{/* how much i wasted */}
 					<ProjectCard
-						imgSrc={HowMuchIWastedPNG}
+						img={HowMuchIWastedPNG}
 						title='How Much I Wasted?'
 						description='Check how much of your life you have wasted'
 						webLink='https://howmuchiwasted.bakir.dev/'
@@ -206,7 +206,7 @@ export default function Projects() {
 
 					{/* cs2 dedicated server in 2024 */}
 					<ProjectCard
-						imgSrc='https://opengraph.githubassets.com/1/BakirGracic/cs2-dedicated-server-in-2024'
+						img='https://opengraph.githubassets.com/1/BakirGracic/cs2-dedicated-server-in-2024'
 						title='CS2 Dedicated Server in 2024'
 						description='Guide on how to host a CS2 server in 2024'
 						gitLink='https://github.com/BakirGracic/cs2-dedicated-server-in-2024'
@@ -215,7 +215,7 @@ export default function Projects() {
 
 					{/* bih registration plates */}
 					<ProjectCard
-						imgSrc='https://opengraph.githubassets.com/1/BakirGracic/bih-registration-plates/'
+						img='https://opengraph.githubassets.com/1/BakirGracic/bih-registration-plates/'
 						title='BiH Registration Plates'
 						description='Comprensive list of BiH registration plates with a C++ project'
 						gitLink='https://github.com/BakirGracic/bih-registration-plates/'
@@ -224,7 +224,7 @@ export default function Projects() {
 
 					{/* windows font installer */}
 					<ProjectCard
-						imgSrc='https://opengraph.githubassets.com/1/BakirGracic/windows-font-installer/'
+						img='https://opengraph.githubassets.com/1/BakirGracic/windows-font-installer/'
 						title='Windows Font Installer'
 						description='PowerShell script to install bulk fonts on Windows'
 						gitLink='https://github.com/BakirGracic/windows-font-installer/'
@@ -232,7 +232,7 @@ export default function Projects() {
 
 					{/* curl get request spammer */}
 					<ProjectCard
-						imgSrc='https://opengraph.githubassets.com/1/BakirGracic/curl-get-request-spammer/'
+						img='https://opengraph.githubassets.com/1/BakirGracic/curl-get-request-spammer/'
 						title='Web Request Spammer'
 						description='Spam GET requests to a web URL using CURL'
 						gitLink='https://github.com/BakirGracic/curl-get-request-spammer/'
