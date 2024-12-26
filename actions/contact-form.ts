@@ -39,8 +39,8 @@ export async function contactFormSend(state: ContactFormFormStatus, formData: Fo
 		});
 
 		return { msg: 'Message sent!', status: 'OK' };
-	} catch (error: Error | unknown) {
-		return { msg: (error as Error).toString(), status: 'ERR' };
+	} catch (error: unknown) {
+		return { msg: 'Something went wrong!', status: 'ERR' };
 	} finally {
 		revalidatePath('/links');
 	}
