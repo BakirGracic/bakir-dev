@@ -3,9 +3,9 @@ import ArrowLink from '@/components/ArrowLink';
 import { EnvelopeIcon } from '@heroicons/react/24/solid';
 
 const footerLinks = [
-	{ href: '/links', text: 'links', title: 'Links Page' },
-	{ href: '/sitemap.xml', text: 'sitemap', title: 'sitemap.xml' },
-	{ href: '/rss', text: 'rss', title: 'RSS Feed' },
+	{ href: 'links', text: 'links', title: 'Links Page' },
+	{ href: 'sitemap.xml', text: 'sitemap', title: 'sitemap.xml' },
+	{ href: 'rss', text: 'rss', title: 'RSS Feed' },
 ];
 
 export default function Footer() {
