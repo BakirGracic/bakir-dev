@@ -16,8 +16,12 @@
 	}
 }
 
+* {
+	@apply [&::-webkit-scrollbar]:w-[7px] [&::-webkit-scrollbar]:h-[7px] [&::-webkit-scrollbar-thumb]:bg-black dark:[&::-webkit-scrollbar-thumb]:bg-white [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-transparent;
+}
+
 *:focus-visible {
-	@apply outline-[3px] outline-powderBlue outline-dashed;
+	@apply outline-[3px] outline-black dark:outline-white outline-dashed;
 }
 
 body {

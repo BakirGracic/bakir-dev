@@ -11,9 +11,6 @@ const config: Config = {
 				mono: ['var(--font-roboto-mono)'],
 			},
 			colors: {
-				powderBlue: {
-					DEFAULT: '#06AAF4',
-				},
 				successGreen: {
 					DEFAULT: '#00A96E',
 				},

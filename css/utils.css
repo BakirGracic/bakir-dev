@@ -67,7 +67,7 @@
 	@apply border-black dark:border-white;
 }
 .contactInput:focus {
-	@apply !outline-none border-powderBlue;
+	@apply !outline-none border-black dark:border-white;
 }
 .contactInput:disabled {
 	@apply border-black/25 dark:border-white/25 text-black/25 dark:text-white/25 cursor-not-allowed;
