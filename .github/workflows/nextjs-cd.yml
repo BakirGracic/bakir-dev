@@ -24,12 +24,12 @@ jobs:
             - name: Install Dependencies
               run: npm ci
             - name: Build
+              env:
+                  TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+                  TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
               run: |
                   npx next telemetry disable
                   pm2 stop all
                   rm -rf .next
                   npm run build
                   pm2 restart all
-              env:
-                  TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-                  TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}

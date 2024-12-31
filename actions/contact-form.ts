@@ -3,7 +3,10 @@
 import { revalidatePath } from 'next/cache';
 import { ContactFormFormStatus } from '@/types/contact-form';
 
-export async function contactFormSend(state: ContactFormFormStatus, formData: FormData): Promise<ContactFormFormStatus> {
+export async function contactFormSend(
+	state: ContactFormFormStatus,
+	formData: FormData
+): Promise<ContactFormFormStatus> {
 	const sanitize = (str: FormDataEntryValue | null) => {
 		return str ? str.toString().replace(/</g, '&lt;').replace(/>/g, '&gt;') : '';
 	};
@@ -17,8 +20,8 @@ export async function contactFormSend(state: ContactFormFormStatus, formData: Fo
 		honeyPotName: sanitize(formData.get('fmmName')),
 	};
 
-	const botToken = process.env.TELEGRAM_BOT_TOKEN;
-	const botChatId = process.env.TELEGRAM_CHAT_ID;
+	const botToken = process.env.NEXT_PUBLIC_TELEGRAM_BOT_TOKEN;
+	const botChatId = process.env.NEXT_PUBLIC_TELEGRAM_CHAT_ID;
 	const botApiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
 	const botMessage = `
         📩 *[bakir.dev] New Contact Form Submission*:

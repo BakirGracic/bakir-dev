@@ -16,10 +16,7 @@ export default function ContactForm() {
 		<>
 			<form action={formAction}>
 				<div className='mb-5'>
-					<label
-						htmlFor='fName'
-						className='text-sm'
-					>
+					<label htmlFor='fName' className='text-sm'>
 						Name
 					</label>
 					<input
@@ -35,10 +32,7 @@ export default function ContactForm() {
 				</div>
 
 				<div className='mb-5'>
-					<label
-						htmlFor='fContact'
-						className='text-sm'
-					>
+					<label htmlFor='fContact' className='text-sm'>
 						Contact Detail<sup className='text-[#ff0000]'>*</sup>
 					</label>
 					<input
@@ -55,10 +49,7 @@ export default function ContactForm() {
 				</div>
 
 				<div className='mb-5'>
-					<label
-						htmlFor='fSubject'
-						className='text-sm'
-					>
+					<label htmlFor='fSubject' className='text-sm'>
 						Subject
 					</label>
 					<input
@@ -73,10 +64,7 @@ export default function ContactForm() {
 				</div>
 
 				<div className='mb-5'>
-					<label
-						htmlFor='fMessage'
-						className='text-sm'
-					>
+					<label htmlFor='fMessage' className='text-sm'>
 						Message<sup className='text-[#ff0000]'>*</sup>
 					</label>
 					<textarea
@@ -116,12 +104,8 @@ export default function ContactForm() {
 				/>
 				{/* med medeni */}
 
-				<div className='flex items-center gap-5'>
-					<button
-						type='submit'
-						disabled={isPending}
-						className='button px-3 py-2 contactSubmit'
-					>
+				<div className='flex items-center gap-5 break-all'>
+					<button type='submit' disabled={isPending} className='button px-3 py-2 contactSubmit'>
 						<PaperAirplaneIcon className='size-5' />
 						<span>Send</span>
 					</button>

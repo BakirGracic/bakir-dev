@@ -58,6 +58,9 @@
 .prose code {
 	@apply font-mono;
 }
+.prose * {
+	@apply break-words;
+}
 
 /* contact form */
 .contactInput {
