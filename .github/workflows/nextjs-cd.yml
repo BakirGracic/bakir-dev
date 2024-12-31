@@ -25,8 +25,8 @@ jobs:
               run: npm ci
             - name: Build
               env:
-                  TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-                  TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+                  TELEGRAM_BOT_TOKEN: ${{ secrets.NEXT_PUBLIC_TELEGRAM_BOT_TOKEN }}
+                  TELEGRAM_CHAT_ID: ${{ secrets.NEXT_PUBLIC_TELEGRAM_CHAT_ID }}
               run: |
                   npx next telemetry disable
                   pm2 stop all

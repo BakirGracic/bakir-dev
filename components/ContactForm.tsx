@@ -104,7 +104,7 @@ export default function ContactForm() {
 				/>
 				{/* med medeni */}
 
-				<div className='flex items-center gap-5 break-all'>
+				<div className='flex items-center gap-5'>
 					<button type='submit' disabled={isPending} className='button px-3 py-2 contactSubmit'>
 						<PaperAirplaneIcon className='size-5' />
 						<span>Send</span>
