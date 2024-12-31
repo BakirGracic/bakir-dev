@@ -40,12 +40,14 @@ export async function contactFormSend(state: ContactFormFormStatus, formData: Fo
 		});
 
 		if (!response.ok) {
-			throw new Error();
+			const errorText = await response.text();
+			throw new Error(errorText);
 		}
 
 		return { msg: 'Message sent!', status: 'OK' };
 	} catch (error: unknown) {
-		return { msg: 'Something went wrong!', status: 'ERR' };
+		const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+		return { msg: `Something went wrong! ERROR: ${errorMessage}`, status: 'ERR' };
 	} finally {
 		revalidatePath('/links');
 	}
