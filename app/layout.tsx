@@ -18,20 +18,20 @@ export const metadata: Metadata = {
 	creator: 'Bakir Gracić',
 	publisher: 'Bakir Gracić',
 	alternates: {
-		canonical: `${process.env.APP_URL}/`,
+		canonical: `${process.env.NEXT_PUBLIC_APP_URL}/`,
 		languages: {
-			'en-US': `${process.env.APP_URL}/`,
+			'en-US': `${process.env.NEXT_PUBLIC_APP_URL}/`,
 		},
 	},
 	openGraph: {
 		title: 'Bakir Gracić | The Bosnian Dev',
 		description:
 			"Explore The Bosnian Developer's personal website & blog for insightful tips, helpful advice, fun & educational content on software development. Uncover his top projects, achievements, certifications, and find links to connect",
-		url: `${process.env.APP_URL}/`,
+		url: `${process.env.NEXT_PUBLIC_APP_URL}/`,
 		siteName: 'Bakir Gracić | The Bosnian Dev',
 		images: [
 			{
-				url: `${process.env.APP_URL}/og.png`,
+				url: `${process.env.NEXT_PUBLIC_APP_URL}/og.png`,
 				alt: 'Bakir Gracić Personal Website and Blog OpenGraph Image',
 				width: 1200,
 				height: 630,
@@ -69,7 +69,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 				<main>{children}</main>
 				<Footer />
 			</body>
-			{process.env.GOOGLE_ANALYTICS_ID && <GoogleAnalytics gaId={process.env.GOOGLE_ANALYTICS_ID} />}
+			{process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID && <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID} />}
 		</html>
 	);
 }

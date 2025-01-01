@@ -25,18 +25,18 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 		title: `${blogPost.metadata.title} | Bakir Gracić`,
 		description: blogPost.metadata.summary,
 		alternates: {
-			canonical: `${process.env.APP_URL}/blog/${urlSlug}`,
+			canonical: `${process.env.NEXT_PUBLIC_APP_URL}/blog/${urlSlug}`,
 			languages: {
-				'en-US': `${process.env.APP_URL}/blog/${urlSlug}`,
+				'en-US': `${process.env.NEXT_PUBLIC_APP_URL}/blog/${urlSlug}`,
 			},
 		},
 		openGraph: {
 			title: `${blogPost.metadata.title} | Bakir Gracić`,
 			description: blogPost.metadata.summary,
-			url: `${process.env.APP_URL}/blog/${urlSlug}`,
+			url: `${process.env.NEXT_PUBLIC_APP_URL}/blog/${urlSlug}`,
 			images: [
 				{
-					url: `${process.env.APP_URL}/og?title=${encodeURIComponent(blogPost.metadata.title)}`,
+					url: `${process.env.NEXT_PUBLIC_APP_URL}/og?title=${encodeURIComponent(blogPost.metadata.title)}`,
 					alt: 'Bakir Gracić Personal Website and Blog OpenGraph Image',
 					width: 1200,
 					height: 630,

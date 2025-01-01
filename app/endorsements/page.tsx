@@ -7,18 +7,18 @@ export const metadata: Metadata = {
 	title: 'Bakir Gracić | Endorsements',
 	description: 'Word of mouth is the best form of marketing. Check out what others have to say about Bakir Gracić and their work',
 	alternates: {
-		canonical: `${process.env.APP_URL}/endorsements`,
+		canonical: `${process.env.NEXT_PUBLIC_APP_URL}/endorsements`,
 		languages: {
-			'en-US': `${process.env.APP_URL}/endorsements`,
+			'en-US': `${process.env.NEXT_PUBLIC_APP_URL}/endorsements`,
 		},
 	},
 	openGraph: {
 		title: 'Bakir Gracić | Endorsements',
 		description: 'Word of mouth is the best form of marketing. Check out what others have to say about Bakir Gracić and their work',
-		url: `${process.env.APP_URL}/endorsements`,
+		url: `${process.env.NEXT_PUBLIC_APP_URL}/endorsements`,
 		images: [
 			{
-				url: `${process.env.APP_URL}/og?title=${encodeURIComponent('Bakir Gracić | Endorsements')}`,
+				url: `${process.env.NEXT_PUBLIC_APP_URL}/og?title=${encodeURIComponent('Bakir Gracić | Endorsements')}`,
 				alt: 'Bakir Gracić Personal Website and Blog OpenGraph Image',
 				width: 1200,
 				height: 630,

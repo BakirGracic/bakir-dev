@@ -7,18 +7,18 @@ export const metadata: Metadata = {
 	title: 'Bakir Gracić | Certifications',
 	description: "Certifications are a credible way to prove someone's skills and expertise. Here you can explore what certificates Bakir earned.",
 	alternates: {
-		canonical: `${process.env.APP_URL}/certifications`,
+		canonical: `${process.env.NEXT_PUBLIC_APP_URL}/certifications`,
 		languages: {
-			'en-US': `${process.env.APP_URL}/certifications`,
+			'en-US': `${process.env.NEXT_PUBLIC_APP_URL}/certifications`,
 		},
 	},
 	openGraph: {
 		title: 'Bakir Gracić | Certifications',
 		description: "Certifications are a credible way to prove someone's skills and expertise. Here you can explore what certificates Bakir earned.",
-		url: `${process.env.APP_URL}/certifications`,
+		url: `${process.env.NEXT_PUBLIC_APP_URL}/certifications`,
 		images: [
 			{
-				url: `${process.env.APP_URL}/og?title=${encodeURIComponent('Bakir Gracić | Certifications')}`,
+				url: `${process.env.NEXT_PUBLIC_APP_URL}/og?title=${encodeURIComponent('Bakir Gracić | Certifications')}`,
 				alt: 'Bakir Gracić Personal Website and Blog OpenGraph Image',
 				width: 1200,
 				height: 630,

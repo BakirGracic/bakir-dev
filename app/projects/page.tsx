@@ -8,18 +8,18 @@ export const metadata: Metadata = {
 	title: 'Bakir Gracić | Projects',
 	description: 'Projects are a great way to showcase your skills and knowledge. Explore some of projects showcasing my skills and knowledge in various domains.',
 	alternates: {
-		canonical: `${process.env.APP_URL}/projects`,
+		canonical: `${process.env.NEXT_PUBLIC_APP_URL}/projects`,
 		languages: {
-			'en-US': `${process.env.APP_URL}/projects`,
+			'en-US': `${process.env.NEXT_PUBLIC_APP_URL}/projects`,
 		},
 	},
 	openGraph: {
 		title: 'Bakir Gracić | Projects',
 		description: 'Projects are a great way to showcase your skills and knowledge. Explore some of projects showcasing my skills and knowledge in various domains.',
-		url: `${process.env.APP_URL}/projects`,
+		url: `${process.env.NEXT_PUBLIC_APP_URL}/projects`,
 		images: [
 			{
-				url: `${process.env.APP_URL}/og?title=${encodeURIComponent('Bakir Gracić | Projects')}`,
+				url: `${process.env.NEXT_PUBLIC_APP_URL}/og?title=${encodeURIComponent('Bakir Gracić | Projects')}`,
 				alt: 'Bakir Gracić Personal Website and Blog OpenGraph Image',
 				width: 1200,
 				height: 630,

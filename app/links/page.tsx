@@ -17,18 +17,18 @@ export const metadata: Metadata = {
 	title: 'Bakir Gracić | Links',
 	description: 'Find links to connect with Bakir Gracić on various platforms and services, and explore other links',
 	alternates: {
-		canonical: `${process.env.APP_URL}/links`,
+		canonical: `${process.env.NEXT_PUBLIC_APP_URL}/links`,
 		languages: {
-			'en-US': `${process.env.APP_URL}/links`,
+			'en-US': `${process.env.NEXT_PUBLIC_APP_URL}/links`,
 		},
 	},
 	openGraph: {
 		title: 'Bakir Gracić | Links',
 		description: 'Find links to connect with Bakir Gracić on various platforms and services, and explore other links',
-		url: `${process.env.APP_URL}/links`,
+		url: `${process.env.NEXT_PUBLIC_APP_URL}/links`,
 		images: [
 			{
-				url: `${process.env.APP_URL}/og?title=${encodeURIComponent('Bakir Gracić | Links')}`,
+				url: `${process.env.NEXT_PUBLIC_APP_URL}/og?title=${encodeURIComponent('Bakir Gracić | Links')}`,
 				alt: 'Bakir Gracić Personal Website and Blog OpenGraph Image',
 				width: 1200,
 				height: 630,
