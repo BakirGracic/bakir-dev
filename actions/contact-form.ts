@@ -20,8 +20,8 @@ export async function contactFormSend(
 		honeyPotName: sanitize(formData.get('fmmName')),
 	};
 
-	const botToken = process.env.NEXT_PUBLIC_TELEGRAM_BOT_TOKEN;
-	const botChatId = process.env.NEXT_PUBLIC_TELEGRAM_CHAT_ID;
+	const botToken = process.env.NEXT_PUBLIC_TELEGRAM_BOT_TOKEN || 'Bot token not found!';
+	const botChatId = process.env.NEXT_PUBLIC_TELEGRAM_CHAT_ID || 'Chat ID not found!';
 	const botApiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
 	const botMessage = `
         📩 *[bakir.dev] New Contact Form Submission*:
@@ -49,8 +49,7 @@ export async function contactFormSend(
 
 		return { msg: 'Message sent!', status: 'OK' };
 	} catch (error: unknown) {
-		const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-		return { msg: `Something went wrong! ERROR: ${errorMessage}`, status: 'ERR' };
+		return { msg: 'Something went wrong!', status: 'ERR' };
 	} finally {
 		revalidatePath('/links');
 	}
