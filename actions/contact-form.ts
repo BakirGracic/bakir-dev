@@ -20,8 +20,8 @@ export async function contactFormSend(
 		honeyPotName: sanitize(formData.get('fmmName')),
 	};
 
-	const botToken = process.env.TELEGRAM_BOT_TOKEN || 'Bot token not found!';
-	const botChatId = process.env.TELEGRAM_CHAT_ID || 'Chat ID not found!';
+	const botToken = process.env.TELEGRAM_BOT_TOKEN;
+	const botChatId = process.env.TELEGRAM_CHAT_ID;
 	const botApiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
 	const botMessage = `
         📩 *[bakir.dev] New Contact Form Submission*:
