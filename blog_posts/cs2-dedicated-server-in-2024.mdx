@@ -12,7 +12,7 @@ This guide will do everything from scratch with no helping tools/wrappers (strai
 
 ## How (CS2) Servers Work
 
-A server works by handling all of the user in-game interactions, processes it and sends it to clients. Along with a lot of incoming, there is also outgoing traffic. 
+A server works by handling all of the user in-game interactions, processes it and sends it to clients. Along with a lot of incoming, there is also outgoing traffic.
 
 CS2 server works by downloading all resources, files and code to be able to calculate everything, even though there is no GUI.
 
@@ -21,7 +21,9 @@ Steam, the company that made a platform for easier game selling and versioning, 
 In short, we will prepare our new Hetzner server, install that tool, install CS2 server files, configure the server and run it - then its only gaming time!
 
 ## System Requirements
+
 CS2 is not Tetris. We need some adequate horsepower to be able to run the server and manage players. Thankfully Hetzner has all the tools & power we need. But still:
+
 - RAM: 2GB
 - Storage: 35GB (install file is ~33GB)
 - OS: Minimum Ubuntu 20.04, Debian 11, or Enterprise Linux 9 (Glibc 2.31 required, most likely included in these or newser versions)
@@ -36,7 +38,7 @@ In your Hetzner account navigate to Cloud, then create a new project.
 Firstly create a firewall with these rules:
 
 | NAME                          | PROTOCOL | PORT  |
-|-------------------------------|----------|-------|
+| ----------------------------- | -------- | ----- |
 | SSH                           | TCP      | 22    |
 | ICMP (ping)                   | ICMP     |       |
 | 27015 UDP (game transmission) | UDP      | 27015 |
@@ -52,6 +54,7 @@ Firstly create a firewall with these rules:
 **_NOTE:_** The rules should apply to both IPv6 and IPv4 traffic!
 
 Let's provision our server now! Click on _Add server_ and:
+
 - pick an adequate location for you needs or closest to you
 - select Ubuntu 24.04 image
 - select Shared vCPU
@@ -162,7 +165,7 @@ Run this boring command to ensure the server can run (needs to be ran only once)
 mkdir ~/.steam/sdk64 && sudo ln -s ~/.local/share/Steam/steamcmd/linux64/steamclient.so ~/.steam/sdk64/
 ```
 
-Finally run the server with 
+Finally run the server with
 
 ```
 cd ~/.steam/steam/steamapps/common/Counter-Strike\ Global\ Offensive/game/bin/linuxsteamrt64 && ./cs2 -dedicated -ip "your-server-ip" -maxplayers 10 -port 27015 -tickrate 128 +hostname "CS2 DEDICATED SERVER TEST" +map de_ancient +sv_logfile 1 +sv_lan 0 +game_type 0 +game_mode 1 +sv_setsteamaccount "your-gslt-token"
@@ -189,6 +192,7 @@ mkdir -p ~/CS_SERVER && cd ~/CS_SERVER && wget -O cs_server.sh https://gist.gith
 ```
 
 This script will provide you with all the necessary tools for managing your CS2 server:
+
 - on setup you will be able to configure basic config options
 - you can run the server indefinetly with `./cs_server.sh start`
 - also you can stop the server with `./cs_server.sh stop`

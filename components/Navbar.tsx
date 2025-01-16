@@ -5,7 +5,11 @@ const navbarLinks = [
 	{ href: '', content: <HomeIcon className='size-5' />, title: 'Home Page' },
 	{ href: 'blog', content: 'blog', title: 'Blogs Page' },
 	{ href: 'projects', content: 'projects', title: 'Projects Page' },
-	{ href: 'certifications', content: 'certifications', title: 'Certifications Page' },
+	{
+		href: 'certifications',
+		content: 'certifications',
+		title: 'Certifications Page',
+	},
 	{ href: 'endorsements', content: 'endorsements', title: 'Endorsements Page' },
 	{ href: 'links', content: 'links', title: 'Links Page' },
 ];

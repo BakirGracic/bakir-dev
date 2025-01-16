@@ -3,10 +3,7 @@
 import { revalidatePath } from 'next/cache';
 import { ContactFormFormStatus } from '@/types/contact-form';
 
-export async function contactFormSend(
-	state: ContactFormFormStatus,
-	formData: FormData
-): Promise<ContactFormFormStatus> {
+export async function contactFormSend(state: ContactFormFormStatus, formData: FormData): Promise<ContactFormFormStatus> {
 	const sanitize = (str: FormDataEntryValue | null) => {
 		return str ? str.toString().replace(/</g, '&lt;').replace(/>/g, '&gt;') : '';
 	};

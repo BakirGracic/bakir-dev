@@ -12,6 +12,7 @@ import CV from '@/components/icons/CV';
 import BuyMeACoffee from '@/components/icons/BuyMeACoffee';
 import GitHubSponsors from '@/components/icons/GitHubSponsors';
 import Credly from '@/components/icons/Credly';
+import Leetcode from '@/components/icons/Leetcode';
 
 export const metadata: Metadata = {
 	title: 'Bakir Gracić | Links',
@@ -92,6 +93,11 @@ const socialLinks = [
 		icon: <Meetup />,
 		title: 'Meetup',
 	},
+	{
+		link: 'https://leetcode.com/u/bake_dev/',
+		icon: <Leetcode />,
+		title: 'Leetcode',
+	},
 ];
 
 export default function Links() {
@@ -150,8 +156,7 @@ export default function Links() {
 									name: 'Bakir Gracić',
 									image: 'https://bakir.dev/bakir-gracic.jpg',
 									jobTitle: 'Fullstack Web Developer',
-									description:
-										'Bakir Gracić is a fullstack web developer who builds high-quality, robust, scalable and secure software that adds value to the world.',
+									description: 'Bakir Gracić is a fullstack web developer who builds high-quality, robust, scalable and secure software that adds value to the world.',
 									url: 'https://bakir.dev',
 									sameAs: ['https://www.linkedin.com/in/bakirgracic/', 'https://github.com/BakirGracic', 'https://buymeacoffee.com/bakirgracic'],
 									email: 'mailto:me@bakir.dev',
@@ -167,8 +172,7 @@ export default function Links() {
 									name: 'Bakir Gracić',
 									image: 'https://bakir.dev/bakir-gracic.jpg',
 									jobTitle: 'Fullstack Web Developer',
-									description:
-										'Bakir Gracić is a fullstack web developer who builds high-quality, robust, scalable and secure software that adds value to the world.',
+									description: 'Bakir Gracić is a fullstack web developer who builds high-quality, robust, scalable and secure software that adds value to the world.',
 									url: 'https://bakir.dev',
 									sameAs: ['https://www.linkedin.com/in/bakirgracic/', 'https://github.com/BakirGracic', 'https://buymeacoffee.com/bakirgracic'],
 									email: 'mailto:me@bakir.dev',

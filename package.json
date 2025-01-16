@@ -4,7 +4,8 @@
 	"private": true,
 	"scripts": {
 		"npm": "rm -rf node_modules/ && npm i && npm i next@latest react@latest react-dom@latest && npm update --latest",
-		"dev": "rm -rf .next/ && next dev --turbopack",
+		"prettier": "prettier --write '**/*.*'",
+		"dev": "rm -rf .next/ && next dev --turbopack --experimental-https",
 		"build": "rm -rf .next/ && next build",
 		"start": "next start",
 		"lint": "next lint"
@@ -13,7 +14,7 @@
 		"@heroicons/react": "^2.2.0",
 		"@next/third-parties": "^15.1.0",
 		"marked": "^15.0.6",
-		"next": "^15.1.3",
+		"next": "^15.1.4",
 		"react": "^19.0.0",
 		"react-dom": "^19.0.0"
 	},

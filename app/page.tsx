@@ -15,8 +15,7 @@ export default function Homepage() {
 						name: 'Bakir Gracić',
 						image: 'https://bakir.dev/bakir-gracic.jpg',
 						jobTitle: 'Fullstack Web Developer',
-						description:
-							'Bakir Gracić is a fullstack web developer who builds high-quality, robust, scalable and secure software that adds value to the world.',
+						description: 'Bakir Gracić is a fullstack web developer who builds high-quality, robust, scalable and secure software that adds value to the world.',
 						url: 'https://bakir.dev',
 						sameAs: ['https://www.linkedin.com/in/bakirgracic/', 'https://github.com/BakirGracic', 'https://buymeacoffee.com/bakirgracic'],
 						email: 'mailto:me@bakir.dev',
@@ -49,9 +48,8 @@ export default function Homepage() {
 			<section className='mb-10'>
 				<h1 className='heading1'>Howdy 👋</h1>
 				<p className='tracking-tight'>
-					Name&apos;s Bakir and I&apos;m a full-stack web developer. I try to work hard and build high-quality, robust, scalable and secure software that adds
-					value to the world. My goal is to apply skills in profitable & real business solutions. Feel free to learn more about me by exploring my website. If
-					you want to chat, HMU on any platform. Cheers!
+					Name&apos;s Bakir and I&apos;m a full-stack web developer. I try to work hard and build high-quality, robust, scalable and secure software that adds value to the world. My goal is
+					to apply skills in profitable & real business solutions. Feel free to learn more about me by exploring my website. If you want to chat, HMU on any platform. Cheers!
 				</p>
 			</section>
 
@@ -68,8 +66,7 @@ export default function Homepage() {
 			<section className='mb-10'>
 				<h2 className='heading2'>Projects</h2>
 				<p className='mb-4 tracking-tight'>
-					Check out some of the projects I&apos;ve worked on. Each project showcases my skills and dedication for creating awesome software. See what I&apos;ve
-					been up to lately!
+					Check out some of the projects I&apos;ve worked on. Each project showcases my skills and dedication for creating awesome software. See what I&apos;ve been up to lately!
 				</p>
 				<ArrowLink
 					href='/projects'
@@ -81,8 +78,7 @@ export default function Homepage() {
 			<section className='mb-10'>
 				<h2 className='heading2'>Certifications</h2>
 				<p className='mb-4 tracking-tight'>
-					Certifications validate expertise and commitment to continuous learning in the industry. Find out how certifications contribute to my professional
-					growth.
+					Certifications validate expertise and commitment to continuous learning in the industry. Find out how certifications contribute to my professional growth.
 				</p>
 				<ArrowLink
 					href='/certifications'
@@ -104,8 +100,7 @@ export default function Homepage() {
 			<section>
 				<h2 className='heading2'>Contact</h2>
 				<p className='mb-4 tracking-tight'>
-					Let&apos;s connect! If you have any questions or you just want to chat, feel free to reach out. I&apos;m always curious about new opportunities and
-					collaborations
+					Let&apos;s connect! If you have any questions or you just want to chat, feel free to reach out. I&apos;m always curious about new opportunities and collaborations
 				</p>
 				<ArrowLink
 					href='/links#contact'
