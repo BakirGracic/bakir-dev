@@ -6,6 +6,8 @@ node_modules/
 
 **/*.{jpg,jpeg,png,gif,svg,webp,mp4,avi,mov,wmv,mkv,flv,webm,ogg}
 
+src/blog_posts/
+
 public/
 
 .prettierignore

@@ -5,8 +5,8 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-    --font-sans: "Inter", "Inter Fallback";
-	--font-mono: "Roboto Mono", "Roboto Mono Fallback";
+	--font-sans: 'Inter', 'Inter Fallback';
+	--font-mono: 'Roboto Mono', 'Roboto Mono Fallback';
 }
 
 @import './global.css';
