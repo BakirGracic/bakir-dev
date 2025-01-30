@@ -2,7 +2,7 @@ import Script from 'next/script';
 import { notFound } from 'next/navigation';
 import { getBlogPosts } from '@/lib/blog';
 import { formatDatePublish } from '@/lib/misc';
-import CustomMDX from '@/features/blog/components/MDX';
+import { marked } from 'marked';
 
 export function generateStaticParams() {
 	const blogPosts = getBlogPosts();
@@ -61,6 +61,13 @@ export default async function BlogPage({ params }) {
 		notFound();
 	}
 
+	const html = marked.parse(blogPost.content);
+
+	// TODO custom blog parsing
+	// make h tags be nextjs links with # link of their slug with function slugify() and to have hashtag icon visible on hover right of the h tag
+	// make links have arrow to the left of them
+	// pre (or code blocks) whould have 'box' css class, and have clipboard icon inside the box that when clicked copies code to clipboard ans shows check icon for few seconds after copying
+
 	return (
 		<>
 			<Script
@@ -117,7 +124,10 @@ export default async function BlogPage({ params }) {
 			<section>
 				<h1 className='heading1 tracking-tight'>{blogPost.metadata.title}</h1>
 				<div className='darkerText mb-14 flex items-center gap-1'>{formatDatePublish(blogPost.metadata.published)}</div>
-				<CustomMDX rawMD={blogPost.content} />
+				<article
+					className='prose dark:prose-invert'
+					dangerouslySetInnerHTML={{ __html: html }}
+				/>
 			</section>
 		</>
 	);

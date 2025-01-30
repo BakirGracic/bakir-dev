@@ -12,7 +12,7 @@ export const viewport = coreViewport;
 export default function RootLayout({ children }) {
 	return (
 		<html lang='en-US'>
-			<body className={`${InterFont.className} ${RobotoMonoFont.variable}`}>
+			<body className={`${InterFont.variable} ${RobotoMonoFont.variable}`}>
 				<Navbar />
 				<main>{children}</main>
 				<Footer />
