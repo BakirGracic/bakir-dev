@@ -1,0 +1,57 @@
+---
+title: 'Top DIY IT Projects: Custom DNS, VPN, AI and Storage Solutions'
+published: '2024-05-31'
+summary: 'Explore interesting IT projects like custom DNS, VPN, AI, and file storage solutions for enhanced efficiency and security'
+---
+
+An essential trait for any developer or IT enthusiast is a constant interest in new technologies and a curiosity about how things work.
+
+Today, I'm excited to share some of my favorite projects that significantly improve quality of life. By building these, you'll not only learn new skills but also have a lot of fun!
+
+## Notice
+
+I'll be outlining the ideas behind each project to spark your interest and imagination. Detailed tutorials for each would be too long and potentially tedious.
+
+## DNS Server
+
+Typically, your Internet Service Provider (ISP) assigns a Domain Name System (DNS) server to your router/device. While this works fine for most consumers, some prefer custom, editable, and controllable solutions.
+
+This is where [AdGuard Home](https://adguard.com/en/adguard-home/overview.html) comes in. AdGuard is privacy and control-oriented DNS management software. It allows you to set custom DNS servers, blocklists, whitelists, DNS rewrites, and block certain services, all while providing valuable insights.
+
+To set it up, install the software on a device running 24/7 to act as your DNS server. Then, configure your router or specific devices to use this server for DNS queries.
+
+For installation, I recommend using a nearby server and your ISP's DNS server (find the IP/domain manually, but it might change). Install recommended blocklists for ads, analytics, and other unnecessary services, and block adult, scam, and gambling domains (great for parental controls). You can also make custom DNS rewrites or block specific services easily.
+
+If you're using Docker, ensure the directories and ports are set up correctly with the right port/protocol mapping.
+
+Set AdGuard as the primary DNS server in your router settings so all network devices will use it for DNS. Remember, if your server can't resolve DNS queries, your devices won't function properly, even if they show an internet connection. Also, you can use AdGuard as a Dynamic Host Configuration Protocol (DHCP) server!
+
+## AI Server
+
+Chat models are gaining popularity and have become integral to our lives. Have you ever wanted to use them offline or train a model on data specific to your needs? It's possible!
+
+One of the top tech YouTubers, NetworkChuck, made an entertaining and educational [video](https://www.youtube.com/watch?v=Wjrdr0NU4Sk) about this. Be sure to watch it!
+
+## NAS Server
+
+Everyone loves movies, music, cloud storage, file backups, and sharing. To meet these needs, I bought a simple PC to act as a server on my home network and fulfill these needs.
+
+[TrueNAS Scale](https://www.truenas.com/truenas-scale/) is excellent software to handle these tasks and more.
+
+My use cases include movie hosting and streaming (for home use only!), file backups, file sharing, music hosting and streaming, and running a DNS and VPN server to emulate accessing the internet from my home network. All of this is accessible outside my network, anywhere in the world by additionally setting port forwarding on in my router settings and having a static IPv4 for convenience.
+
+## VPN Server
+
+While you have your DNS server running, why not install Virtual Private Network (VPN) software on it? VPN providers often charge unaffordable monthly fees, but you can have a free VPN server with unlimited and faster bandwidth. The only drawback is that you can use only one location (exit node) per server/software.
+
+I recommend [WireGuard](https://www.wireguard.com/) as the VPN server software. It's secure and fast enough for 99% of use cases, even if it lacks the most advanced security algorithms.
+
+Install it via Docker using [WG Easy](https://github.com/wg-easy/wg-easy) to get a web control interface easily (since the software is Command Line Interface (CLI)-oriented out of the box).
+
+Every major platform has compatible client software, making it quick and easy to create and add devices to your VPN.
+
+## Summary
+
+In this blog post, we explored various quality-of-life IT projects that can significantly enhance your tech experience. We discussed setting up a DNS server using AdGuard Home for better control and privacy, creating a free VPN server with WireGuard for secure and fast connections, utilizing TrueNAS Scale for comprehensive file and media storage solutions, and setting up an AI server to use and train chat models offline.
+
+These projects not only boost your tech capabilities but also provide a fun and educational experience. Dive in and start building!

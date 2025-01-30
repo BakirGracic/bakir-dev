@@ -1,0 +1,12 @@
+@import 'tailwindcss' source(none);
+
+@source "../../src";
+
+@plugin "@tailwindcss/typography";
+
+@theme {
+	--font-mono: 'var(--font-roboto-mono)';
+}
+
+@import './global.css';
+@import './utils.css';
