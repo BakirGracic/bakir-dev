@@ -1,8 +1,8 @@
 import Image, { StaticImageData } from 'next/image';
-import Button from '@/features/Button';
+import Button from '@/features/ui/components/Button';
 import { CheckBadgeIcon } from '@heroicons/react/16/solid';
 
-export default function CertificationCard({ img, title, description, link }) {
+export default function Card({ img, title, description, link }) {
 	return (
 		<div className='box'>
 			<Image

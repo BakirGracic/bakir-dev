@@ -1,9 +1,9 @@
-import Image, { StaticImageData } from 'next/image';
-import Button from '@/features/Button';
+import Image from 'next/image';
+import Button from '@/features/ui/components/Button';
+import GitHub from '@/features/icons/components/GitHub';
 import { DocumentTextIcon, LinkIcon } from '@heroicons/react/24/solid';
-import GitHub from '@/features/icons/GitHub';
 
-export default function ProjectCard({ img, title, description, webLink, gitLink, blogLink }) {
+export default function Card({ img, title, description, webLink, gitLink, blogLink }) {
 	return (
 		<div className='box'>
 			<Image

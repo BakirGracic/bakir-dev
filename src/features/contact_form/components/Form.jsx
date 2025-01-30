@@ -1,7 +1,7 @@
 'use client';
 
 import { useActionState } from 'react';
-import { contactFormSend } from '@/actions/contact-form';
+import { send } from '@/features/contact_form/actions/send';
 import { CheckCircleIcon, ExclamationTriangleIcon, PaperAirplaneIcon } from '@heroicons/react/24/solid';
 
 const defaultFormState = {
@@ -9,8 +9,8 @@ const defaultFormState = {
 	status: '',
 };
 
-export default function ContactForm() {
-	const [state, formAction, isPending] = useActionState(contactFormSend, defaultFormState);
+export default function Form() {
+	const [state, formAction, isPending] = useActionState(send, defaultFormState);
 
 	return (
 		<>

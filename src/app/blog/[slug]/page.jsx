@@ -1,8 +1,8 @@
+import Script from 'next/script';
 import { notFound } from 'next/navigation';
 import { getBlogPosts } from '@/lib/blog';
 import { formatDatePublish } from '@/lib/misc';
-import Script from 'next/script';
-import CustomMDX from '@/features/CustomMDX';
+import CustomMDX from '@/features/blog/components/MDX';
 
 export function generateStaticParams() {
 	const blogPosts = getBlogPosts();
@@ -12,7 +12,7 @@ export function generateStaticParams() {
 	}));
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+export async function generateMetadata({ params }) {
 	const urlSlug = (await params).slug;
 
 	const blogPost = getBlogPosts().find((post) => post.slug === urlSlug);
@@ -52,7 +52,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 	};
 }
 
-export default async function BlogPage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function BlogPage({ params }) {
 	const urlSlug = (await params).slug;
 
 	const blogPost = getBlogPosts().find((post) => post.slug === urlSlug);
@@ -116,7 +116,7 @@ export default async function BlogPage({ params }: { params: Promise<{ slug: str
 			/>
 			<section>
 				<h1 className='heading1 tracking-tight'>{blogPost.metadata.title}</h1>
-				<div className='mb-14 darkerText flex items-center gap-1'>{formatDatePublish(blogPost.metadata.published)}</div>
+				<div className='darkerText mb-14 flex items-center gap-1'>{formatDatePublish(blogPost.metadata.published)}</div>
 				<CustomMDX rawMD={blogPost.content} />
 			</section>
 		</>

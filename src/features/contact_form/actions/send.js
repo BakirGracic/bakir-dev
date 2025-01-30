@@ -1,13 +1,8 @@
 'use server';
 
-import { revalidatePath } from 'next/cache';
-import { ContactFormFormStatus } from '@/types/contact-form';
+import { sanitize } from '@/lib/misc';
 
-export async function contactFormSend(state: ContactFormFormStatus, formData: FormData): Promise<ContactFormFormStatus> {
-	const sanitize = (str: FormDataEntryValue | null) => {
-		return str ? str.toString().replace(/</g, '&lt;').replace(/>/g, '&gt;') : '';
-	};
-
+export async function send(state, formData) {
 	const formFields = {
 		name: sanitize(formData.get('fName')),
 		contact: sanitize(formData.get('fContact')),
@@ -40,14 +35,11 @@ export async function contactFormSend(state: ContactFormFormStatus, formData: Fo
 		});
 
 		if (!response.ok) {
-			const errorText = await response.text();
-			throw new Error(errorText);
+			throw new Error();
 		}
 
 		return { msg: 'Message sent!', status: 'OK' };
-	} catch (error: unknown) {
+	} catch {
 		return { msg: 'Something went wrong!', status: 'ERR' };
-	} finally {
-		revalidatePath('/links');
 	}
 }

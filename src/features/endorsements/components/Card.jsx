@@ -1,8 +1,8 @@
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
 import { UserCircleIcon } from '@heroicons/react/24/solid';
 import { BuildingOfficeIcon, EnvelopeIcon } from '@heroicons/react/24/outline';
 
-export default function EndorsementCard({ img, full_name, email, role, text }) {
+export default function Card({ img, full_name, email, role, text }) {
 	return (
 		<div className='flex flex-col gap-4'>
 			<div className='flex items-center gap-4'>

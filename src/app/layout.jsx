@@ -2,8 +2,8 @@ import '@/css/tailwind.css';
 import { coreMetadata, coreViewport } from '@/lib/metadata';
 import { InterFont, RobotoMonoFont } from '@/lib/font';
 import { GoogleAnalytics } from '@next/third-parties/google';
-import Navbar from '@/features/Navbar';
-import Footer from '@/features/Footer';
+import Navbar from '@/features/navbar/components/Navbar';
+import Footer from '@/features/footer/components/Footer';
 
 export const metadata = coreMetadata;
 

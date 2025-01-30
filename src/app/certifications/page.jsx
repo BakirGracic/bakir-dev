@@ -1,9 +1,8 @@
-import CertificationCard from '@/features/CertificationCard';
 import Script from 'next/script';
-import type { Metadata } from 'next';
+import Card from '@/features/certifications/components/Card';
 import GitHubFoundationsPNG from '@/images/certifications/github_foundations/github-foundations.png';
 
-export const metadata: Metadata = {
+export const metadata = {
 	title: 'Bakir Gracić | Certifications',
 	description: "Certifications are a credible way to prove someone's skills and expertise. Here you can explore what certificates Bakir earned.",
 	alternates: {
@@ -24,10 +23,6 @@ export const metadata: Metadata = {
 				height: 630,
 			},
 		],
-	},
-	robots: {
-		index: true,
-		follow: true,
 	},
 };
 
@@ -85,9 +80,9 @@ export default function Certifications() {
 			/>
 			<section>
 				<h1 className='heading1'>My Certifications</h1>
-				<section className='grid grid-cols-1 sm:grid-cols-2 gap-3'>
+				<section className='grid grid-cols-1 gap-3 sm:grid-cols-2'>
 					{certificationLinks.map((item, index) => (
-						<CertificationCard
+						<Card
 							key={index}
 							img={item.img}
 							title={item.title}

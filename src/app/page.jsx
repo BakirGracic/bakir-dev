@@ -1,5 +1,5 @@
-import ArrowLink from '@/features/ArrowLink';
-import { BlogPosts } from '@/features/BlogPosts';
+import ArrowLink from '@/features/ui/components/ArrowLink';
+import Posts from '@/features/blog/components/Posts';
 import Script from 'next/script';
 
 export default function Homepage() {
@@ -55,7 +55,7 @@ export default function Homepage() {
 
 			<section className='mb-10'>
 				<h2 className='heading2'>Recent blog posts</h2>
-				<BlogPosts limit={5} />
+				<Posts limit={5} />
 				<ArrowLink
 					href='/blog'
 					text='See all blog posts'

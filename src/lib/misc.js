@@ -17,6 +17,10 @@ export function escapeXml(unsafe) {
 	});
 }
 
+export function sanitize(str) {
+	return str ? str.toString().replace(/</g, '&lt;').replace(/>/g, '&gt;') : '';
+}
+
 export function formatDatePublish(date) {
 	const targetDate = new Date(date.includes('T') ? date : `${date}T00:00:00`);
 

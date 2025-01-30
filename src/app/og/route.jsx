@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og';
 
-export async function GET(request: Request): Promise<ImageResponse> {
+export async function GET(request) {
 	const url = new URL(request.url);
 	const titleEncoded = url.searchParams.get('title') || null;
 	const titleDecoded = titleEncoded == null ? 'Bakir Gracić | The Bosnian Dev' : decodeURIComponent(titleEncoded.trim());

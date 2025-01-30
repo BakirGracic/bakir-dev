@@ -1,9 +1,8 @@
-import EndorsementCard from '@/features/EndorsementCard';
+import EndorsementCard from '@/features/endorsements/components/Card';
 import Script from 'next/script';
-import type { Metadata } from 'next';
 import JasminHasancevicHeadshotJPG from '@/images/endorsements/jasmin-hasancevic-headshot.jpeg';
 
-export const metadata: Metadata = {
+export const metadata = {
 	title: 'Bakir Gracić | Endorsements',
 	description: 'Word of mouth is the best form of marketing. Check out what others have to say about Bakir Gracić and their work',
 	alternates: {

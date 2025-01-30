@@ -1,20 +1,19 @@
-import Button from '@/features/Button';
 import Script from 'next/script';
-import ContactForm from '@/features/ContactForm';
-import type { Metadata } from 'next';
-import GitHub from '@/features/icons/GitHub';
-import LinkedIn from '@/features/icons/LinkedIn';
-import Twitter from '@/features/icons/Twitter';
-import Discord from '@/features/icons/Discord';
-import Luma from '@/features/icons/Luma';
-import Meetup from '@/features/icons/Meetup';
-import CV from '@/features/icons/CV';
-import BuyMeACoffee from '@/features/icons/BuyMeACoffee';
-import GitHubSponsors from '@/features/icons/GitHubSponsors';
-import Credly from '@/features/icons/Credly';
-import Leetcode from '@/features/icons/Leetcode';
+import Button from '@/features/ui/components/Button';
+import Form from '@/features/contact_form/components/Form';
+import GitHub from '@/features/icons/components/GitHub';
+import LinkedIn from '@/features/icons/components/LinkedIn';
+import Twitter from '@/features/icons/components/Twitter';
+import Discord from '@/features/icons/components/Discord';
+import Luma from '@/features/icons/components/Luma';
+import Meetup from '@/features/icons/components/Meetup';
+import CV from '@/features/icons/components/CV';
+import BuyMeACoffee from '@/features/icons/components/BuyMeACoffee';
+import GitHubSponsors from '@/features/icons/components/GitHubSponsors';
+import Credly from '@/features/icons/components/Credly';
+import Leetcode from '@/features/icons/components/Leetcode';
 
-export const metadata: Metadata = {
+export const metadata = {
 	title: 'Bakir Gracić | Links',
 	description: 'Find links to connect with Bakir Gracić on various platforms and services, and explore other links',
 	alternates: {
@@ -35,10 +34,6 @@ export const metadata: Metadata = {
 				height: 630,
 			},
 		],
-	},
-	robots: {
-		index: true,
-		follow: true,
 	},
 };
 
@@ -183,8 +178,8 @@ export default function Links() {
 				}}
 			/>
 			<section>
-				<h1 className='heading1'>Links to Connect</h1>
-				<div className='flex items-center justify-center flex-wrap gap-4 mb-14'>
+				<h1 className='heading1'>Links to connect</h1>
+				<div className='mb-14 flex flex-wrap items-center justify-center gap-4'>
 					{socialLinks.map((item, index) => (
 						<Button
 							key={index}
@@ -207,7 +202,7 @@ export default function Links() {
 					<p>Send me an email directly using the form below! If you prefer to send it yourself, send it to:&nbsp;&nbsp;&nbsp;</p>
 					<span className='!font-mono'>me (at) bakir (dot) dev</span>
 				</div>
-				<ContactForm />
+				<Form />
 			</section>
 		</>
 	);

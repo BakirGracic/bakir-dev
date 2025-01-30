@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { getBlogPosts } from '@/lib/blog';
 import { formatDatePublish } from '@/lib/misc';
 
-export function BlogPosts({ limit = -1 }) {
+export default function Posts({ limit = -1 }) {
 	const blogPosts = getBlogPosts(limit);
 
 	return blogPosts.map((post) => (

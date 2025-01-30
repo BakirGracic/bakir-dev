@@ -1,6 +1,6 @@
 import { marked } from 'marked';
 
-export default function CustomMDX({ rawMD }) {
+export default function MDX({ rawMD }) {
 	const html = marked.parse(rawMD);
 
 	return (
