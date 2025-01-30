@@ -1,7 +1,7 @@
 ---
-title: 'Bridging the Gap: Essential Tech Skills Your CS Degree Missed'
-published: '2024-07-19'
-summary: 'Discover the crucial tools and techniques overlooked by most computer science programs. Learn how mastering these skills can supercharge your development career'
+title: "Bridging the Gap: Essential Tech Skills Your CS Degree Missed"
+published: "2024-07-19"
+summary: "Discover the crucial tools and techniques overlooked by most computer science programs. Learn how mastering these skills can supercharge your development career"
 ---
 
 In today's rapidly evolving tech landscape, a formal Computer Science (CS) degree provides a solid foundation but often misses critical practical skills needed in the real world. Resources like [The Missing Semester](https://missing.csail.mit.edu/) from MIT aim to fill these gaps, offering invaluable knowledge for budding full stack developers.
@@ -33,7 +33,7 @@ Data wrangling involves cleaning and transforming data into a more usable and re
 ssh myserver journalctl
  | grep sshd
  | grep "Disconnected from"
- | sed -E 's/.*Disconnected from (invalid |authenticating )?user (.*) [^ ]+ port [0-9]+( \[preauth\])?$/\2/'
+ | sed -E 's/.*Disconnected from (invalid |authenticating )?user (.*) [^ ]+ port [0-9]+( \[preauth\])?$/\2/"
  | sort | uniq -c
  | sort -nk1,1 | tail -n10
  | awk '{print $2}' | paste -sd,
