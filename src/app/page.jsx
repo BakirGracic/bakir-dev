@@ -103,7 +103,7 @@ export default function Homepage() {
 					Let&apos;s connect! If you have any questions or you just want to chat, feel free to reach out. I&apos;m always curious about new opportunities and collaborations
 				</p>
 				<ArrowLink
-					href='/links#contact'
+					href='/links'
 					text='Contact me'
 					title='Links Page'
 				/>

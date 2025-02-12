@@ -1,6 +1,5 @@
 import Script from 'next/script';
 import Button from '@/features/ui/components/Button';
-import Form from '@/features/contact_form/components/Form';
 import GitHub from '@/features/icons/components/GitHub';
 import LinkedIn from '@/features/icons/components/LinkedIn';
 import Twitter from '@/features/icons/components/Twitter';
@@ -196,13 +195,12 @@ export default function Links() {
 					id='contact'
 					className='heading2'
 				>
-					Contact Form
+					Contact
 				</h2>
 				<div className='mb-6'>
-					<p>Send me an email directly using the form below! If you prefer to send it yourself, send it to:&nbsp;&nbsp;&nbsp;</p>
+					<p>If you prefer emails, you can send me one to:&nbsp;&nbsp;&nbsp;</p>
 					<span className='!font-mono'>me (at) bakir (dot) dev</span>
 				</div>
-				<Form />
 			</section>
 		</>
 	);

@@ -61,20 +61,3 @@
 .prose * {
 	@apply break-words;
 }
-
-/* contact form */
-.contactInput {
-	@apply w-full rounded-lg border-2 border-black bg-white px-3 py-2 transition-all md:border-black/50 dark:border-white dark:bg-black md:dark:border-white/50;
-}
-.contactInput:hover {
-	@apply border-black dark:border-white;
-}
-.contactInput:focus {
-	@apply border-black !outline-none dark:border-white;
-}
-.contactInput:disabled {
-	@apply cursor-not-allowed border-black/25 text-black/25 dark:border-white/25 dark:text-white/25;
-}
-.contactInput:disabled::placeholder {
-	@apply text-black/25 dark:text-white/25;
-}

@@ -33,7 +33,7 @@ function readAndParseMDXFile(path) {
 	frontmatterLines.forEach((line) => {
 		const [key, ...valueParts] = line.split(':');
 		if (key && valueParts.length) {
-			const value = valueParts.join(':').replace(/['"]/g, '').trim();
+			const value = valueParts.join(':').replace(/["]/g, '').trim();
 			metadata[key.trim()] = value;
 		}
 	});
