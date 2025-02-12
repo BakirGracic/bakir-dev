@@ -22,7 +22,7 @@ export default function Footer() {
 					/>
 				))}
 				<Button
-					href='/links#contact'
+					href='/links'
 					className='mr-auto !gap-1 px-2 py-1 text-xs'
 					title='Links Contact Page'
 					blank
