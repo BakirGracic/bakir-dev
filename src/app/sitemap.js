@@ -1,6 +1,15 @@
 import { getBlogPosts } from '@/lib/blog';
 
 export default function sitemap() {
+	console.log(
+		getBlogPosts().map((post) => ({
+			url: `${process.env.NEXT_PUBLIC_APP_URL}/blog/${post.slug}`,
+			lastModified: post.metadata.published,
+			changeFrequency: 'monthly',
+			priority: 0.8,
+		})),
+	);
+
 	return [
 		{
 			url: `${process.env.NEXT_PUBLIC_APP_URL}`,
@@ -14,7 +23,7 @@ export default function sitemap() {
 			changeFrequency: 'monthly',
 			priority: 0.9,
 		},
-		getBlogPosts().map((post) => ({
+		...getBlogPosts().map((post) => ({
 			url: `${process.env.NEXT_PUBLIC_APP_URL}/blog/${post.slug}`,
 			lastModified: post.metadata.published,
 			changeFrequency: 'monthly',
