@@ -2,6 +2,7 @@ import Script from 'next/script';
 import Card from '@/features/projects/components/Card';
 import HowMuchIWastedPNG from '@/images/projects/howmuchiwasted.png';
 import DaisyUIThemePreviewPNG from '@/images/projects/daisyuithemepreview.png';
+import EuroparkPNG from '@/images/projects/europark.png';
 
 export const metadata = {
 	title: 'Bakir Gracić | Projects',
@@ -173,6 +174,14 @@ export default function Projects() {
 			<section>
 				<h1 className='heading1'>Some of my projects</h1>
 				<div className='flex flex-col gap-5'>
+					{/* europark */}
+					<Card
+						img={EuroparkPNG}
+						title='EuroPark'
+						description='Private Airport Parking Business Website'
+						webLink='https://europark.ba'
+					/>
+
 					{/* daisyui theme preview */}
 					<Card
 						img={DaisyUIThemePreviewPNG}
