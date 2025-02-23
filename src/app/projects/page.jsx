@@ -180,6 +180,7 @@ export default function Projects() {
 						title='EuroPark'
 						description='Private Airport Parking Business Website'
 						webLink='https://europark.ba'
+						gitLink='https://github.com/BakirGracic/europark/'
 					/>
 
 					{/* daisyui theme preview */}
