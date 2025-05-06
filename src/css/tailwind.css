@@ -1,0 +1,13 @@
+@import 'tailwindcss' source(none);
+
+@source "../../src";
+
+@plugin "@tailwindcss/typography";
+
+@theme {
+	--font-sans: 'Inter', 'Inter Fallback';
+	--font-mono: 'Roboto Mono', 'Roboto Mono Fallback';
+}
+
+@import './global.css';
+@import './utils.css';
