@@ -16,7 +16,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 		<html lang='en-US'>
 			<body className={`${InterFont.variable} ${RobotoMonoFont.variable}`}>
 				<Navbar />
-				<main>{children}</main>
+				<main>
+					{children}
+					<Analytics />
+					<SpeedInsights />
+				</main>
 				<Footer />
 			</body>
 			{<GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID!} />}
