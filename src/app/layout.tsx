@@ -4,6 +4,7 @@ import { InterFont, RobotoMonoFont } from '@/lib/font';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import Navbar from '@/features/navbar/components/Navbar';
 import Footer from '@/features/footer/components/Footer';
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata = coreMetadata;
 
