@@ -5,6 +5,7 @@ import { GoogleAnalytics } from '@next/third-parties/google';
 import Navbar from '@/features/navbar/components/Navbar';
 import Footer from '@/features/footer/components/Footer';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const metadata = coreMetadata;
 
