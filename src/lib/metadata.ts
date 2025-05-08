@@ -45,10 +45,3 @@ export const coreMetadata: Metadata = {
 		apple: '/apple-touch-icon.png'
 	}
 };
-
-export const coreViewport = {
-	themeColor: [
-		{ media: '(prefers-color-scheme: dark)', color: '#000000' },
-		{ media: '(prefers-color-scheme: light)', color: '#ffffff' }
-	]
-};

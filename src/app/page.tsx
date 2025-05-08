@@ -1,4 +1,4 @@
-import ArrowLink from '@/features/ui/components/ArrowLink';
+import ArrowLink from '@/features/_reusable/ui/components/ArrowLink';
 import Posts from '@/features/blog/components/Posts';
 import Script from 'next/script';
 

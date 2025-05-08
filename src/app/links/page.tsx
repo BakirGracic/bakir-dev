@@ -1,11 +1,11 @@
 import Script from 'next/script';
-import Button from '@/features/ui/components/Button';
-import GitHub from '@/features/icons/components/GitHub';
-import LinkedIn from '@/features/icons/components/LinkedIn';
-import Twitter from '@/features/icons/components/Twitter';
-import Discord from '@/features/icons/components/Discord';
-import BuyMeACoffee from '@/features/icons/components/BuyMeACoffee';
-import GitHubSponsors from '@/features/icons/components/GitHubSponsors';
+import Button from '@/features/_reusable/ui/components/Button';
+import GitHub from '@/features/_reusable/icons/components/GitHub';
+import LinkedIn from '@/features/_reusable/icons/components/LinkedIn';
+import Twitter from '@/features/_reusable/icons/components/Twitter';
+import Discord from '@/features/_reusable/icons/components/Discord';
+import BuyMeACoffee from '@/features/_reusable/icons/components/BuyMeACoffee';
+import GitHubSponsors from '@/features/_reusable/icons/components/GitHubSponsors';
 
 export const metadata = {
 	title: 'Bakir Gracić | Links',

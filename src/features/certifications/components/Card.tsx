@@ -1,5 +1,5 @@
 import Image, { type StaticImageData } from 'next/image';
-import Button from '@/features/ui/components/Button';
+import Button from '@/features/_reusable/ui/components/Button';
 import { CheckBadgeIcon } from '@heroicons/react/16/solid';
 
 export default function Card({

@@ -1,6 +1,6 @@
 import Image, { type StaticImageData } from 'next/image';
-import Button from '@/features/ui/components/Button';
-import GitHub from '@/features/icons/components/GitHub';
+import Button from '@/features/_reusable/ui/components/Button';
+import GitHub from '@/features/_reusable/icons/components/GitHub';
 import { DocumentTextIcon, LinkIcon } from '@heroicons/react/24/solid';
 
 export default function Card({

@@ -1,5 +1,5 @@
-import Button from '@/features/ui/components/Button';
-import ArrowLink from '@/features/ui/components/ArrowLink';
+import Button from '@/features/_reusable/ui/components/Button';
+import ArrowLink from '@/features/_reusable/ui/components/ArrowLink';
 import { EnvelopeIcon } from '@heroicons/react/24/solid';
 
 const footerLinks = [
