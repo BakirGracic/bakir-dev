@@ -236,10 +236,9 @@ export default function Projects() {
 
 					{/* cs2 dedicated server in 2024 */}
 					<Card
-						img='https://opengraph.githubassets.com/1/BakirGracic/cs2-dedicated-server-in-2024'
+						img='https://cdn.akamai.steamstatic.com/apps/csgo/images/csgo_react/cs2/bumper.png'
 						title='CS2 Dedicated Server in 2024'
 						description='Guide on how to host a CS2 server in 2024'
-						gitLink='https://github.com/BakirGracic/cs2-dedicated-server-in-2024'
 						blogLink='https://bakir.dev/blog/cs2-dedicated-server-in-2024'
 					/>
 

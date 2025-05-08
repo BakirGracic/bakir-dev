@@ -15,6 +15,10 @@ const nextConfig: NextConfig = {
 			{
 				protocol: 'https',
 				hostname: 'opengraph.githubassets.com'
+			},
+			{
+				protocol: 'https',
+				hostname: 'cdn.akamai.steamstatic.com'
 			}
 		]
 	}
