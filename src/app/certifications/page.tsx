@@ -1,6 +1,6 @@
 import Script from 'next/script';
 import Card from '@/features/certifications/components/Card';
-import GitHubFoundationsPNG from '@/images/certifications/github_foundations/github-foundations.png';
+import GitHubFoundationsPNG from '@/features/certifications/images/github-foundations.png';
 
 export const metadata = {
 	title: 'Bakir Gracić | Certifications',

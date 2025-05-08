@@ -1,6 +1,6 @@
 import EndorsementCard from '@/features/endorsements/components/Card';
 import Script from 'next/script';
-import JasminHasancevicHeadshotJPG from '@/images/endorsements/jasmin-hasancevic-headshot.jpeg';
+import JasminHasancevicHeadshotJPG from '@/features/endorsements/images/jasmin-hasancevic-headshot.jpeg';
 
 export const metadata = {
 	title: 'Bakir Gracić | Endorsements',

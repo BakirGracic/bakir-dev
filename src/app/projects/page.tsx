@@ -1,8 +1,8 @@
 import Script from 'next/script';
 import Card from '@/features/projects/components/Card';
-import HowMuchIWastedPNG from '@/images/projects/howmuchiwasted.png';
-import DaisyUIThemePreviewPNG from '@/images/projects/daisyuithemepreview.png';
-import EuroparkPNG from '@/images/projects/europark.png';
+import HowMuchIWastedPNG from '@/features/projects/images/howmuchiwasted.png';
+import DaisyUIThemePreviewPNG from '@/features/projects/images/daisyuithemepreview.png';
+import EuroparkPNG from '@/features/projects/images/europark.png';
 
 export const metadata = {
 	title: 'Bakir Gracić | Projects',
@@ -230,7 +230,6 @@ export default function Projects() {
 						img={HowMuchIWastedPNG}
 						title='How Much I Wasted?'
 						description='Check how much of your life you have wasted'
-						webLink='https://howmuchiwasted.bakir.dev/'
 						gitLink='https://github.com/BakirGracic/how-much-i-wasted'
 						blogLink='https://bakir.dev/blog/how-time-flies-reality-lifes-countdown'
 					/>
