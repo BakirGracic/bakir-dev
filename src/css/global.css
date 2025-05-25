@@ -1,0 +1,29 @@
+@media (prefers-color-scheme: dark) {
+	html {
+		color-scheme: dark;
+	}
+	body {
+		@apply bg-black text-white;
+	}
+}
+
+@media (prefers-color-scheme: light) {
+	html {
+		color-scheme: light;
+	}
+	body {
+		@apply bg-white text-black;
+	}
+}
+
+* {
+	@apply [&::-webkit-scrollbar]:h-[7px] [&::-webkit-scrollbar]:w-[7px] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-black dark:[&::-webkit-scrollbar-thumb]:bg-white [&::-webkit-scrollbar-track]:bg-transparent;
+}
+
+*:focus-visible {
+	@apply outline-[3px] outline-black outline-dashed dark:outline-white;
+}
+
+body {
+	@apply mx-4 max-w-[576px] antialiased md:mx-auto md:w-[576px];
+}

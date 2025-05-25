@@ -1,0 +1,11 @@
+.next
+certificates
+node_modules
+public
+**/images/**
+**/blog_posts/**
+.env*
+.gitignore
+.prettierignore
+next-env.d.ts
+package-lock.json
