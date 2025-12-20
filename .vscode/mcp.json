@@ -1,0 +1,16 @@
+{
+  "servers": {
+    "shadcn": {
+      "command": "pnpx",
+      "args": ["shadcn@latest", "mcp"]
+    },
+    "next-devtools": {
+      "command": "pnpx",
+      "args": ["next-devtools-mcp@latest", "-y"]
+    },
+    "hugeicons": {
+      "command": "pnpx",
+      "args": ["@hugeicons/mcp-server@latest"]
+    }
+  }
+}
