@@ -1,12 +1,14 @@
-# bakir.dev | Personal Website & Blog
+# bakir.dev
 
-## Welcome
+Welcome to the GitHub repository of my personal website & blog
 
-Welcome to the GitHub repository of my personal website & blog. Feel free to explore anything you like. If you want to chat, HMU via any platform you prefer!
+Learn more about me by exploring my posts, certifications and projects
+
+If you want to chat, reach me on your preferred platform from the [links](https://bakir.dev/links) page
 
 ## Licenses
 
-Code in this repository is licensed under the MIT License found [here](https://github.com/BakirGracic/bakir-dev/blob/main/LICENSE.md).
+Code in this repository is licensed under the MIT License found [here](https://github.com/BakirGracic/bakir-dev/blob/main/LICENSES/CODE.md)
 
 Non-code content (e.g., blog posts, certifications, etc.) is licensed under the CC BY-NC 4.0 license found
-[here](https://github.com/BakirGracic/bakir-dev/blob/main/LICENSE_CONTENT.md).
+[here](https://github.com/BakirGracic/bakir-dev/blob/main/LICENSES/CONTENT.md)

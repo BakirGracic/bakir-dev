@@ -7,12 +7,10 @@ import { Button } from "@/shadcn/components/ui/button";
 
 export const metadata: Metadata = {
   ...baseMetadata,
-  title: "xxxxxx",
-  description: "xxxxxx",
+  title: "Page Not Found",
   openGraph: {
     ...baseMetadata.openGraph,
-    title: "xxxxxx",
-    description: "xxxxxx",
+    title: "Page Not Found",
   },
 };
 

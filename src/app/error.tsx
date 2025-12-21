@@ -2,7 +2,18 @@
 
 import { Refresh01Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
+import type { Metadata } from "next";
+import { baseMetadata } from "@/lib/baseMetadata";
 import { Button } from "@/shadcn/components/ui/button";
+
+export const metadata: Metadata = {
+  ...baseMetadata,
+  title: "Server Error",
+  openGraph: {
+    ...baseMetadata.openGraph,
+    title: "Server Error",
+  },
+};
 
 export default function ErrorPage() {
   return (
