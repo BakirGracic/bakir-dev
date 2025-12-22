@@ -3,8 +3,6 @@
 @import "shadcn/tailwind.css";
 
 @plugin "@tailwindcss/typography";
-@plugin "tailwindcss-animate";
-@plugin "tailwindcss-intersect";
 
 @custom-variant dark (&:is(.dark *));
 

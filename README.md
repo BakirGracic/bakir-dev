@@ -2,7 +2,7 @@
 
 Welcome to the GitHub repository of my personal website & blog
 
-Learn more about me by exploring my posts, certifications and projects
+Learn more about me by exploring my posts, certifications and links
 
 If you want to chat, reach me on your preferred platform from the [links](https://bakir.dev/links) page
 

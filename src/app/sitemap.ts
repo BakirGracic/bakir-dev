@@ -19,7 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...blogs.map((blog) => ({
       url: `${process.env.NEXT_PUBLIC_APP_URL}/blog/${blog.slug}`,
       changeFrequency: "yearly" as const,
-      lastModified: new Date(blog.date).toISOString(),
+      lastModified: new Date(blog.published).toISOString(),
       priority: 0.8,
     })),
     // certifications
