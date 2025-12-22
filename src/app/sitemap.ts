@@ -22,12 +22,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(blog.published).toISOString(),
       priority: 0.8,
     })),
-    // certifications
-    {
-      url: `${process.env.NEXT_PUBLIC_APP_URL}/certifications`,
-      changeFrequency: "yearly",
-      priority: 0.9,
-    },
     // links
     {
       url: `${process.env.NEXT_PUBLIC_APP_URL}/links`,

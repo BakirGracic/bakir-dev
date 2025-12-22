@@ -37,7 +37,7 @@ export default async function Page({
   const { default: Post } = await import(`&/${slug}.mdx`);
 
   return (
-    <article className="max-w-prose mx-auto my-12 prose dark:prose-invert text-pretty">
+    <article className="max-w-prose mx-auto my-8 md:my-12 prose dark:prose-invert text-pretty">
       <p>
         {blog?.published &&
           new Date(blog.published).toLocaleDateString("en-US", {
