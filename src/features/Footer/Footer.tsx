@@ -15,6 +15,7 @@ export default function Footer() {
           target="_blank"
           rel="noopener noreferrer"
           className="hover:underline transition-all"
+          prefetch={false}
         >
           Licenses
         </Link>
@@ -24,6 +25,7 @@ export default function Footer() {
           target="_blank"
           rel="noopener noreferrer"
           className="hover:underline transition-all"
+          prefetch={false}
         >
           Company
         </Link>

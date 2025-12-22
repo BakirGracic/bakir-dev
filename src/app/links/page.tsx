@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Links } from "@/features/Links/Links";
 import { baseMetadata } from "@/lib/baseMetadata";
 
 export const metadata: Metadata = {
@@ -13,10 +14,5 @@ export const metadata: Metadata = {
 };
 
 export default function LinksPage() {
-  return (
-    <>
-      <h1>bakir.dev/links</h1>
-      <p>linkspage</p>
-    </>
-  );
+  return <Links />;
 }
