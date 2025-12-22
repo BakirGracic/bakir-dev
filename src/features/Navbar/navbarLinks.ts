@@ -1,4 +1,8 @@
-import { Home07Icon, LicenseIcon } from "@hugeicons/core-free-icons";
+import {
+  Home07Icon,
+  LicenseIcon,
+  Link04Icon,
+} from "@hugeicons/core-free-icons";
 
 export const navbarLinks = [
   {
@@ -10,5 +14,10 @@ export const navbarLinks = [
     title: "Blog",
     href: "/blog",
     icon: LicenseIcon,
+  },
+  {
+    title: "Links",
+    href: "/links",
+    icon: Link04Icon,
   },
 ];

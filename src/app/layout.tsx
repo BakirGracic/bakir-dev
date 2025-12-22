@@ -1,4 +1,5 @@
 import "@/css/global.css";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata, Viewport } from "next";
 import Footer from "@/features/Footer/Footer";
 import Navbar from "@/features/Navbar/Navbar";
@@ -30,10 +31,11 @@ export default function RootLayout({
         >
           <div className="container mx-auto px-4">
             <Navbar />
-            {children}
+            <main>{children}</main>
             <Footer />
           </div>
         </ThemeProvider>
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID!} />
       </body>
     </html>
   );

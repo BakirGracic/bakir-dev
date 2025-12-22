@@ -12,10 +12,11 @@ export const metadata: Metadata = {
   },
 };
 
-export default function IndexPage() {
+export default function BlogPage() {
   return (
-    <main>
-      <h1>bakir-dev/blogs</h1>
-    </main>
+    <>
+      <h1>bakir.dev/blog</h1>
+      <p>blogpage</p>
+    </>
   );
 }
