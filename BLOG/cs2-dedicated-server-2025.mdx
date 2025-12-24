@@ -119,55 +119,38 @@ steamcmd login STEAM_ACCOUNT_USERNAME
 mkdir ~/.steam/sdk64 && sudo ln -s ~/.local/share/Steam/steamcmd/linux64/steamclient.so ~/.steam/sdk64/
 ```
 
-10. Finally run the server with this command (make sure to replace the placeholders):
+10. Finally run the server with this command (make sure to replace the placeholders)
 
 ```sh
 cd ~/.steam/steam/steamapps/common/Counter-Strike\ Global\ Offensive/game/bin/linuxsteamrt64 && ./cs2 -dedicated -ip "VPS_IP" -maxplayers 10 -port 27015 -tickrate 128 +hostname "SERVER_NAME" +map de_ancient +sv_logfile 1 +sv_lan 0 +game_type 0 +game_mode 1 +sv_setsteamaccount "GSLT_TOKEN"
 ```
 
-**_IMPORTANT:_** Check each parameter and cvar to make sure it aligns with your needs
+> NOTE: Check each parameter and 'cvar' to make sure it aligns with your preferences. You can find parameter and cvar info in resources at the end of this guide
 
-**_NOTE:_** You can find parameter and cvar info in resources at the end of the guide
+## Success
 
-## SUCCESS
+The server should now be online and playable! Test it by logging in via CS2 in-game with `connect VPS_IP:27015`
 
-The server should now be online and accessible, try loggin in to it via CS2 in-game console by running `connect <HETZNER_SEREVER_IP>:27015`
+In your terminal after you ran the last command above, you will see a bunch of output logs. That is a good sign since those are CS2 game console logs. If the process terminates by itself it may indicate an error occurred.
 
-In your console you should see a bunch of output, that is a good sign since those are CS2 game console logs! If the process terminates by itself, that may indicate an error occured.
+The server will run as long as your SSH connection is alive. To implement a more robust and sustainable solution you can craft a custom script with LLMs to add features as:
 
-**_NOTE:_** The server will run as long as your SSH connection is alive. To implement a more sustainable solution to that, read the next section
+- Simplified server startup
+- Prompts for basic configuration parameters
+- Background server startup for indefinite uptime
+- Automatic server updates (daily or before startup)
+- And much more...
 
-## ADDITIONAL: SUSTAINABILITY
+## Conclusion
 
-Server will run as long as our SSH connection is alive. To combat that and implement other sustainability concerns, I made a simple utility script! To use it, simply run:
+Hosting your own CS2 dedicated server is not that hard after all! With a bit of patience and by following the steps in this guide, you can have your own private server up and running in no time. From here on, you can explore more advanced configurations, mods, and custom maps to enhance your gaming experience. Thanks for reading and follwing this guide. Happy gaming!
 
-```
-mkdir -p ~/CS_SERVER && cd ~/CS_SERVER && wget -O cs_server.sh https://gist.githubusercontent.com/BakirGracic/5b91d0178ff207c28507bb0332fef837/raw && sudo chmod +x cs_server.sh && ./cs_server.sh setup
-```
+## Resources
 
-This script will provide you with all the necessary tools for managing your CS2 server:
+I highly encourage you to explore resources below I used for this guide to expand your knowledge even more for hosting and configuring CS2 dedicated servers
 
-- on setup you will be able to configure basic config options
-- you can run the server indefinetly with `./cs_server.sh start`
-- also you can stop the server with `./cs_server.sh stop`
-- the script will automatically try to update CS2 server files every day
-
-## CONCLUSION
-
-Thank you for reading so far. I hope this helped you to have some fun with your friends.
-If you are eager to do more, you can check my website [bakir.dev](https://bakir.dev) and look for a project or a blog post about CS2 servers :D
-
-## RESOURCES
-
-I highly encourage you to explore these resources to learn more about hosting your awesome CS2 server!
-
-- https://github.com/BakirGracic/community-content (This guide on GitHub, my fork)
-- https://gist.github.com/BakirGracic/5b91d0178ff207c28507bb0332fef837 (My script)
-- https://community.hetzner.com/tutorials/install-gameserver-csgo (Hetzner Community CSGO Server Guide)
-- https://developer.valvesoftware.com/wiki/Counter-Strike_2/Dedicated_Servers (Official Steam Guide)
-- https://steamdb.info/ (In-depth game details)
-- https://steamcommunity.com/dev/managegameservers (Steam GSLT token website)
-- https://developer.valvesoftware.com/wiki/Source_Dedicated_Server (Steam's Source Dedicated Server Guide for additional info)
-- https://www.ghostcap.com/gaming/counter-strike/ (Useful misc CS2 guides)
-- https://linuxgsm.com/servers/cs2server/ (GSM: One of the Server Deployment Helper Tools)
-- https://www.ionos.com/digitalguide/server/know-how/cs2-linux-server/ (Another up-to-date CS2 Dedicated Server guide)
+- https://developer.valvesoftware.com/wiki/Counter-Strike_2/Dedicated_Servers (Official Steam guide)
+- https://steamdb.info/ ("Database of everything on Steam")
+- https://developer.valvesoftware.com/wiki/Source_Dedicated_Server (Steam's Source dedicated server guide)
+- https://linuxgsm.com/servers/cs2server/ (GSM tool for managing CS2 servers)
+- https://www.ionos.com/digitalguide/server/know-how/cs2-linux-server/ (3rd party CS2 dedicated server guide)
