@@ -23,37 +23,37 @@ const links = [
   {
     title: "Curriculum Vitae",
     description: "bakir.dev/cv",
-    href: "/cv",
+    href: process.env.NEXT_PUBLIC_CV_URL!,
     icon: DocumentValidationIcon,
   },
   {
     title: "GitHub",
     description: "github.com/BakirGracic",
-    href: "https://github.com/BakirGracic",
+    href: process.env.NEXT_PUBLIC_GITHUB_URL!,
     icon: GithubIcon,
   },
   {
     title: "LinkedIn",
     description: "linkedin.com/in/bakirgracic",
-    href: "https://www.linkedin.com/in/bakirgracic/",
+    href: process.env.NEXT_PUBLIC_LINKEDIN_URL!,
     icon: Linkedin02Icon,
   },
   {
     title: "WhatsApp Business",
     description: "wa.me/message/...",
-    href: "https://wa.me/message/IOCLF6LNKAUWD1",
+    href: process.env.NEXT_PUBLIC_WHATSAPP_URL!,
     icon: WhatsappBusinessIcon,
   },
   {
     title: "Company Website",
     description: "sanjacklee.digital",
-    href: "https://sanjacklee.digital",
+    href: process.env.NEXT_PUBLIC_COMPANY_URL!,
     icon: OfficeIcon,
   },
   {
     title: "Buy Me a Coffee",
     description: "buymeacoffee.com/bakirgdev",
-    href: "https://buymeacoffee.com/bakirgdev",
+    href: process.env.NEXT_PUBLIC_BUYMEACOFFEE_URL!,
     icon: Coffee01Icon,
   },
 ];

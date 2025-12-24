@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import type { CollectionPage, WithContext } from "schema-dts";
 import { baseMetadata } from "@/lib/baseMetadata";
+import { blogs } from "@/lib/blogs";
 
 export const metadata: Metadata = {
   ...baseMetadata,
@@ -13,8 +15,28 @@ export const metadata: Metadata = {
 };
 
 export default function BlogPage() {
+  const jsonLd: WithContext<CollectionPage> = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Blogs | bakir.dev",
+    description: "My takes on various hot topics",
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: blogs.map((blog, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        url: `https://bakir.dev/blog/${blog.slug}`,
+        name: blog.title,
+      })),
+    },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <h1>bakir.dev/blog</h1>
       <p>blogpage</p>
     </>

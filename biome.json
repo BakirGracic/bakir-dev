@@ -29,6 +29,9 @@
       "suspicious": {
         "noUnknownAtRules": "off"
       },
+      "security": {
+        "noDangerouslySetInnerHtml": "off"
+      },
       "a11y": {
         "useValidLang": "off"
       },
