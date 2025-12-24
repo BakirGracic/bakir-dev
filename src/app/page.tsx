@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Home from "@/features/Home/Home";
 import { baseMetadata } from "@/lib/baseMetadata";
 import { personSchema, websiteSchema } from "@/lib/schema";
 
@@ -15,8 +16,7 @@ export default function IndexPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
       />
-      <h1>bakir.dev/</h1>
-      <p>indexpage</p>
+      <Home />
     </>
   );
 }

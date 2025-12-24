@@ -2,7 +2,7 @@
 
 ## Project Overview
 - **Framework**: Next.js 16 (App Router) with React 19.
-- **Styling**: Tailwind CSS 4, `clsx`, `tailwind-merge`, `tw-animate-css`.
+- **Styling**: Tailwind CSS 4.
 - **UI Components**: Shadcn UI (located in [src/shadcn/components/ui](src/shadcn/components/ui)) and Hugeicons.
 - **Content**: MDX-based blog posts located in [BLOG/](BLOG/) (aliased as `&/*`).
 - **Tooling**: Biome for linting and formatting, `pnpm` for package management.
@@ -28,7 +28,7 @@
   - `@/*` → `src/*` (Application code)
   - `#/*` → `public/*` (Static assets)
   - `&/*` → `BLOG/*` (Blog content)
-- **Styling**: Use the `cn()` utility from `@/shadcn/lib/utils` for merging classes.
+- **Styling**: Use the `cn()` utility from `@/shadcn/lib/utils` for merging classes only in conditional scenarios.
 
 ## Specific Implementation Patterns
 - **Icons**: Use Hugeicons with the wrapper component pattern:

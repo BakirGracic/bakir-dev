@@ -8,7 +8,7 @@ export default function PageHeading({
   return (
     <div className="mb-10 text-center">
       <h1 className="text-3xl font-bold tracking-tight">{title}</h1>
-      <p className="text-muted-foreground mt-2">{subtitle}</p>
+      {subtitle && <p className="text-muted-foreground mt-2">{subtitle}</p>}
     </div>
   );
 }
