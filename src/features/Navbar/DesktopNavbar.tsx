@@ -22,9 +22,9 @@ export function DesktopNavbar() {
         <NavigationMenuList className="gap-4">
           {navbarLinks.map((link) => (
             <NavigationMenuItem key={link.title}>
-              <NavigationMenuLink href={link.href}>
-                {link.title}
-              </NavigationMenuLink>
+              <NavigationMenuLink
+                render={<Link href={link.href}>{link.title}</Link>}
+              />
             </NavigationMenuItem>
           ))}
         </NavigationMenuList>
