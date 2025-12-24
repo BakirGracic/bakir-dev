@@ -2,17 +2,17 @@ If you are a fan of [Counter-Strike](https://en.wikipedia.org/wiki/Counter-Strik
 
 ## Disclaimer
 
-This guide explains how to set up everything from scratch, yet it will be very simple for its kind. Everything is explained in detail. Basic computer understanding is required. Outcomes may vary based on how closely you follow the guide. This guide assumes you follow the steps as shown, meaning unexpected outcomes and variations are not covered in this gude.
+This guide explains how to set up everything from scratch, yet it will be very simple for its kind. Everything is explained in detail. Basic computer understanding is required. Outcomes may vary based on how closely you follow the guide. This guide assumes you follow the steps as shown, meaning unexpected outcomes and variations are not covered in this guide.
 
 ## How (CS2) Servers Work
 
 [Valve](https://en.wikipedia.org/wiki/Valve_Corporation), the company that owns a gaming platform [Steam](https://en.wikipedia.org/wiki/Steam_(service)) and Counter-Strike, allows everyone to host their own CS2 servers for free (unlike some other studios/publishers). Subsequently, Steam made their own command line tools ([CLI](https://en.wikipedia.org/wiki/Command-line_interface)) and packages for configuring anything Steam related called _steamcmd_.
 
-A [server](https://en.wikipedia.org/wiki/Server_(computing)) works by handling all user in-game interactions, processes them and sends responses to all connected clients (i.e. players). Along with a lot of incoming, there is also outgoing traffic. In case of CS2 servers, they work by utilizing all game resources, files and code to be able to perform necessary calculations, even though there is no playable user interface or the GUI.
+A [server](https://en.wikipedia.org/wiki/Server_(computing)) works by handling all user in-game interactions, processing them, and sending responses to all connected clients (i.e. players). Along with a lot of incoming, there is also outgoing traffic. In the case of CS2 servers, they work by utilizing all game resources, files, and code to be able to perform necessary calculations, even though there is no playable user interface or GUI.
 
-In a nutshell, a server is ideally just a fast and specialized computer for processing vast amounts of data. Theoretically you can use your own PC to host CS2, but it comes with an overhead of configuring networking. In this guide, we will rent a budget Virtual Private Server ([VPS](https://en.wikipedia.org/wiki/Virtual_private_server)) on cloud provider platform [Hetzner](https://en.wikipedia.org/wiki/Hetzner), a specialized computer _on the cloud_ that is ideal for our needs.
+In a nutshell, a server is ideally just a fast and specialized computer for processing vast amounts of data. Theoretically, you can use your own PC to host CS2, but it comes with an overhead of configuring networking. In this guide, we will rent a budget Virtual Private Server ([VPS](https://en.wikipedia.org/wiki/Virtual_private_server)) on the cloud provider platform [Hetzner](https://en.wikipedia.org/wiki/Hetzner), a specialized computer _on the cloud_ that is ideal for our needs.
 
-In short: we will prepare our cloud server, install software & tools, then install CS2 server and it's files and do some configuration - then its only gaming time!
+In short: we will prepare our cloud server, install software & tools, then install the CS2 server and its files and do some configuration - then it's only gaming time!
 
 ## STEP 1: Cloud server
 
@@ -58,7 +58,7 @@ In short: we will prepare our cloud server, install software & tools, then insta
 
 ## STEP 2: Software
 
-1. Firstly, we need to connect to the VPS in order to execute commands using [SSH](https://en.wikipedia.org/wiki/Secure_Shell). You can do that by using any modern terminal application you like. You need the IP of the server (findable it in the Hetzner Project Dashboard or in the email from Hetzner), [`root`](https://en.wikipedia.org/wiki/Superuser) for the username, and the password you got in the email earlier. Use the example command below:
+1. Firstly, we need to connect to the VPS in order to execute commands using [SSH](https://en.wikipedia.org/wiki/Secure_Shell). You can do that by using any modern terminal application you like. You need the IP of the server (findable in the Hetzner Project Dashboard or in the email from Hetzner), [`root`](https://en.wikipedia.org/wiki/Superuser) for the username, and the password you got in the email earlier. Use the example command below:
 
 ```sh
 ssh root@VPS_IP
@@ -74,7 +74,7 @@ apt update; apt upgrade -y; apt autoremove -y; reboot
 
 > NOTE: After the command is done executing, the VPS will be rebooted. Reconnect to it again in ~1 minute
 
-1. Create `steam` OS user for security and convinience reasons by running the command below
+1. Create `steam` OS user for security and convenience reasons by running the command below
 
 ```sh
 adduser steam && usermod -aG sudo steam
@@ -143,7 +143,7 @@ The server will run as long as your SSH connection is alive. To implement a more
 
 ## Conclusion
 
-Hosting your own CS2 dedicated server is not that hard after all! With a bit of patience and by following the steps in this guide, you can have your own private server up and running in no time. From here on, you can explore more advanced configurations, mods, and custom maps to enhance your gaming experience. Thanks for reading and follwing this guide. Happy gaming!
+Hosting your own CS2 dedicated server is not that hard after all! With a bit of patience and by following the steps in this guide, you can have your own private server up and running in no time. From here on, you can explore more advanced configurations, mods, and custom maps to enhance your gaming experience. Thanks for reading and following this guide. Happy gaming!
 
 ## Resources
 
