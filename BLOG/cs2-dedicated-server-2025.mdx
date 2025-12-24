@@ -1,0 +1,173 @@
+If you are a fan of [Counter-Strike](https://en.wikipedia.org/wiki/Counter-Strike) and computers, a thought of playing on a custom private server with unique configurations probably crossed your mind. Or perhaps you want to _click heads_ with your friends that aren't on the same network. In that case, this guide is just for you. By the end you will learn how to create and host a custom CS2 server from scratch!
+
+## Disclaimer
+
+This guide explains how to set up everything from scratch, yet it will be very simple for its kind. Everything is explained in detail. Basic computer understanding is required. Outcomes may vary based on how closely you follow the guide. This guide assumes you follow the steps as shown, meaning unexpected outcomes and variations are not covered in this gude.
+
+## How (CS2) Servers Work
+
+[Valve](https://en.wikipedia.org/wiki/Valve_Corporation), the company that owns a gaming platform [Steam](https://en.wikipedia.org/wiki/Steam_(service)) and Counter-Strike, allows everyone to host their own CS2 servers for free (unlike some other studios/publishers). Subsequently, Steam made their own command line tools ([CLI](https://en.wikipedia.org/wiki/Command-line_interface)) and packages for configuring anything Steam related called _steamcmd_.
+
+A [server](https://en.wikipedia.org/wiki/Server_(computing)) works by handling all user in-game interactions, processes them and sends responses to all connected clients (i.e. players). Along with a lot of incoming, there is also outgoing traffic. In case of CS2 servers, they work by utilizing all game resources, files and code to be able to perform necessary calculations, even though there is no playable user interface or the GUI.
+
+In a nutshell, a server is ideally just a fast and specialized computer for processing vast amounts of data. Theoretically you can use your own PC to host CS2, but it comes with an overhead of configuring networking. In this guide, we will rent a budget Virtual Private Server ([VPS](https://en.wikipedia.org/wiki/Virtual_private_server)) on cloud provider platform [Hetzner](https://en.wikipedia.org/wiki/Hetzner), a specialized computer _on the cloud_ that is ideal for our needs.
+
+In short: we will prepare our cloud server, install software & tools, then install CS2 server and it's files and do some configuration - then its only gaming time!
+
+## STEP 1: Cloud server
+
+### Account
+
+1. Sign up on Hetzner [here](https://accounts.hetzner.com/signUp)
+2. Perform KYC user validation, add a payment method and/or anything else the platform asks from you (make sure to do this right, otherwise you risk being banned)
+3. In the [Hetzner Console](https://console.hetzner.com/projects) create a new project
+
+### Firewall
+
+1. Navigate to _Firewall_ in your new Hetzner Console project and click _Create Firewall_
+2. For the _Inbound rules_, in relevant fields, copy entries from the table below
+3. Give your firewall a fancy name, and click _Create Firewall_
+
+| NAME / DESCRIPTION            | PROTOCOL | PORT  |
+| ----------------------------- | -------- | ----- |
+| SSH                           | TCP      | 22    |
+| 27015 UDP (game transmission) | UDP      | 27015 |
+| 27015 TCP (pings and RCON)    | TCP      | 27015 |
+| 27005 UDP (Client Port)       | UDP      | 27005 |
+| 27036 TCP (Steam remote play) | TCP      | 27036 |
+| 3478 UDP (matchmaking)        | UDP      | 3478  |
+| 4379 UDP (matchmaking)        | UDP      | 4379  |
+| 4380 UDP (matchmaking)        | UDP      | 4380  |
+
+> NOTE: Not all ports are required. To find out what ports you may not need (like community discoverability), refer to official docs at the end of this guide. Above I included all ports given in the documentation to ensure maximum compatibility
+
+### VPS
+
+1. In the project dashboard, navigate to _Servers_ and click _Add Server_
+2. Select:
+    - _Cost optimized_ & _CX33_ for server type
+    - Location closest to you that has _CX33_ type available
+    - _Ubuntu 24.04_ for OS image
+    - Apply our previously created firewall in the firewall section
+    - At the end, set a nice name for your new server
+    - Leave everything else as is
+    - When done click _Create & Buy now_
+3. Shortly, you should receive an email with the user IP and password, keep that open
+
+> NOTE: You will be charged at the end of a billing cycle, i.e. in ~30 days. Hetzner charges by a model ['pay by the hour'](https://docs.hetzner.com/accounts-panel/accounts/payment-faq/#cloud-servers--instances), meaning you can have your server for 3 days and not pay the full price listed. Static public IPv4 address price is negligible but unavoidable and necessary for our needs
+
+## STEP 2: Software
+
+1. Firstly, we need to connect to the VPS in order to execute commands using [SSH](https://en.wikipedia.org/wiki/Secure_Shell). You can do that by using any modern terminal application you like. You need the IP of the server (findable it in the Hetzner Project Dashboard or in the email from Hetzner), [`root`](https://en.wikipedia.org/wiki/Superuser) for the username, and the password you got in the email earlier. Use the example command below:
+
+```sh
+ssh root@VPS_IP
+```
+
+> NOTE: After this you will be prompted to 'blindly' type or paste your password. This is the usual way of connecting to your VPS, so if you want to continue later or you connection times out, redo this step. `root` superuser is required throughout this guide
+
+2. Update OS packages to ensure being up-to-date and everything working as intended by running the command below
+
+```sh
+apt update; apt upgrade -y; apt autoremove -y; reboot
+```
+
+> NOTE: After the command is done executing, the VPS will be rebooted. Reconnect to it again in ~1 minute
+
+1. Create `steam` OS user for security and convinience reasons by running the command below
+
+```sh
+adduser steam && usermod -aG sudo steam
+```
+
+> NOTE: Use a strong password for the new user, press enter to skip all of the default questions. From now on we will use this user for all operations
+
+4. Now SSH to server via the new user and new password with the command below
+
+```sh
+ssh steam@VPS_IP
+```
+
+5. Run this to install _steamcmd_ to be able to install CS2 server files
+
+```sh
+sudo apt-get install lib32gcc-s1 -y; sudo add-apt-repository multiverse; sudo dpkg --add-architecture i386; sudo apt update -y; sudo apt install steamcmd -y
+```
+
+> NOTE: Allow/accept anything that may pop on screen like the Steam agreement
+
+6. Install CS2 server files by running
+
+```sh
+steamcmd +login anonymous +app_update 730 validate +quit
+```
+> NOTE: This may take a while, so sit tight and let the command finish executing
+
+7. Now we need to login with a Steam account to be able to run the server. For that, run the command below
+
+```sh
+steamcmd login STEAM_ACCOUNT_USERNAME
+```
+
+> NOTE: You will be prompted for your password and possibly 2FA code if you have it enabled. Enter those accordingly. Only one Steam account is allowed per CS2 server. Steam recommends having a separate account just for the server
+
+8. Create and configure a Game Server Login Token (GSLT) used for locating and verifying your server on the network [here](https://steamcommunity.com/dev/managegameservers). Use the same account as in step 7. Input 730 as the game ID. Copy the generated token, we will need it later.
+
+9. Run this boring command to ensure the server can run (needs to be ran only once)
+
+```sh
+mkdir ~/.steam/sdk64 && sudo ln -s ~/.local/share/Steam/steamcmd/linux64/steamclient.so ~/.steam/sdk64/
+```
+
+10. Finally run the server with this command (make sure to replace the placeholders):
+
+```sh
+cd ~/.steam/steam/steamapps/common/Counter-Strike\ Global\ Offensive/game/bin/linuxsteamrt64 && ./cs2 -dedicated -ip "VPS_IP" -maxplayers 10 -port 27015 -tickrate 128 +hostname "SERVER_NAME" +map de_ancient +sv_logfile 1 +sv_lan 0 +game_type 0 +game_mode 1 +sv_setsteamaccount "GSLT_TOKEN"
+```
+
+**_IMPORTANT:_** Check each parameter and cvar to make sure it aligns with your needs
+
+**_NOTE:_** You can find parameter and cvar info in resources at the end of the guide
+
+## SUCCESS
+
+The server should now be online and accessible, try loggin in to it via CS2 in-game console by running `connect <HETZNER_SEREVER_IP>:27015`
+
+In your console you should see a bunch of output, that is a good sign since those are CS2 game console logs! If the process terminates by itself, that may indicate an error occured.
+
+**_NOTE:_** The server will run as long as your SSH connection is alive. To implement a more sustainable solution to that, read the next section
+
+## ADDITIONAL: SUSTAINABILITY
+
+Server will run as long as our SSH connection is alive. To combat that and implement other sustainability concerns, I made a simple utility script! To use it, simply run:
+
+```
+mkdir -p ~/CS_SERVER && cd ~/CS_SERVER && wget -O cs_server.sh https://gist.githubusercontent.com/BakirGracic/5b91d0178ff207c28507bb0332fef837/raw && sudo chmod +x cs_server.sh && ./cs_server.sh setup
+```
+
+This script will provide you with all the necessary tools for managing your CS2 server:
+
+- on setup you will be able to configure basic config options
+- you can run the server indefinetly with `./cs_server.sh start`
+- also you can stop the server with `./cs_server.sh stop`
+- the script will automatically try to update CS2 server files every day
+
+## CONCLUSION
+
+Thank you for reading so far. I hope this helped you to have some fun with your friends.
+If you are eager to do more, you can check my website [bakir.dev](https://bakir.dev) and look for a project or a blog post about CS2 servers :D
+
+## RESOURCES
+
+I highly encourage you to explore these resources to learn more about hosting your awesome CS2 server!
+
+- https://github.com/BakirGracic/community-content (This guide on GitHub, my fork)
+- https://gist.github.com/BakirGracic/5b91d0178ff207c28507bb0332fef837 (My script)
+- https://community.hetzner.com/tutorials/install-gameserver-csgo (Hetzner Community CSGO Server Guide)
+- https://developer.valvesoftware.com/wiki/Counter-Strike_2/Dedicated_Servers (Official Steam Guide)
+- https://steamdb.info/ (In-depth game details)
+- https://steamcommunity.com/dev/managegameservers (Steam GSLT token website)
+- https://developer.valvesoftware.com/wiki/Source_Dedicated_Server (Steam's Source Dedicated Server Guide for additional info)
+- https://www.ghostcap.com/gaming/counter-strike/ (Useful misc CS2 guides)
+- https://linuxgsm.com/servers/cs2server/ (GSM: One of the Server Deployment Helper Tools)
+- https://www.ionos.com/digitalguide/server/know-how/cs2-linux-server/ (Another up-to-date CS2 Dedicated Server guide)

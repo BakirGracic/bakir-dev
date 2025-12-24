@@ -1,14 +1,13 @@
 export const blogs = [
   {
-    title: "Counter-Strike 2 Dedicated Server in 2024",
-    published: "2024-11-07",
-    slug: "cs2-dedicated-server-2024",
+    title: "Counter-Strike 2 Dedicated Server in 2025",
+    published: "2025-12-23",
+    slug: "cs2-dedicated-server-2025",
     description:
       "Learn how to host your own Counter-Strike 2 dedicated server with Hetzner in simple steps to enjoy the game your way with friends outside the network",
   },
   {
-    title:
-      "Bosnian Autmobile Registration Plates with C++: Structure and Variations",
+    title: "Bosnian Car Registration Plates with C++: Structure and Variations",
     published: "2024-07-12",
     slug: "bosnian-registration-plates-cpp",
     description:
