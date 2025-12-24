@@ -27,8 +27,7 @@
     "rules": {
       "recommended": true,
       "suspicious": {
-        "noUnknownAtRules": "off",
-        "noExplicitAny": "off"
+        "noUnknownAtRules": "off"
       },
       "a11y": {
         "useValidLang": "off"
