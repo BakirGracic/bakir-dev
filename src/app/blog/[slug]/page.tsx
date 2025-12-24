@@ -59,7 +59,7 @@ export default async function BlogSlugPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <article className="max-w-prose mx-auto wrap-break-word my-8 md:my-12 prose dark:prose-invert text-pretty">
+      <article className="max-w-prose mx-auto wrap-break-word prose dark:prose-invert text-pretty">
         <p>
           {blog?.published &&
             new Date(blog.published).toLocaleDateString("en-US", {

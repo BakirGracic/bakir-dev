@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { CollectionPage, WithContext } from "schema-dts";
+import Blog from "@/features/Blog/Blog";
 import { baseMetadata } from "@/lib/baseMetadata";
 import { blogs } from "@/lib/blogs";
 
@@ -37,8 +38,7 @@ export default function BlogPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <h1>bakir.dev/blog</h1>
-      <p>blogpage</p>
+      <Blog />
     </>
   );
 }

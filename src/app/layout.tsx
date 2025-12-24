@@ -26,12 +26,11 @@ export default function RootLayout({
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
-          enableSystem
           disableTransitionOnChange
         >
           <div className="container mx-auto px-4">
             <Navbar />
-            <main>{children}</main>
+            <main className="py-12 md:py-16">{children}</main>
             <Footer />
           </div>
         </ThemeProvider>

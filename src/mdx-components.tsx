@@ -1,6 +1,6 @@
 import type { MDXComponents } from "mdx/types";
-import A from "@/features/MDX/A";
-import Pre from "@/features/MDX/Pre";
+import A from "@/shadcn/components/MDX/A";
+import Pre from "@/shadcn/components/MDX/Pre";
 
 const components: MDXComponents = {};
 

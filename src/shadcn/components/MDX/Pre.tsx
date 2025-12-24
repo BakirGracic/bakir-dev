@@ -24,7 +24,7 @@ export default function Pre(props: React.ComponentProps<"pre">) {
       <pre
         ref={preRef}
         className={cn(
-          "w-full bg-muted py-3.5 px-4.5 rounded-l-lg rounded-r-none overflow-x-auto",
+          "bg-muted text-muted-foreground w-full py-3.5 px-4.5 rounded-l-lg rounded-r-none overflow-x-auto",
           props.className,
         )}
         {...props}

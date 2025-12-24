@@ -10,6 +10,7 @@ import {
 import { HugeiconsIcon } from "@hugeicons/react";
 import Link from "next/link";
 import { ObfuscatedEmail } from "@/features/Links/ObfuscatedEmail";
+import PageHeading from "@/shadcn/components/page-heading";
 import {
   Item,
   ItemContent,
@@ -60,13 +61,8 @@ const links = [
 
 export function Links() {
   return (
-    <div className="max-w-md mx-auto min-h-[calc(100vh-4rem)] flex flex-col justify-center py-12 md:py-16">
-      <div className="mb-10 text-center">
-        <h1 className="text-3xl font-bold tracking-tight">Links</h1>
-        <p className="text-muted-foreground mt-2">
-          Connect with me across the web
-        </p>
-      </div>
+    <div className="max-w-md mx-auto flex flex-col justify-center">
+      <PageHeading title="Links" subtitle="Connect with me across the web" />
 
       <ItemGroup className="gap-3.5">
         <Item render={<ObfuscatedEmail />}>
