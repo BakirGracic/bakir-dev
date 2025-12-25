@@ -1,0 +1,359 @@
+If you're a fan of Counter-Strike and want to host your own private server with custom configurations, this guide is for you. By the end, you'll have a fully functional CS2 server running on Hetzner's cloud infrastructure.
+
+## Disclaimer
+
+This guide covers the complete setup process from scratch. It assumes basic computer knowledge and close adherence to each step. While detailed, outcomes may vary based on individual circumstances. For the latest information, always refer to the [official Valve CS2 Dedicated Servers documentation](https://developer.valvesoftware.com/wiki/Counter-Strike_2/Dedicated_Servers).
+
+## How CS2 Servers Work
+
+[Valve](https://en.wikipedia.org/wiki/Valve_Corporation) allows anyone to host CS2 servers for free. To manage server installations and updates, Valve provides **SteamCMD**, a command-line tool that handles all Steam-related operations.
+
+A dedicated server processes player actions, performs game calculations, and sends responses to all connected clients. Unlike hosting on your PC, renting a cloud Virtual Private Server ([VPS](https://en.wikipedia.org/wiki/Virtual_private_server)) eliminates network configuration complexity.
+
+**The plan:** Set up a cloud VPS, install dependencies, download CS2 server files via SteamCMD, configure it, and launch it.
+
+## STEP 1: Set Up Your Cloud Server
+
+### Create an Account and Project
+
+1. Sign up at [Hetzner](https://accounts.hetzner.com/signUp)
+2. Complete identity verification, add a payment method, and complete any required account setup
+3. In the [Hetzner Console](https://console.hetzner.com/projects), create a new project
+
+### Configure Your Firewall
+
+1. Navigate to **Firewall** in your project and click **Create Firewall**
+2. Add the following inbound rules:
+
+| Purpose | Protocol | Port |
+| --- | --- | --- |
+| SSH (Server Access) | TCP | 22 |
+| Game Server | UDP | 27015 |
+| RCON & Pings | TCP | 27015 |
+| Client Communication | UDP | 27005 |
+| SourceTV | UDP | 27020 |
+| Steam Remote Play | TCP | 27036 |
+| Matchmaking | UDP | 3478 |
+| Matchmaking | UDP | 4379 |
+| Matchmaking | UDP | 4380 |
+
+3. Name your firewall and click **Create Firewall**
+
+> **Note:** Not all ports are strictly required. Check the [official Valve documentation](https://developer.valvesoftware.com/wiki/Counter-Strike_2/Dedicated_Servers) for optional ports.
+
+### Create Your VPS
+
+1. In the dashboard, go to **Servers** and click **Add Server**
+2. Configure:
+   - Server type: **CX33** (Cost optimized)
+   - Location: Closest to your region
+   - OS: **Ubuntu 24.04**
+   - Firewall: Select the one you created above
+   - Name: Something descriptive (e.g., "cs2-server")
+3. Click **Create & Buy now**
+
+You'll receive an email with your server IP and root password.
+
+> **Cost Note:** Hetzner charges hourly. A 3-day test costs much less than the listed monthly price. The static IPv4 address is required and inexpensive.
+
+## STEP 2: Install Software Dependencies
+
+### Connect to Your Server
+
+Use SSH to connect. Replace `VPS_IP` with your actual IP:
+
+```sh
+ssh root@VPS_IP
+```
+
+When prompted, paste the password from your Hetzner email.
+
+> **Note:** The password won't display as you type—this is normal.
+
+### Update the System
+
+```sh
+apt update && apt upgrade -y && apt autoremove -y && reboot
+```
+
+The server will reboot. Reconnect after about 1 minute.
+
+### Create a Dedicated Steam User
+
+For security, create a non-root user to run the server:
+
+```sh
+adduser steam && usermod -aG sudo steam
+```
+
+Set a strong password; press Enter to skip optional fields. Then switch to this user:
+
+```sh
+ssh steam@VPS_IP
+```
+
+### Install SteamCMD
+
+Run this command to install dependencies and SteamCMD:
+
+```sh
+sudo apt-get install lib32gcc-s1 -y && sudo add-apt-repository multiverse && sudo dpkg --add-architecture i386 && sudo apt update -y && sudo apt install steamcmd -y
+```
+
+Press Enter to accept any prompts.
+
+### Download CS2 Server Files
+
+Create a directory and download the server:
+
+```sh
+mkdir -p ~/cs2-server && cd ~/cs2-server
+steamcmd +login anonymous +force_install_dir ~/cs2-server +app_update 730 validate +quit
+```
+
+> **Note:** This takes 10–30 minutes and downloads ~60GB. You'll see `Success! App '730' fully installed` when complete.
+
+### Authenticate with a Steam Account
+
+You need a Steam account to run the server. Create or use an existing one (Valve recommends a dedicated account). Run:
+
+```sh
+steamcmd +login YOUR_STEAM_USERNAME
+```
+
+Enter your password and 2FA code if prompted. Type `quit` to exit.
+
+### Generate a Game Server Login Token (GSLT)
+
+Visit [Steam's Game Server Account Management](https://steamcommunity.com/dev/managegameservers) with the same Steam account.
+
+1. Enter **730** in the **App ID** field
+2. Enter a description (e.g., "My CS2 Server") in the **Memo** field
+3. Click **Create**
+4. Copy the generated token
+
+> **Important:** Your server won't appear in the public server list without a valid GSLT. Each server needs its own token.
+
+### Set Up the Steam SDK
+
+Run this command once to enable Steam library loading:
+
+```sh
+mkdir -p ~/.steam/sdk64 && ln -s ~/.local/share/Steam/steamcmd/linux64/steamclient.so ~/.steam/sdk64/steamclient.so
+```
+
+If you get an "already exists" error, that's fine—skip this step.
+
+## STEP 3: Launch Your Server
+
+### Start the Server
+
+Navigate to your server directory and launch it:
+
+```sh
+cd ~/cs2-server/game && ./cs2.sh -dedicated -ip VPS_IP -maxplayers 10 -port 27015 +hostname "YOUR_SERVER_NAME" +map de_dust2 +sv_logfile 1 +sv_lan 0 +game_type 0 +game_mode 1 +sv_setsteamaccount "YOUR_GSLT_TOKEN"
+```
+
+**Replace:**
+- `VPS_IP` with your actual server IP
+- `YOUR_SERVER_NAME` with your desired server name
+- `YOUR_GSLT_TOKEN` with the token from the previous step
+
+> **Critical:** Always use `./cs2.sh`, not the direct binary. The script properly configures the Linux environment needed to load required libraries.
+
+### Understand the Parameters
+
+| Parameter | Purpose |
+| --- | --- |
+| `-dedicated` | Launches as a dedicated server (required) |
+| `-ip` | Binds to a specific IP |
+| `-maxplayers` | Maximum player slots (max 64) |
+| `-port` | Game port (default 27015) |
+| `+hostname` | Server name in browser |
+| `+map` | Starting map |
+| `+sv_logfile` | Enable logging (1 = yes, 0 = no) |
+| `+sv_lan` | 0 = internet, 1 = LAN only |
+| `+game_type` | Game type (0 = casual, 1 = competitive) |
+| `+game_mode` | Game mode variant |
+| `+sv_setsteamaccount` | Your GSLT token |
+
+### Verify It's Running
+
+Look for this in the console output:
+
+```
+[tick00] Loading map "de_dust2"...
+[tick00] Server is ready
+```
+
+### Test Your Connection
+
+In CS2, open the console (default: ~) and run:
+
+```
+connect VPS_IP:27015
+```
+
+If you set a password, you'll be prompted to enter it.
+
+## STEP 4: Advanced Configuration (Optional)
+
+### Use a Configuration File
+
+Instead of typing parameters every launch, create a config file:
+
+```sh
+nano ~/cs2-server/game/csgo/cfg/server.cfg
+```
+
+Add your settings:
+
+```
+hostname "My CS2 Server"
+sv_password ""
+maxplayers 10
+mp_timelimit 45
+mp_roundtime 2
+sv_cheats 0
+bot_difficulty 1
+```
+
+Launch with the config:
+
+```sh
+cd ~/cs2-server/game && ./cs2.sh -dedicated +execconfig server.cfg +sv_setsteamaccount "YOUR_GSLT_TOKEN" +map de_dust2
+```
+
+### Game Modes
+
+| Game Mode | Command |
+| --- | --- |
+| Competitive | `+game_alias competitive` |
+| Wingman | `+game_alias wingman` |
+| Casual | `+game_alias casual` |
+| Deathmatch | `+game_alias deathmatch` |
+| Custom | `+game_alias custom` |
+
+### Custom or Workshop Maps
+
+To use custom maps, disable VAC (Valve Anti-Cheat):
+
+```sh
+./cs2.sh -insecure -dedicated +sv_setsteamaccount "YOUR_GSLT_TOKEN" +map "mapname"
+```
+
+> **Warning:** Using `-insecure` disables anti-cheat on your server.
+
+## STEP 5: Keep Your Server Running
+
+The server stops when you close the terminal. Use `screen` for persistent operation:
+
+### Start with Screen
+
+```sh
+sudo apt install screen -y
+screen -S cs2-server
+```
+
+Run your server command inside the session. Then detach by pressing **Ctrl+A** followed by **D**.
+
+### Manage Sessions
+
+List active sessions:
+
+```sh
+screen -ls
+```
+
+Reconnect to your server:
+
+```sh
+screen -r cs2-server
+```
+
+### Automated Updates
+
+Create an update script to keep your server current:
+
+```bash
+#!/bin/bash
+echo "Updating CS2 server..."
+steamcmd +login anonymous +force_install_dir ~/cs2-server +app_update 730 +quit
+
+echo "Starting CS2 server..."
+cd ~/cs2-server/game
+./cs2.sh -dedicated -ip VPS_IP -maxplayers 10 -port 27015 +hostname "YOUR_SERVER_NAME" +map de_dust2 +sv_logfile 1 +sv_lan 0 +game_type 0 +game_mode 1 +sv_setsteamaccount "YOUR_GSLT_TOKEN"
+```
+
+Save it as `update.sh` and run:
+
+```sh
+chmod +x update.sh
+./update.sh
+```
+
+## Troubleshooting
+
+### Server fails with "Failed to load module" error
+
+**Cause:** You're using the direct binary instead of the wrapper script.
+
+**Fix:**
+```sh
+# Wrong:
+cd ~/cs2-server/game/bin/linuxsteamrt64 && ./cs2 -dedicated ...
+
+# Correct:
+cd ~/cs2-server/game && ./cs2.sh -dedicated ...
+```
+
+### "Failed to load module steamclient.so"
+
+**Fix:** Verify the symlink was created:
+
+```sh
+ls -la ~/.steam/sdk64/steamclient.so
+```
+
+If it's missing or broken:
+
+```sh
+rm ~/.steam/sdk64/steamclient.so
+ln -s ~/.local/share/Steam/steamcmd/linux64/steamclient.so ~/.steam/sdk64/steamclient.so
+```
+
+### Server not appearing in the public list
+
+1. Verify you have a valid GSLT from Step 2
+2. Confirm the token is passed correctly: `+sv_setsteamaccount "TOKEN"`
+3. Check that UDP port 27015 is open in your firewall
+4. Ensure your Steam account is not community-banned
+5. Wait 5–10 minutes for the server to register
+
+### Connection times out when joining
+
+1. Confirm the server is still running in your terminal or screen session
+2. Double-check that UDP 27015 is open in Hetzner's firewall
+3. Try connecting again: `connect VPS_IP:27015`
+
+## Success
+
+Your CS2 server is now live! You can:
+
+- **Customize gameplay** with console variables and config files
+- **Add custom maps** using the `-insecure` flag
+- **Switch game modes** with the `game_alias` command
+- **Host tournaments** with friends
+- **Manage multiple servers** with tools like [CS2 Multiserver](https://github.com/leozide/cs2-multiserver)
+
+## Conclusion
+
+Hosting your own CS2 server is straightforward when you follow these steps carefully. With your server running, you can explore advanced configurations, custom maps, and plugins to enhance your experience. Enjoy hosting!
+
+## Resources
+
+- [Official Valve CS2 Dedicated Servers Documentation](https://developer.valvesoftware.com/wiki/Counter-Strike_2/Dedicated_Servers)
+- [Steam Command (SteamCMD) Documentation](https://developer.valvesoftware.com/wiki/SteamCMD)
+- [Source Engine Dedicated Server Info](https://developer.valvesoftware.com/wiki/Source_Dedicated_Server)
+- [CS2 on SteamDB](https://steamdb.info/app/730/)
+- [CS2 Multiserver Tool](https://github.com/leozide/cs2-multiserver)

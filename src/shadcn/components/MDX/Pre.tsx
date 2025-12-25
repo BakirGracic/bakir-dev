@@ -20,16 +20,16 @@ export default function Pre(props: React.ComponentProps<"pre">) {
   };
 
   return (
-    <div className="flex items-center">
+    <div className="flex my-10">
       <pre
         ref={preRef}
         className={cn(
-          "bg-muted text-muted-foreground w-full py-3.5 px-4.5 rounded-l-lg rounded-r-none overflow-x-auto",
           props.className,
+          "m-0! bg-muted text-muted-foreground w-full py-3.5 px-4.5 rounded-l-lg rounded-r-none overflow-x-auto",
         )}
         {...props}
       />
-      <div className="bg-muted rounded-r-lg rounded-l-none p-2">
+      <div className="bg-muted rounded-r-lg rounded-l-none p-2 flex items-center">
         <Button
           variant="outline"
           size="icon-lg"

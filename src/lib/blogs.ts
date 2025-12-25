@@ -1,8 +1,8 @@
 export const blogs = [
   {
-    title: "Counter-Strike 2 Dedicated Server in 2025",
+    title: "Counter-Strike 2 Dedicated Server in 2026",
     published: "2025-12-23",
-    slug: "cs2-dedicated-server-2025",
+    slug: "cs2-dedicated-server-2026",
     description:
       "Learn how to host your own Counter-Strike 2 dedicated server with Hetzner in simple steps to enjoy the game your way with friends outside the network",
   },
