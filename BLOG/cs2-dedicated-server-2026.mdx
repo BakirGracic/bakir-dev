@@ -62,7 +62,7 @@ You'll receive an email with your server IP and root password.
 
 Use SSH to connect. Replace `VPS_IP` with your actual IP:
 
-```sh
+```bash
 ssh root@VPS_IP
 ```
 
@@ -72,8 +72,11 @@ When prompted, paste the password from your Hetzner email.
 
 ### Update the System
 
-```sh
-apt update && apt upgrade -y && apt autoremove -y && reboot
+```bash
+apt update && \
+apt upgrade -y && \
+apt autoremove -y && \
+reboot
 ```
 
 The server will reboot. Reconnect after about 1 minute.
@@ -82,13 +85,14 @@ The server will reboot. Reconnect after about 1 minute.
 
 For security, create a non-root user to run the server:
 
-```sh
-adduser steam && usermod -aG sudo steam
+```bash
+adduser steam && \
+usermod -aG sudo steam
 ```
 
 Set a strong password; press Enter to skip optional fields. Then switch to this user:
 
-```sh
+```bash
 ssh steam@VPS_IP
 ```
 
@@ -96,8 +100,12 @@ ssh steam@VPS_IP
 
 Run this command to install dependencies and SteamCMD:
 
-```sh
-sudo apt-get install lib32gcc-s1 -y && sudo add-apt-repository multiverse && sudo dpkg --add-architecture i386 && sudo apt update -y && sudo apt install steamcmd -y
+```bash
+sudo apt-get install lib32gcc-s1 -y && \
+sudo add-apt-repository multiverse && \
+sudo dpkg --add-architecture i386 && \
+sudo apt update -y && \
+sudo apt install steamcmd -y
 ```
 
 Press Enter to accept any prompts.
@@ -106,7 +114,7 @@ Press Enter to accept any prompts.
 
 Create a directory and download the server:
 
-```sh
+```bash
 mkdir -p ~/cs2-server && cd ~/cs2-server
 steamcmd +login anonymous +force_install_dir ~/cs2-server +app_update 730 validate +quit
 ```
@@ -117,8 +125,8 @@ steamcmd +login anonymous +force_install_dir ~/cs2-server +app_update 730 valida
 
 You need a Steam account to run the server. Create or use an existing one (Valve recommends a dedicated account). Run:
 
-```sh
-steamcmd +login YOUR_STEAM_USERNAME
+```bash
+steamcmd +login STEAM_USERNAME
 ```
 
 Enter your password and 2FA code if prompted. Type `quit` to exit.
@@ -138,8 +146,9 @@ Visit [Steam's Game Server Account Management](https://steamcommunity.com/dev/ma
 
 Run this command once to enable Steam library loading:
 
-```sh
-mkdir -p ~/.steam/sdk64 && ln -s ~/.local/share/Steam/steamcmd/linux64/steamclient.so ~/.steam/sdk64/steamclient.so
+```bash
+mkdir -p ~/.steam/sdk64 && \
+ln -s ~/.local/share/Steam/steamcmd/linux64/steamclient.so ~/.steam/sdk64/steamclient.so
 ```
 
 If you get an "already exists" error, that's fine—skip this step.
@@ -150,14 +159,25 @@ If you get an "already exists" error, that's fine—skip this step.
 
 Navigate to your server directory and launch it:
 
-```sh
-cd ~/cs2-server/game && ./cs2.sh -dedicated -ip VPS_IP -maxplayers 10 -port 27015 +hostname "YOUR_SERVER_NAME" +map de_dust2 +sv_logfile 1 +sv_lan 0 +game_type 0 +game_mode 1 +sv_setsteamaccount "YOUR_GSLT_TOKEN"
+```bash
+cd ~/cs2-server/game && \
+./cs2.sh -dedicated \
+   -ip "VPS_IP" \
+   -maxplayers 10 \
+   -port 27015 \
+   +hostname "SERVER_NAME" \
+   +map de_dust2 \
+   +sv_logfile 1 \
+   +sv_lan 0 \
+   +game_type 0 \
+   +game_mode 1 \
+   +sv_setsteamaccount "GSLT_TOKEN"
 ```
 
 **Replace:**
 - `VPS_IP` with your actual server IP
-- `YOUR_SERVER_NAME` with your desired server name
-- `YOUR_GSLT_TOKEN` with the token from the previous step
+- `SERVER_NAME` with your desired server name
+- `GSLT_TOKEN` with the token from the previous step
 
 > **Critical:** Always use `./cs2.sh`, not the direct binary. The script properly configures the Linux environment needed to load required libraries.
 
@@ -177,15 +197,6 @@ cd ~/cs2-server/game && ./cs2.sh -dedicated -ip VPS_IP -maxplayers 10 -port 2701
 | `+game_mode` | Game mode variant |
 | `+sv_setsteamaccount` | Your GSLT token |
 
-### Verify It's Running
-
-Look for this in the console output:
-
-```
-[tick00] Loading map "de_dust2"...
-[tick00] Server is ready
-```
-
 ### Test Your Connection
 
 In CS2, open the console (default: ~) and run:
@@ -202,7 +213,7 @@ If you set a password, you'll be prompted to enter it.
 
 Instead of typing parameters every launch, create a config file:
 
-```sh
+```bash
 nano ~/cs2-server/game/csgo/cfg/server.cfg
 ```
 
@@ -210,18 +221,21 @@ Add your settings:
 
 ```
 hostname "My CS2 Server"
-sv_password ""
-maxplayers 10
+sv_password "" // Leave empty for no password
 mp_timelimit 45
 mp_roundtime 2
 sv_cheats 0
 bot_difficulty 1
+// Any other config options...
 ```
 
-Launch with the config:
+Now launch your server with the config:
 
-```sh
-cd ~/cs2-server/game && ./cs2.sh -dedicated +execconfig server.cfg +sv_setsteamaccount "YOUR_GSLT_TOKEN" +map de_dust2
+```bash
+cd ~/cs2-server/game && \
+./cs2.sh -dedicated \
+  ...
+  +exec server.cfg 
 ```
 
 ### Game Modes
@@ -238,8 +252,11 @@ cd ~/cs2-server/game && ./cs2.sh -dedicated +execconfig server.cfg +sv_setsteama
 
 To use custom maps, disable VAC (Valve Anti-Cheat):
 
-```sh
-./cs2.sh -insecure -dedicated +sv_setsteamaccount "YOUR_GSLT_TOKEN" +map "mapname"
+```bash
+cd ~/cs2-server/game && \
+./cs2.sh -dedicated \
+  ...
+  -insecure
 ```
 
 > **Warning:** Using `-insecure` disables anti-cheat on your server.
@@ -250,7 +267,7 @@ The server stops when you close the terminal. Use `screen` for persistent operat
 
 ### Start with Screen
 
-```sh
+```bash
 sudo apt install screen -y
 screen -S cs2-server
 ```
@@ -261,13 +278,13 @@ Run your server command inside the session. Then detach by pressing **Ctrl+A** f
 
 List active sessions:
 
-```sh
+```bash
 screen -ls
 ```
 
 Reconnect to your server:
 
-```sh
+```bash
 screen -r cs2-server
 ```
 
@@ -282,12 +299,12 @@ steamcmd +login anonymous +force_install_dir ~/cs2-server +app_update 730 +quit
 
 echo "Starting CS2 server..."
 cd ~/cs2-server/game
-./cs2.sh -dedicated -ip VPS_IP -maxplayers 10 -port 27015 +hostname "YOUR_SERVER_NAME" +map de_dust2 +sv_logfile 1 +sv_lan 0 +game_type 0 +game_mode 1 +sv_setsteamaccount "YOUR_GSLT_TOKEN"
+./cs2.sh -dedicated ...
 ```
 
 Save it as `update.sh` and run:
 
-```sh
+```bash
 chmod +x update.sh
 ./update.sh
 ```
@@ -299,7 +316,7 @@ chmod +x update.sh
 **Cause:** You're using the direct binary instead of the wrapper script.
 
 **Fix:**
-```sh
+```bash
 # Wrong:
 cd ~/cs2-server/game/bin/linuxsteamrt64 && ./cs2 -dedicated ...
 
@@ -311,13 +328,13 @@ cd ~/cs2-server/game && ./cs2.sh -dedicated ...
 
 **Fix:** Verify the symlink was created:
 
-```sh
+```bash
 ls -la ~/.steam/sdk64/steamclient.so
 ```
 
 If it's missing or broken:
 
-```sh
+```bash
 rm ~/.steam/sdk64/steamclient.so
 ln -s ~/.local/share/Steam/steamcmd/linux64/steamclient.so ~/.steam/sdk64/steamclient.so
 ```
