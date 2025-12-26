@@ -20,7 +20,7 @@ export default function NotFoundPage() {
       <span className="font-black text-7xl mb-6">404</span>
       <h1 className="text-foreground">Page Not Found</h1>
       <Link href="/">
-        <Button size={"lg"}>
+        <Button size="lg">
           <HugeiconsIcon icon={Home07Icon} />
           Back to Home
         </Button>
