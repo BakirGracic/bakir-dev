@@ -1,15 +1,13 @@
 import "@/css/global.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import type { Metadata, Viewport } from "next";
 import Footer from "@/features/Footer/Footer";
 import Navbar from "@/features/Navbar/Navbar";
-import { baseMetadata } from "@/lib/baseMetadata";
-import { baseViewport } from "@/lib/baseViewport";
 import { publicSans } from "@/lib/fonts";
-import { ThemeProvider } from "@/shadcn/components/theme-provider";
+import { baseMetadata } from "@/lib/metadata";
+import { baseViewport } from "@/lib/viewport";
 
-export const metadata: Metadata = baseMetadata;
-export const viewport: Viewport = baseViewport;
+export const metadata = baseMetadata;
+export const viewport = baseViewport;
 
 export default function RootLayout({
   children,
@@ -19,22 +17,17 @@ export default function RootLayout({
   return (
     <html
       lang="bs-Latn-BA"
-      className={publicSans.className}
+      className={`${publicSans.className} font-public-sans dark`}
       suppressHydrationWarning
     >
       <body>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          disableTransitionOnChange
-        >
-          <div className="container mx-auto px-4">
-            <Navbar />
-            <main className="py-12 md:py-16">{children}</main>
-            <Footer />
-          </div>
-        </ThemeProvider>
-        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID!} />
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID} />
+
+        <div className="container mx-auto p-4 min-h-dvh flex flex-col">
+          <Navbar />
+          <main className="flex flex-1 flex-col">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );

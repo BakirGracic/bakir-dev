@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import type { CollectionPage, WithContext } from "schema-dts";
 import Blog from "@/features/Blog/Blog";
-import { baseMetadata } from "@/lib/baseMetadata";
 import { blogs } from "@/lib/blogs";
+import { baseMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = {
   ...baseMetadata,

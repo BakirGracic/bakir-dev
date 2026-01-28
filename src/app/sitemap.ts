@@ -9,12 +9,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "yearly",
       priority: 1,
     },
+
     // blog
     {
       url: `${process.env.NEXT_PUBLIC_APP_URL}/blog`,
       changeFrequency: "monthly",
       priority: 0.9,
     },
+
     // ...blogs
     ...blogs.map((blog) => ({
       url: `${process.env.NEXT_PUBLIC_APP_URL}/blog/${blog.slug}`,
@@ -22,6 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(blog.published).toISOString(),
       priority: 0.8,
     })),
+
     // links
     {
       url: `${process.env.NEXT_PUBLIC_APP_URL}/links`,

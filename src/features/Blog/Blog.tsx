@@ -1,5 +1,5 @@
+import PageHeading from "@/features/page-heading";
 import { blogs } from "@/lib/blogs";
-import PageHeading from "@/shadcn/components/page-heading";
 import { BlogCard } from "./BlogCard";
 
 export default function Blog() {

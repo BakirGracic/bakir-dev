@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
-import type { ProfilePage, WithContext } from "schema-dts";
 import { Links } from "@/features/Links/Links";
-import { baseMetadata } from "@/lib/baseMetadata";
-import { personSchema } from "@/lib/schema";
+import { baseMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = {
   ...baseMetadata,
@@ -16,19 +14,5 @@ export const metadata: Metadata = {
 };
 
 export default function LinksPage() {
-  const jsonLd: WithContext<ProfilePage> = {
-    "@context": "https://schema.org",
-    "@type": "ProfilePage",
-    mainEntity: personSchema,
-  };
-
-  return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <Links />
-    </>
-  );
+  return <Links />;
 }

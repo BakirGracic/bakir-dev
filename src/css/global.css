@@ -1,9 +1,14 @@
+/* base tailwind and shadcn */
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
+/* plugins */
 @plugin "@tailwindcss/typography";
+@plugin "tailwindcss-motion";
+@plugin "tailwindcss-intersect";
 
+/* shadcn themes config */
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -126,3 +131,5 @@
     @apply bg-background text-foreground antialiased;
   }
 }
+
+/* utilities */

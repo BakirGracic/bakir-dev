@@ -2,28 +2,23 @@
 
 import { Refresh01Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
-import type { Metadata } from "next";
-import { baseMetadata } from "@/lib/baseMetadata";
+import Non200Pages from "@/features/Non200Pages/Non200Pages";
+import { pageMetadata } from "@/lib/metadata";
 import { Button } from "@/shadcn/components/ui/button";
 
-export const metadata: Metadata = {
-  ...baseMetadata,
-  title: "Server Error",
-  openGraph: {
-    ...baseMetadata.openGraph,
-    title: "Server Error",
-  },
-};
+export const metadata = pageMetadata(
+  "Server Error (500)",
+  "There was an internal server error. Please try again later.",
+  "/",
+);
 
 export default function ErrorPage() {
   return (
-    <section className="prose mx-auto text-center text-foreground min-h-lvh flex flex-col items-center justify-center p-5">
-      <span className="font-black text-7xl mb-6">505</span>
-      <h1 className="text-foreground">Server Error</h1>
+    <Non200Pages code="500" title="Server Error">
       <Button size="lg" onClick={() => window.location.reload()}>
-        <HugeiconsIcon icon={Refresh01Icon} />
+        <HugeiconsIcon className="size-5" icon={Refresh01Icon} />
         Refresh
       </Button>
-    </section>
+    </Non200Pages>
   );
 }

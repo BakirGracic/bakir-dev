@@ -4,10 +4,11 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "bakir.dev",
     short_name: "bakir.dev",
-    start_url: `${process.env.NEXT_PUBLIC_APP_URL}`,
-    scope: `${process.env.NEXT_PUBLIC_APP_URL}`,
+    start_url: "/",
+    scope: "/",
     display: "standalone",
     theme_color: "#85cc23",
+    background_color: "#0a0a0a",
     icons: [
       {
         src: "/web-app-manifest-192x192.png",

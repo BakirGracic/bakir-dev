@@ -1,5 +1,11 @@
 export const blogs = [
   {
+    title: "BLOG TO BE ADDED",
+    published: "2026-01-28",
+    slug: "blog-to-be-added",
+    description: "Blog To Be Added",
+  },
+  {
     title: "Counter-Strike 2 Dedicated Server in 2026",
     published: "2025-12-23",
     slug: "cs2-dedicated-server-2026",

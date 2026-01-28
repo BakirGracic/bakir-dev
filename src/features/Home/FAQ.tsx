@@ -1,5 +1,5 @@
 import Link from "next/link";
-import PageHeading from "@/shadcn/components/page-heading";
+import PageHeading from "@/features/page-heading";
 import {
   Accordion,
   AccordionContent,

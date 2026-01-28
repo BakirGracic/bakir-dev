@@ -1,7 +1,6 @@
 import type { BlogPosting, WithContext } from "schema-dts";
-import { baseMetadata } from "@/lib/baseMetadata";
 import { blogs } from "@/lib/blogs";
-import { personSchema } from "@/lib/schema";
+import { baseMetadata } from "@/lib/metadata";
 
 export const dynamicParams = false;
 
@@ -44,7 +43,6 @@ export default async function BlogSlugPage({
     headline: blog?.title,
     description: blog?.description,
     datePublished: blog?.published,
-    author: personSchema,
     url: `https://bakir.dev/blog/${slug}`,
     image: "https://bakir.dev/og.jpg",
     mainEntityOfPage: {

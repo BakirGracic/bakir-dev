@@ -1,30 +1,25 @@
 import { Home07Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
-import type { Metadata } from "next";
 import Link from "next/link";
-import { baseMetadata } from "@/lib/baseMetadata";
+import Non200Pages from "@/features/Non200Pages/Non200Pages";
+import { pageMetadata } from "@/lib/metadata";
 import { Button } from "@/shadcn/components/ui/button";
 
-export const metadata: Metadata = {
-  ...baseMetadata,
-  title: "Page Not Found",
-  openGraph: {
-    ...baseMetadata.openGraph,
-    title: "Page Not Found",
-  },
-};
+export const metadata = pageMetadata(
+  "Page Not Found (404)",
+  "The page you are looking for does not exist. Return to the homepage and try to find it again.",
+  "/",
+);
 
 export default function NotFoundPage() {
   return (
-    <section className="prose mx-auto text-center text-foreground min-h-lvh flex flex-col items-center justify-center p-5">
-      <span className="font-black text-7xl mb-6">404</span>
-      <h1 className="text-foreground">Page Not Found</h1>
+    <Non200Pages code="404" title="Page Not Found">
       <Link href="/">
         <Button size="lg">
-          <HugeiconsIcon icon={Home07Icon} />
+          <HugeiconsIcon className="size-5" icon={Home07Icon} />
           Back to Home
         </Button>
       </Link>
-    </section>
+    </Non200Pages>
   );
 }
