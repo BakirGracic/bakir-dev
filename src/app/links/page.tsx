@@ -80,7 +80,7 @@ export default function LinksPage() {
         <ItemGroup className="gap-2">
           {links.map((link) => (
             <Item
-              key={link.title}
+              key={`link-item_${link.title}`}
               render={
                 <Link
                   href={link.href}

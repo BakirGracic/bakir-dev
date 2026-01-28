@@ -20,7 +20,7 @@ export default function Pre(props: React.ComponentProps<"pre">) {
   };
 
   return (
-    <div className="flex my-9">
+    <div className="flex my-2">
       <pre
         ref={preRef}
         className={cn(

@@ -1,3 +1,4 @@
+import { CredentialsView } from "@/features/Credentials/CredentialsView";
 import PageHeading from "@/features/PageHeading/PageHeading";
 import { pageMetadata } from "@/lib/metadata";
 
@@ -15,7 +16,7 @@ export default function CredentialsPage() {
         subtitle="Check out where I validated my skills and experience"
       />
 
-      <p>lorem ipsum dolor sit amet</p>
+      <CredentialsView />
     </section>
   );
 }

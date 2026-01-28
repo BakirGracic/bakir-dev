@@ -48,7 +48,7 @@ export function MobileNavbar() {
           <ItemGroup className="px-2.5 gap-2">
             {navbarLinks.map((link) => (
               <Item
-                key={link.title}
+                key={`mobile-nav-link_${link.title}`}
                 variant="outline"
                 render={
                   <Link href={link.href} onClick={() => setOpen(false)} />

@@ -117,7 +117,7 @@ export const baseMetadata: Metadata = {
     siteName: "bakir.dev",
     images: [
       {
-        url: `${process.env.NEXT_PUBLIC_APP_URL}/og.jpg`,
+        url: defaultMetadataImage,
         alt: "bakir.dev OpenGraph Image",
         width: 1200,
         height: 630,
@@ -131,7 +131,7 @@ export const baseMetadata: Metadata = {
     title: "bakir.dev",
     description:
       "Personal website and blog of Bakir Gracić featuring their work, blogs and credentials",
-    images: [`${process.env.NEXT_PUBLIC_APP_URL}/og.jpg`],
+    images: [defaultMetadataImage],
   },
   robots: {
     index: true,

@@ -9,20 +9,15 @@
 
 ## Architecture & Patterns
 - **Feature-Based Components**: Domain-specific components go in [src/features](src/features) (e.g., [Navbar](src/features/Navbar/Navbar.tsx), [Footer](src/features/Footer/Footer.tsx)).
-- **Shared Components**: Generic UI components go in [src/shadcn/components](src/shadcn/components).
 - **Pages**: Follow Next.js App Router conventions in [src/app](src/app).
 - **Blog Architecture**:
   - Content: MDX files in [BLOG/](BLOG/).
   - Routes: [src/app/blog](src/app/blog).
   - Metadata: Registered in `blogs` array in [src/lib/blogs.ts](src/lib/blogs.ts). Only `title`, `published`, `slug`, and `description` are used.
   - Components: Custom MDX components (like `A`, `Pre`) in [src/features/MDX](src/features/MDX) mapped via [src/mdx-components.tsx](src/mdx-components.tsx).
-- **Metadata & Viewport**:
-  - Extend `baseMetadata` from [src/lib/baseMetadata.ts](src/lib/baseMetadata.ts) for page metadata.
-- **State Management**: Local state only. Global state is limited to `next-themes` for OS theming.
-- **Theming**: `next-themes` provider in [src/app/layout.tsx](src/app/layout.tsx). Ensure `suppressHydrationWarning` on `html`.
 
 ## Coding Conventions
-- **Linting/Formatting**: Use Biome. Run `pnpm lint:write` to fix issues and format files.
+- **Linting/Formatting**: Use Biome. Run `pnpm lint` to fix issues and format files.
 - **TypeScript**: Strict type checking is enforced. Run `pnpm tsc` to verify types.
 - **Path Aliases**:
   - `@/*` → `src/*` (Application code)
@@ -38,11 +33,11 @@
 
   <HugeiconsIcon icon={Home01Icon} />
   ```
-- **Layout**: Main content is typically wrapped in `<div className="container mx-auto px-4">`.
+- **Layout**: Main content is wrapped in `<div className="container mx-auto px-4 min-h-dvh flex flex-col">{children}</div>`.
 
 ## Critical Workflows
 - **Development**: `pnpm dev:clean` (deletes `.next` directory to prevent errors and ensure a clean start).
-- **Linting**: `pnpm lint:write` (performs formatting and linting).
+- **Linting**: `pnpm lint` (performs formatting and linting).
 - **Type Check**: `pnpm tsc` (verifies types).
 - **Build**: `pnpm build:clean` (deletes `.next` directory to prevent errors and ensure a clean start).
 - **Clean Install**: `pnpm install:clean` (removes `node_modules` and pnpm lockfile).

@@ -27,12 +27,12 @@ Now you'll provision the actual server that will host CS2.
 
 Settings:
 
-|                  | Description |
-| ---------------- | ----------- |
-| **Server Type:** | [With Hetzner](https://console.hetzner.com), a CX33 will be sufficient for 10-32 players.<br /><br />We need at least 4 vCPU cores, 8GB RAM and 80GB disk space. If your region doesn't have CX33, choose the next closest plan with similar specs |
-| **Location:**    | Choose the region closest to your players |
-| **Operating System:** | Ubuntu 24.04 |
-| **Server Name:** | "cs2-server" or descriptive name |
+| Property             | Description |
+| :---                 | :--- |
+| **Server Type**      | [With Hetzner](https://console.hetzner.com), a CX33 will be sufficient for 10-32 players. We need at least 4 vCPU cores, 8GB RAM and 80GB disk space. If your region doesn't have CX33, choose the next closest plan with similar specs |
+| **Location**.        | Choose the region closest to your players |
+| **Operating System** | Ubuntu 24.04 |
+| **Server Name**      | "cs2-server" or descriptive name |
 
 It is recommended to add an **SSH key** 
 
@@ -49,23 +49,25 @@ You can either setup a firewall directly on the server via `ufw`, or create a ne
 #### Option A - ufw
 
 * Add these rules:
-  ```bash
-  sudo ufw allow 22/tcp comment 'SSH - Server Management'
-  sudo ufw allow 27015/udp comment 'Game Server'
-  sudo ufw allow 27015/tcp comment 'RCON & Pings'
-  sudo ufw allow 27005/udp comment 'Client Communication'
-  sudo ufw allow 27020/udp comment 'SourceTV Demo Recording'
-  sudo ufw allow 27036/tcp comment 'Steam Remote Play'
-  sudo ufw allow 3478/udp comment 'NAT Traversal'
-  sudo ufw allow 4379/udp comment 'Matchmaking'
-  sudo ufw allow 4380/udp comment 'Matchmaking'
-  ```
+
+```bash
+sudo ufw allow 22/tcp comment 'SSH - Server Management'
+sudo ufw allow 27015/udp comment 'Game Server'
+sudo ufw allow 27015/tcp comment 'RCON & Pings'
+sudo ufw allow 27005/udp comment 'Client Communication'
+sudo ufw allow 27020/udp comment 'SourceTV Demo Recording'
+sudo ufw allow 27036/tcp comment 'Steam Remote Play'
+sudo ufw allow 3478/udp comment 'NAT Traversal'
+sudo ufw allow 4379/udp comment 'Matchmaking'
+sudo ufw allow 4380/udp comment 'Matchmaking'
+```
 
 * If the firewall isn't enabled yet, enable it now:
-  ```bash
-  sudo ufw enable
-  sudo ufw status
-  ```
+
+```bash
+sudo ufw enable
+sudo ufw status
+```
 
 #### Option B - Hetzner Cloud Firewall
 
@@ -74,17 +76,17 @@ If you have a Hetzner cloud server, you can protect it via a Hetzner Firewall.
 1. In your project, navigate to **Firewall** and click **Create Firewall**
 2. Add these inbound rules:
    
-   | Purpose                 | Protocol | Port |
-   | ----------------------- | -------- | ---- |
-   | SSH (Server Management) | TCP      | 22   |
-   | Game Server             | UDP      | 27015 |
-   | RCON & Pings            | TCP      | 27015 |
-   | Client Communication    | UDP      | 27005 |
-   | SourceTV Demo Recording | UDP      | 27020 |
-   | Steam Remote Play       | TCP      | 27036 |
-   | NAT Traversal           | UDP      | 3478 |
-   | Matchmaking             | UDP      | 4379 |
-   | Matchmaking             | UDP      | 4380 |
+| Purpose                 | Protocol | Port |
+| ----------------------- | -------- | ---- |
+| SSH (Server Management) | TCP      | 22   |
+| Game Server             | UDP      | 27015 |
+| RCON & Pings            | TCP      | 27015 |
+| Client Communication    | UDP      | 27005 |
+| SourceTV Demo Recording | UDP      | 27020 |
+| Steam Remote Play       | TCP      | 27036 |
+| NAT Traversal           | UDP      | 3478 |
+| Matchmaking             | UDP      | 4379 |
+| Matchmaking             | UDP      | 4380 |
 
 3. Name your Firewall (e.g., "cs2-firewall") and click **Create Firewall**
 4. Apply the Firewall to the server that you created in the step above.
@@ -371,3 +373,7 @@ You now have a fully operational CS2 dedicated server running 24/7. Your Hetzner
 - **Scale up:** If you reach player limits, resize your server to a more powerful plan
 
 For official CS2 server configuration details, always refer to the [official Valve CS2 Dedicated Servers documentation](https://developer.valvesoftware.com/wiki/Counter-Strike_2/Dedicated_Servers).
+
+***
+
+Published [here](https://community.hetzner.com/tutorials/game-server-cs2), contributed [here](https://github.com/hetzneronline/community-content/pull/1348)

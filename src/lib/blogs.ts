@@ -1,9 +1,10 @@
 export const blogs = [
   {
-    title: "BLOG TO BE ADDED",
+    title: "BIMI: Your Brand's Logo & Verification in Inboxes",
     published: "2026-01-28",
-    slug: "blog-to-be-added",
-    description: "Blog To Be Added",
+    slug: "bimi-brand-logo-verification-inboxes",
+    description:
+      "Understand BIMI DNS records and how to add verified checkmarks to your emails. Learn setup steps, requirements, and benefits for small-to-medium businesses without the certificate complexity.",
   },
   {
     title: "Counter-Strike 2 Dedicated Server in 2026",

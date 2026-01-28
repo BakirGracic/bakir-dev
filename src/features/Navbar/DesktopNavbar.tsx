@@ -21,7 +21,7 @@ export function DesktopNavbar() {
       <NavigationMenu>
         <NavigationMenuList className="gap-4">
           {navbarLinks.map((link) => (
-            <NavigationMenuItem key={link.title}>
+            <NavigationMenuItem key={`desktop-nav-link_${link.title}`}>
               <NavigationMenuLink
                 render={<Link href={link.href}>{link.title}</Link>}
               />
