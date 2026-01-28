@@ -13,7 +13,7 @@ export default function Footer() {
         <Link
           href="https://github.com/BakirGracic/bakir-dev/blob/main/LICENSES/"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener noreferrer nofollow"
           className="hover:underline transition-all"
           prefetch={false}
         >
@@ -23,7 +23,7 @@ export default function Footer() {
         <Link
           href="https://sanjacklee.digital"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener noreferrer nofollow"
           className="hover:underline transition-all"
           prefetch={false}
         >

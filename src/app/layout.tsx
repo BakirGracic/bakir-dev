@@ -23,7 +23,7 @@ export default function RootLayout({
       <body>
         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID} />
 
-        <div className="container mx-auto p-4 min-h-dvh flex flex-col">
+        <div className="container mx-auto px-4 min-h-dvh flex flex-col">
           <Navbar />
           <main className="flex flex-1 flex-col">{children}</main>
           <Footer />

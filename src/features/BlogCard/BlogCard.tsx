@@ -24,7 +24,7 @@ export function BlogCard({
 }: BlogCardProps) {
   return (
     <Link href={`/blog/${slug}`}>
-      <Card className="flex text-pretty flex-col h-full hover:shadow-lg transition-shadow duration-200">
+      <Card className="h-full">
         <CardHeader>
           <div className="text-sm text-muted-foreground mb-2">{published}</div>
           <CardTitle className="line-clamp-2 leading-tight text-xl">
@@ -37,7 +37,7 @@ export function BlogCard({
           </CardDescription>
         </CardContent>
         <CardFooter className="pt-3 mt-auto">
-          <Button className="w-full cursor-pointer" size="lg">
+          <Button className="w-full font-bold" size="lg">
             Read Article
           </Button>
         </CardFooter>

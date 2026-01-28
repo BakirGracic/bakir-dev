@@ -5,17 +5,12 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import { Button } from "@/shadcn/components/ui/button";
 
 export function BackToTop() {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
   return (
     <Button
       variant="ghost"
       size="icon-lg"
-      onClick={scrollToTop}
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       aria-label="Back to top"
-      className="cursor-pointer"
     >
       <HugeiconsIcon icon={ArrowUp02Icon} />
     </Button>

@@ -20,7 +20,7 @@ export default function Pre(props: React.ComponentProps<"pre">) {
   };
 
   return (
-    <div className="flex my-10">
+    <div className="flex my-9">
       <pre
         ref={preRef}
         className={cn(
@@ -29,6 +29,7 @@ export default function Pre(props: React.ComponentProps<"pre">) {
         )}
         {...props}
       />
+
       <div className="bg-muted rounded-r-lg rounded-l-none p-2 flex items-center">
         <Button
           variant="outline"

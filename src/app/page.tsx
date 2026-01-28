@@ -1,5 +1,7 @@
 import type { Person, WebSite, WithContext } from "schema-dts";
-import Home from "@/features/Home/Home";
+import { CTA } from "@/features/IndexPage/CTA";
+import { FAQ } from "@/features/IndexPage/FAQ";
+import { Hero } from "@/features/IndexPage/Hero";
 
 // metadata applied from layout.tsx
 
@@ -41,7 +43,12 @@ export default function IndexPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
       />
-      <Home />
+
+      <section className="flex flex-col gap-25 md:gap-30 mt-20">
+        <Hero />
+        <FAQ />
+        <CTA />
+      </section>
     </>
   );
 }

@@ -1,18 +1,106 @@
-import type { Metadata } from "next";
-import { Links } from "@/features/Links/Links";
-import { baseMetadata } from "@/lib/metadata";
+import {
+  Coffee01Icon,
+  DocumentValidationIcon,
+  GithubIcon,
+  Linkedin02Icon,
+  MailEdit01Icon,
+  OfficeIcon,
+  WhatsappBusinessIcon,
+} from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
+import Link from "next/link";
+import PageHeading from "@/features/PageHeading/PageHeading";
+import { pageMetadata } from "@/lib/metadata";
+import {
+  Item,
+  ItemContent,
+  ItemDescription,
+  ItemGroup,
+  ItemMedia,
+  ItemTitle,
+} from "@/shadcn/components/ui/item";
 
-export const metadata: Metadata = {
-  ...baseMetadata,
-  title: "Links | bakir.dev",
-  description: "Links to connect with me online",
-  openGraph: {
-    ...baseMetadata.openGraph,
-    title: "Links | bakir.dev",
-    description: "Links to connect with me online",
-  },
-};
+export const metadata = pageMetadata(
+  "Links | bakir.dev",
+  "Links to connect with me online. Explore my CV, GitHub, LinkedIn, and more. Feel free to reach out!",
+  "/links",
+);
 
 export default function LinksPage() {
-  return <Links />;
+  const links = [
+    {
+      title: "Email",
+      description: "Send me an email",
+      href: `mailto:${process.env.NEXT_PUBLIC_EMAIL_ADDRESS}`,
+      icon: MailEdit01Icon,
+    },
+    {
+      title: "Curriculum Vitae",
+      description: "bakir.dev/cv",
+      href: process.env.NEXT_PUBLIC_CV_URL,
+      icon: DocumentValidationIcon,
+    },
+    {
+      title: "GitHub",
+      description: "github.com/BakirGracic",
+      href: process.env.NEXT_PUBLIC_GITHUB_URL,
+      icon: GithubIcon,
+    },
+    {
+      title: "LinkedIn",
+      description: "linkedin.com/in/bakirgracic",
+      href: process.env.NEXT_PUBLIC_LINKEDIN_URL,
+      icon: Linkedin02Icon,
+    },
+    {
+      title: "WhatsApp Business",
+      description: "wa.me/message/...",
+      href: process.env.NEXT_PUBLIC_WHATSAPP_URL,
+      icon: WhatsappBusinessIcon,
+    },
+    {
+      title: "Company Website",
+      description: "sanjacklee.digital",
+      href: process.env.NEXT_PUBLIC_COMPANY_URL,
+      icon: OfficeIcon,
+    },
+    {
+      title: "Buy Me a Coffee",
+      description: "buymeacoffee.com/bakirgdev",
+      href: process.env.NEXT_PUBLIC_BUYMEACOFFEE_URL,
+      icon: Coffee01Icon,
+    },
+  ];
+
+  return (
+    <section>
+      <PageHeading title="Links" subtitle="Connect with me across the web" />
+
+      <div className="max-w-md mx-auto">
+        <ItemGroup className="gap-2">
+          {links.map((link) => (
+            <Item
+              key={link.title}
+              render={
+                <Link
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  prefetch={false}
+                />
+              }
+            >
+              <ItemMedia>
+                <HugeiconsIcon icon={link.icon} />
+              </ItemMedia>
+              <ItemContent>
+                <ItemTitle>{link.title}</ItemTitle>
+                <ItemDescription>{link.description}</ItemDescription>
+              </ItemContent>
+            </Item>
+          ))}
+        </ItemGroup>
+      </div>
+    </section>
+  );
 }

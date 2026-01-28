@@ -1,4 +1,5 @@
 import {
+  DocumentValidationIcon,
   Home07Icon,
   LicenseIcon,
   Link04Icon,
@@ -19,5 +20,10 @@ export const navbarLinks = [
     title: "Links",
     href: "/links",
     icon: Link04Icon,
+  },
+  {
+    title: "Credentials",
+    href: "/credentials",
+    icon: DocumentValidationIcon,
   },
 ];

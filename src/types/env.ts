@@ -9,6 +9,7 @@ const envVarsSchema = z.object({
   NEXT_PUBLIC_WHATSAPP_URL: z.url(),
   NEXT_PUBLIC_COMPANY_URL: z.url(),
   NEXT_PUBLIC_BUYMEACOFFEE_URL: z.url(),
+  NEXT_PUBLIC_EMAIL_ADDRESS: z.email(),
   // .env.<ENVIRONMENT>
   NEXT_PUBLIC_APP_URL: z.url(),
 });

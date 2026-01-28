@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import Logo from "#/static/images/logo.png";
-import { navbarLinks } from "@/features/Navbar/navbarLinks";
+import { navbarLinks } from "@/features/Navbar/lib";
 import { Button } from "@/shadcn/components/ui/button";
 import {
   Item,
