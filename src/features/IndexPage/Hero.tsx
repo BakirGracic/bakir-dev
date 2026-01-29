@@ -5,7 +5,7 @@ export function Hero() {
   return (
     <section className="grid gap-6 md:gap-10 md:grid-cols-5 md:items-center">
       <div className="md:col-span-2 flex justify-center md:justify-end order-1">
-        <div className="relative w-52 h-52 md:h-64 md:w-64 lg:w-72 lg:h-72 overflow-hidden rounded-full shadow-xl">
+        <div className="relative w-52 h-52 md:h-64 md:w-64 lg:w-72 lg:h-72 overflow-hidden rounded-full shadow-xl motion-preset-blur-right">
           <Image
             src={Headshot}
             alt="Headshot of Bakir"
@@ -16,7 +16,7 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="md:col-span-3 flex flex-col space-y-5 text-center md:text-left order-2">
+      <div className="md:col-span-3 flex flex-col space-y-5 text-center md:text-left order-2 motion-preset-blur-left">
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter">
           Bakir
         </h1>

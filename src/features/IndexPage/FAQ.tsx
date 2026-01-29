@@ -14,7 +14,7 @@ export function FAQ() {
 
       <div className="max-w-prose mx-auto">
         <Accordion className="w-full">
-          <AccordionItem value="faq-1">
+          <AccordionItem value="faq-1" className="motion-preset-expand">
             <AccordionTrigger className="hover:no-underline cursor-pointer text-base">
               What do you do?
             </AccordionTrigger>
@@ -25,7 +25,10 @@ export function FAQ() {
             </AccordionContent>
           </AccordionItem>
 
-          <AccordionItem value="faq-2">
+          <AccordionItem
+            value="faq-2"
+            className="motion-preset-expand motion-delay-30"
+          >
             <AccordionTrigger className="hover:no-underline cursor-pointer text-base">
               Are you available to work?
             </AccordionTrigger>
@@ -35,7 +38,10 @@ export function FAQ() {
             </AccordionContent>
           </AccordionItem>
 
-          <AccordionItem value="faq-3">
+          <AccordionItem
+            value="faq-3"
+            className="motion-preset-expand motion-delay-60"
+          >
             <AccordionTrigger className="hover:no-underline cursor-pointer text-base">
               How to get in touch?
             </AccordionTrigger>

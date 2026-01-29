@@ -23,7 +23,7 @@ export function CredentialsView() {
         <Badge
           variant={activeTag === null ? "default" : "outline"}
           className={cn(
-            "cursor-pointer px-4 py-1 h-8",
+            "cursor-pointer px-4 py-1 h-8 motion-preset-slide-down",
             activeTag !== null &&
               "hover:bg-accent hover:text-accent-foreground",
           )}
@@ -32,15 +32,16 @@ export function CredentialsView() {
           All
         </Badge>
 
-        {allTags.map((tag) => (
+        {allTags.map((tag, i) => (
           <Badge
             key={`credential-tag_${tag}`}
             variant={activeTag === tag ? "default" : "outline"}
             className={cn(
-              "cursor-pointer px-4 py-1 h-8",
+              "cursor-pointer px-4 py-1 h-8 motion-preset-slide-down",
               activeTag !== tag &&
                 "hover:bg-accent hover:text-accent-foreground",
             )}
+            style={{ animationDelay: `${i * 50}ms` }}
             onClick={() => setActiveTag(tag === activeTag ? null : tag)}
           >
             {tag}
@@ -49,10 +50,11 @@ export function CredentialsView() {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-        {filteredCredentials.map((credential) => (
+        {filteredCredentials.map((credential, i) => (
           <CredentialCard
             key={`credential-card_${credential.name}`}
             credential={credential}
+            style={{ animationDelay: `${i * 50}ms` }}
           />
         ))}
       </div>

@@ -7,9 +7,13 @@ export default function PageHeading({
 }) {
   return (
     <div className="mb-10 text-center">
-      <h1 className="text-4xl font-bold tracking-tight">{title}</h1>
+      <h1 className="text-4xl font-bold tracking-tight motion-preset-blur-down-lg">
+        {title}
+      </h1>
       {subtitle && (
-        <p className="text-muted-foreground text-lg mt-2">{subtitle}</p>
+        <p className="text-muted-foreground text-lg mt-2 motion-preset-blur-down-lg motion-delay-100">
+          {subtitle}
+        </p>
       )}
     </div>
   );

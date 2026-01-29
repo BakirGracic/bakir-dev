@@ -78,9 +78,11 @@ export default function LinksPage() {
 
       <div className="max-w-md mx-auto">
         <ItemGroup className="gap-2">
-          {links.map((link) => (
+          {links.map((link, i) => (
             <Item
               key={`link-item_${link.title}`}
+              className="motion-preset-slide-down"
+              style={{ animationDelay: `${i * 50}ms` }}
               render={
                 <Link
                   href={link.href}

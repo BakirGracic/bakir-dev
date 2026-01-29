@@ -11,6 +11,7 @@ export function BackToTop() {
       size="icon-lg"
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       aria-label="Back to top"
+      className="intersect:motion-preset-blur-left intersect-once"
     >
       <HugeiconsIcon icon={ArrowUp02Icon} />
     </Button>

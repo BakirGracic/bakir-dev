@@ -5,7 +5,7 @@ import { CopyrightYear } from "@/features/Footer/CopyrightYear";
 export default function Footer() {
   return (
     <footer className="py-4 flex items-center justify-between text-sm text-muted-foreground">
-      <div className="flex items-center gap-3 md:gap-5">
+      <div className="flex items-center gap-3 md:gap-5 intersect:motion-preset-blur-right intersect-once">
         <p>
           © <CopyrightYear /> bakir.dev
         </p>

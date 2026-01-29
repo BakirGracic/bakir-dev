@@ -61,7 +61,7 @@ export default async function BlogSlugPage({ params }: BlogSlugPageProps) {
     <>
       <JsonLD code={blogPostingSchema} />
 
-      <article className="max-w-prose mx-auto wrap-break-word prose dark:prose-invert text-pretty">
+      <article className="w-full max-w-prose mx-auto wrap-break-word prose dark:prose-invert text-pretty motion-preset-blur-down-sm">
         <p>
           {blog?.published &&
             new Date(blog.published).toLocaleDateString("en-US", {

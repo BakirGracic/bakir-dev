@@ -15,11 +15,12 @@ import {
 
 interface CredentialCardProps {
   credential: Credential;
+  style?: React.CSSProperties;
 }
 
-export function CredentialCard({ credential }: CredentialCardProps) {
+export function CredentialCard({ credential, style }: CredentialCardProps) {
   return (
-    <Card className="h-full pt-0">
+    <Card className="h-full pt-0 motion-preset-slide-down-sm" style={style}>
       <div className="relative w-full bg-muted/50 aspect-4/3 overflow-hidden p-1">
         <Image
           src={credential.image}

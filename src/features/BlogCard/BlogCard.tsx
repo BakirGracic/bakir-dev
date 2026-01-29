@@ -14,6 +14,7 @@ interface BlogCardProps {
   description: string;
   published: string;
   slug: string;
+  style?: React.CSSProperties;
 }
 
 export function BlogCard({
@@ -21,9 +22,14 @@ export function BlogCard({
   description,
   published,
   slug,
+  style,
 }: BlogCardProps) {
   return (
-    <Link href={`/blog/${slug}`}>
+    <Link
+      href={`/blog/${slug}`}
+      className="motion-preset-slide-down"
+      style={style}
+    >
       <Card className="h-full">
         <CardHeader>
           <div className="text-sm text-muted-foreground mb-2">{published}</div>

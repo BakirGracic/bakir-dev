@@ -5,7 +5,7 @@ import { Button } from "@/shadcn/components/ui/button";
 
 export function CTA() {
   return (
-    <section className="text-center bg-primary text-primary-foreground rounded-3xl p-8 md:p-16 shadow-2xl">
+    <section className="text-center bg-primary text-primary-foreground rounded-3xl p-8 md:p-16 shadow-2xl intersect:motion-preset-blur-up-lg intersect-once">
       <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-6">
         Ready to Connect?
       </h1>

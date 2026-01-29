@@ -49,6 +49,7 @@ export function MobileNavbar() {
             {navbarLinks.map((link) => (
               <Item
                 key={`mobile-nav-link_${link.title}`}
+                className="motion-preset-slide-left"
                 variant="outline"
                 render={
                   <Link href={link.href} onClick={() => setOpen(false)} />
