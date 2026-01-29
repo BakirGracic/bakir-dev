@@ -2,6 +2,7 @@ import type { Person, WebSite, WithContext } from "schema-dts";
 import { CTA } from "@/features/IndexPage/CTA";
 import { FAQ } from "@/features/IndexPage/FAQ";
 import { Hero } from "@/features/IndexPage/Hero";
+import { JsonLD } from "@/features/JsonLD/JsonLD";
 
 // metadata applied from layout.tsx
 
@@ -22,7 +23,7 @@ export default function IndexPage() {
       process.env.NEXT_PUBLIC_BUYMEACOFFEE_URL,
     ],
   };
-  const websiteSchema: WithContext<WebSite> = {
+  const webSiteSchema: WithContext<WebSite> = {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "bakir.dev",
@@ -30,19 +31,14 @@ export default function IndexPage() {
     author: {
       "@type": "Person",
       name: "Bakir Gracić",
+      url: "https://bakir.dev",
     },
   };
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
-      />
+      <JsonLD code={personSchema} />
+      <JsonLD code={webSiteSchema} />
 
       <section className="flex flex-col gap-25 md:gap-30 mt-20">
         <Hero />

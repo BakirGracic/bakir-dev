@@ -1,5 +1,6 @@
 import type { CollectionPage, WithContext } from "schema-dts";
 import { BlogCard } from "@/features/BlogCard/BlogCard";
+import { JsonLD } from "@/features/JsonLD/JsonLD";
 import PageHeading from "@/features/PageHeading/PageHeading";
 import { blogs } from "@/lib/blogs";
 import { pageMetadata } from "@/lib/metadata";
@@ -11,10 +12,11 @@ export const metadata = pageMetadata(
 );
 
 export default function BlogPage() {
-  const jsonLd: WithContext<CollectionPage> = {
+  const collectionPageSchema: WithContext<CollectionPage> = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: "Blogs | bakir.dev",
+    url: "https://bakir.dev/blog",
     description:
       "My takes on various hot topics. Read about interesting subjects and uncover my perspectives",
     mainEntity: {
@@ -30,10 +32,7 @@ export default function BlogPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLD code={collectionPageSchema} />
 
       <section>
         <PageHeading title="Blog" subtitle="My takes on various hot topics" />
