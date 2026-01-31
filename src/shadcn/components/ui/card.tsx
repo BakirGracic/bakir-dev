@@ -1,5 +1,3 @@
-import type * as React from "react";
-
 import { cn } from "@/shadcn/lib/utils";
 
 function Card({
