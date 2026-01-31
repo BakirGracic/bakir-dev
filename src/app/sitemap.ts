@@ -31,5 +31,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.9,
     },
+
+    // credentials
+    {
+      url: `${process.env.NEXT_PUBLIC_APP_URL}/credentials`,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
   ];
 }
