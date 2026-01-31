@@ -43,47 +43,6 @@ export function pageMetadata(
   };
 }
 
-export async function dynamicPageMetadata(
-  title: string,
-  description: string,
-  url: string,
-  imageUrl?: string,
-  indexable?: boolean,
-): Promise<Metadata> {
-  return {
-    ...baseMetadata,
-    title,
-    description,
-    alternates: {
-      canonical: url,
-    },
-    openGraph: {
-      ...baseMetadata.openGraph,
-      title,
-      description,
-      url,
-      images: [
-        {
-          url: imageUrl || defaultMetadataImage,
-          width: 1200,
-          height: 630,
-          alt: title,
-        },
-      ],
-    },
-    twitter: {
-      ...baseMetadata.twitter,
-      title,
-      description,
-      images: [imageUrl || defaultMetadataImage],
-    },
-    robots: {
-      index: indexable !== false,
-      follow: indexable !== false,
-    },
-  };
-}
-
 export const baseMetadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL),
   title: "bakir.dev",

@@ -1,7 +1,7 @@
 import type { BlogPosting, WithContext } from "schema-dts";
 import { JsonLD } from "@/features/JsonLD/JsonLD";
 import { blogs } from "@/lib/blogs";
-import { dynamicPageMetadata } from "@/lib/metadata";
+import { pageMetadata } from "@/lib/metadata";
 
 interface BlogSlugPageProps {
   params: Promise<{ slug: string }>;
@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: BlogSlugPageProps) {
   const { slug } = await params;
   const blog = blogs.find((blog) => blog.slug === slug);
 
-  return dynamicPageMetadata(
+  return pageMetadata(
     `${blog?.title} | TriDe`,
     blog?.description || "",
     `/blog/${slug}`,
