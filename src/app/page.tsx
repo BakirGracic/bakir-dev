@@ -12,8 +12,8 @@ export default function IndexPage() {
     "@type": "Person",
     name: "Bakir Gracić",
     jobTitle: "Web Solutions Architect",
-    url: "https://bakir.dev",
-    image: "https://bakir.dev/static/images/headshot.jpeg",
+    url: process.env.NEXT_PUBLIC_APP_URL,
+    image: `${process.env.NEXT_PUBLIC_APP_URL}/static/images/headshot.jpeg`,
     sameAs: [
       process.env.NEXT_PUBLIC_CV_URL,
       process.env.NEXT_PUBLIC_GITHUB_URL,
@@ -27,11 +27,11 @@ export default function IndexPage() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "bakir.dev",
-    url: "https://bakir.dev",
+    url: process.env.NEXT_PUBLIC_APP_URL,
     author: {
       "@type": "Person",
       name: "Bakir Gracić",
-      url: "https://bakir.dev",
+      url: process.env.NEXT_PUBLIC_APP_URL,
     },
   };
 

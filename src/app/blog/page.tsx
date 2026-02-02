@@ -16,7 +16,7 @@ export default function BlogPage() {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: "Blogs | bakir.dev",
-    url: "https://bakir.dev/blog",
+    url: `${process.env.NEXT_PUBLIC_APP_URL}/blog`,
     description:
       "My takes on various hot topics. Read about interesting subjects and uncover my perspectives",
     mainEntity: {
@@ -24,7 +24,7 @@ export default function BlogPage() {
       itemListElement: blogs.map((blog, index) => ({
         "@type": "ListItem",
         position: index + 1,
-        url: `https://bakir.dev/blog/${blog.slug}`,
+        url: `${process.env.NEXT_PUBLIC_APP_URL}/blog/${blog.slug}`,
         name: blog.title,
       })),
     },

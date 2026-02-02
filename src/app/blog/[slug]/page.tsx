@@ -36,23 +36,23 @@ export default async function BlogSlugPage({ params }: BlogSlugPageProps) {
     description: blog?.description,
     datePublished: new Date(blog?.published ?? "").toISOString(),
     dateModified: new Date(blog?.published ?? "").toISOString(),
-    url: `https://bakir.dev/blog/${slug}`,
-    image: "https://bakir.dev/og.jpg",
+    url: `${process.env.NEXT_PUBLIC_APP_URL}/blog/${slug}`,
+    image: `${process.env.NEXT_PUBLIC_APP_URL}/og.jpg`,
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://bakir.dev/blog/${slug}`,
+      "@id": `${process.env.NEXT_PUBLIC_APP_URL}/blog/${slug}`,
     },
     author: {
       "@type": "Person",
       name: "Bakir Gracić",
-      url: "https://bakir.dev",
+      url: process.env.NEXT_PUBLIC_APP_URL,
     },
     publisher: {
       "@type": "Organization",
       name: "bakir.dev",
       logo: {
         "@type": "ImageObject",
-        url: "https://bakir.dev/static/images/headshot.jpeg",
+        url: `${process.env.NEXT_PUBLIC_APP_URL}/static/images/headshot.jpeg`,
       },
     },
   };
