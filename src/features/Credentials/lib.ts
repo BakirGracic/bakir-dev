@@ -14,6 +14,7 @@ export interface Credential {
 }
 
 export const myCredentials: Credential[] = [
+  // GITHUB
   {
     name: "GitHub Foundations",
     description:
@@ -23,12 +24,45 @@ export const myCredentials: Credential[] = [
       "https://www.credly.com/badges/6e715e2b-cb75-4c1b-9a2f-aa4610e2c8fc",
     tags: ["GitHub"],
   },
+  // ANTHROPIC
+  {
+    name: "Claude Code in Action",
+    description:
+      "Comprehensive training on using Claude Code for software development tasks, covering the underlying architecture of AI coding assistants, practical implementation techniques, and advanced integration strategies",
+    image: "/static/images/credentials/anthropic-claude-code-action.svg",
+    verify: "https://anthropic.skilljar.com/claude-code-in-action", // TODO CHANGE ME!!!
+    tags: ["Anthropic"],
+  },
+  {
+    name: "Claude 101",
+    description:
+      "Beginner introduction to using Claude, covering the basics of interacting with the model, understanding its capabilities and limitations, and practical use cases for leveraging Claude in various applications",
+    image: "/static/images/credentials/anthropic-claude-101.png",
+    verify: "https://anthropic.skilljar.com/claude-101", // TODO CHANGE ME!!!
+    tags: ["Anthropic"],
+  },
   {
     name: "AI Fluency: Framework & Foundations",
     description:
       "Practical skills for effective, efficient, ethical, and safe AI interaction",
     image: "/static/images/credentials/anthropic-ai-fluency.svg",
     verify: "https://verify.skilljar.com/c/9ydycggexgs4",
+    tags: ["Anthropic"],
+  },
+  {
+    name: "Building with the Claude API",
+    description:
+      "Comprehensive video course teaching developers how to integrate Claude AI into applications using the Anthropic API",
+    image: "/static/images/credentials/anthropic-building-claude-api.svg",
+    verify: "https://anthropic.skilljar.com/claude-with-the-anthropic-api", // TODO CHANGE ME!!!
+    tags: ["Anthropic"],
+  },
+  {
+    name: "Introduction to Model Context Protocol",
+    description:
+      "Coverage of the Model Context Protocol (MCP) with focus on building both MCP servers and clients using the Python SDK",
+    image: "/static/images/credentials/anthropic-mcp.svg",
+    verify: "https://verify.skilljar.com/c/8ce3xgsqzw9t",
     tags: ["Anthropic"],
   },
   {
@@ -48,14 +82,6 @@ export const myCredentials: Credential[] = [
     tags: ["Anthropic"],
   },
   {
-    name: "Introduction to Model Context Protocol",
-    description:
-      "Coverage of the Model Context Protocol (MCP) with focus on building both MCP servers and clients using the Python SDK",
-    image: "/static/images/credentials/anthropic-mcp.svg",
-    verify: "https://verify.skilljar.com/c/8ce3xgsqzw9t",
-    tags: ["Anthropic"],
-  },
-  {
     name: "Model Context Protocol: Advanced Topics",
     description:
       "Advanced features and implementation patterns for Model Context Protocol (MCP) development, focusing on server-client communication, transport mechanisms, and production deployment considerations",
@@ -63,6 +89,39 @@ export const myCredentials: Credential[] = [
     verify: "https://verify.skilljar.com/c/p2q8sgfvk9gs",
     tags: ["Anthropic"],
   },
+  {
+    name: "Claude with Amazon Bedrock",
+    description:
+      "Technical course providing a comprehensive guide on how to integrate and deploy Claude AI models through Amazon Bedrock",
+    image: "/static/images/credentials/anthropic-claude-amazon-bedrock.svg",
+    verify: "https://anthropic.skilljar.com/claude-in-amazon-bedrock", // TODO CHANGE ME!!!
+    tags: ["Anthropic"],
+  },
+  {
+    name: "Claude with Google Cloud's Vertex AI",
+    description:
+      "Comprehensive technical training on integrating and deploying Claude AI models through Google Cloud's Vertex AI",
+    image: "/static/images/credentials/anthropic-claude-google-vertex.svg",
+    verify: "https://anthropic.skilljar.com/claude-with-google-vertex", // TODO CHANGE ME!!!
+    tags: ["Anthropic"],
+  },
+  {
+    name: "Teaching AI Fluency",
+    description:
+      "AI Fluency course that empowers academic faculty, instructional designers, and others to teach and assess AI Fluency in instructor-led settings",
+    image: "/static/images/credentials/anthropic-teaching-fluency.png",
+    verify: "https://anthropic.skilljar.com/teaching-ai-fluency", // TODO CHANGE ME!!!
+    tags: ["Anthropic"],
+  },
+  {
+    name: "AI Fluency for nonprofits",
+    description:
+      "Helping nonprofit staff (whether in fundraising, communications, program delivery, operations, or leadership) build practical AI collaboration skills through the 4D Framework",
+    image: "/static/images/credentials/anthropic-fluency-nonprofits.png",
+    verify: "https://anthropic.skilljar.com/ai-fluency-for-nonprofits", // TODO CHANGE ME!!!
+    tags: ["Anthropic"],
+  },
+  // GOOGLE CLOUD
   {
     name: "Introduction to Large Language Models",
     description:
@@ -90,6 +149,7 @@ export const myCredentials: Credential[] = [
       "https://www.skills.google/public_profiles/480398c5-ca1f-41e6-8d91-d662e7a197fa/badges/17719291",
     tags: ["Cloud Skills Boost"],
   },
+  // AI HERO
   {
     name: "LLM Fundamentals",
     description:
@@ -122,6 +182,7 @@ export const myCredentials: Credential[] = [
     verify: "https://www.aihero.dev/vercel-ai-sdk-tutorial",
     tags: ["AI Hero"],
   },
+  // TOTAL TYPESCRIPT
   {
     name: "Solving TypeScript Errors",
     description:
