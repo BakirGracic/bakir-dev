@@ -1,7 +1,7 @@
 export type CredentialTag =
   | "GitHub"
   | "Anthropic"
-  | "Cloud Skills Boost"
+  | "Google Cloud"
   | "TotalTypescript"
   | "AI Hero";
 
@@ -30,7 +30,7 @@ export const myCredentials: Credential[] = [
     description:
       "Comprehensive training on using Claude Code for software development tasks, covering the underlying architecture of AI coding assistants, practical implementation techniques, and advanced integration strategies",
     image: "/static/images/credentials/anthropic-claude-code-action.svg",
-    verify: "https://anthropic.skilljar.com/claude-code-in-action", // TODO CHANGE ME!!!
+    verify: "https://verify.skilljar.com/c/d8dr8asiyoi7",
     tags: ["Anthropic"],
   },
   {
@@ -129,7 +129,7 @@ export const myCredentials: Credential[] = [
     image: "/static/images/credentials/google-llm-intro.png",
     verify:
       "https://www.skills.google/public_profiles/480398c5-ca1f-41e6-8d91-d662e7a197fa/badges/18421606",
-    tags: ["Cloud Skills Boost"],
+    tags: ["Google Cloud"],
   },
   {
     name: "Introduction to Responsible AI",
@@ -138,7 +138,7 @@ export const myCredentials: Credential[] = [
     image: "/static/images/credentials/google-intro-responsible-ai.png",
     verify:
       "https://www.skills.google/public_profiles/480398c5-ca1f-41e6-8d91-d662e7a197fa/badges/18421065",
-    tags: ["Cloud Skills Boost"],
+    tags: ["Google Cloud"],
   },
   {
     name: "Introduction to Generative AI",
@@ -147,7 +147,7 @@ export const myCredentials: Credential[] = [
     image: "/static/images/credentials/google-intro-gen-ai.png",
     verify:
       "https://www.skills.google/public_profiles/480398c5-ca1f-41e6-8d91-d662e7a197fa/badges/17719291",
-    tags: ["Cloud Skills Boost"],
+    tags: ["Google Cloud"],
   },
   // AI HERO
   {
