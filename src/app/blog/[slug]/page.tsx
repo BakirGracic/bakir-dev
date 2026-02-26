@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: BlogSlugPageProps) {
   const blog = blogs.find((blog) => blog.slug === slug);
 
   return pageMetadata(
-    `${blog?.title} | TriDe`,
+    `${blog?.title} | bakir.dev`,
     blog?.description || "",
     `/blog/${slug}`,
   );
