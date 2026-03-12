@@ -42,13 +42,13 @@ export default function LinksPage() {
     },
     {
       title: "GitHub",
-      description: "github.com/BakirGracic",
+      description: "github.com/bakirgdev",
       href: process.env.NEXT_PUBLIC_GITHUB_URL,
       icon: GithubIcon,
     },
     {
       title: "LinkedIn",
-      description: "linkedin.com/in/bakirgracic",
+      description: "linkedin.com/in/bakirgdev",
       href: process.env.NEXT_PUBLIC_LINKEDIN_URL,
       icon: Linkedin02Icon,
     },

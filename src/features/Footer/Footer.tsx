@@ -11,7 +11,7 @@ export default function Footer() {
         </p>
 
         <Link
-          href="https://github.com/BakirGracic/bakir-dev/blob/main/LICENSES/"
+          href="https://github.com/bakirgdev/bakir-dev/blob/main/LICENSES/"
           target="_blank"
           rel="noopener noreferrer nofollow"
           className="hover:underline transition-all"
